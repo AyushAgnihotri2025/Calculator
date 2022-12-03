@@ -1,0 +1,11 @@
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <font android:font="@font/digitalnumbers"
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        app:font="@font/digitalnumbers"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+</font-family>
