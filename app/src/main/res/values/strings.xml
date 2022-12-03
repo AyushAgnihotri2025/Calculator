@@ -1,0 +1,50 @@
+<resources>
+    <string name="appName">Calculator</string>
+    <string name="appInnappName">Calculator</string>
+    <string name="appVersion">v1.1.0</string>
+    <string name="calculatorDisplayMock">8888888888</string>
+    <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
+    <string name="calculatorAc">AC</string>
+    <string name="calculatorPlusAndMinus">+/-</string>
+    <string name="calculatorPercent">%</string>
+    <string name="calculatorDivide">÷</string>
+    <string name="calculatorMultiply">X</string>
+    <string name="calculatorMinus">-</string>
+    <string name="calculatorPlus">+</string>
+    <string name="calculatorEquals">=</string>
+    <string name="calculatorComma">,</string>
+    <string name="calculatorDot">.</string>
+    <string name="calculatorNine">9</string>
+    <string name="calculatorEight">8</string>
+    <string name="calculatorSeven">7</string>
+    <string name="calculatorSix">6</string>
+    <string name="calculatorFive">5</string>
+    <string name="calculatorFour">4</string>
+    <string name="calculatorThree">3</string>
+    <string name="calculatorTwo">2</string>
+    <string name="calculatorOne">1</string>
+    <string name="calculatorZero">0</string>
+    <string name="title_activity_about">About</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="navigation_open">Open Navigation Drawer</string>
+    <string name="navigation_close">Close Navigation Drawer</string>
+
+    <string name="popup_heading">Uhh Sorry.</string>
+    <string name="popup_text">The source code will be made public after completion of 100+ downloads of the app on PlayStore. So, kindly share the app with your friends also.</string>
+
+    <string name="share_subject">Hey, Go and check out this cool calculator.</string>
+    <string name="share_text">Hey, I have just found an amazing and beautifully designed Calculator. I will recommend you to go and check it out once.\n\n
+
+        Link: https://calculator.mrayush.me\n\n
+        Download it from here: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_title">Share Via</string>
+
+    <string name="appDescription">Calculator provides simple and advanced mathematical functions in a beautifully designed app.\n\n
+        • Perform basic calculations such as addition, subtraction, multiplication, and division.</string>
+</resources>
