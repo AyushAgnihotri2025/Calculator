@@ -24,6 +24,8 @@
 
 <h1 align=center>Projects Contributors ✨ </h1>
 
+**Thanks goes to these wonderful people ❤️**
+
 <br>
 <a href="https://github.com/AyushAgnihotri2025/Calculator/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=AyushAgnihotri2025/Calculator" />
@@ -58,7 +60,7 @@ If you think that you can add a new feature or want to fix a bug, we invite you 
 
    Run command `git init`
 
-4. Fork this Repo
+4. [Fork](https://github.com/AyushAgnihotri2025/Calculator) the project. Click on the <a href="https://github.com/AyushAgnihotri2025/Calculator/fork"><img src="https://i.imgur.com/G4z1kEe.png" height="15" width="15"></a> icon in the top right to get started.
 
 5. Clone your forked repository of project.
 
@@ -134,3 +136,36 @@ git push -u origin <your_branch_name>
 
 Congratulations🎉, you have made a PR to the Calculator.
 Wait for your submission to be accepted and your PR to be merged by a maintainer.
+
+## 🫴 How to Do Your First Pull Request?  
+   ***(I am providing some Resource from where you can Learn)***
+
+1. [Learn from Video](https://www.youtube.com/watch?v=nkuYH40cjo4)
+2. [Open Source Guide](https://opensource.guide/how-to-contribute/)
+
+## 👩🏽‍💻 Contributing
+
+- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Any contributions you make are greatly appreciated.
+- Check out our [contribution guidelines](/CONTRIBUTING.md) for more information.
+
+
+## Want to contribute?
+- Take a look at [`contributing ideas.`](Contributionidea.md).
+- Take a look at [`contributing guidelines`](CONTRIBUTING.md).
+- Refer [GitHub Flow](https://guides.github.com/introduction/flow).
+
+## Code of Conduct
+
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
+## 🙏🏽 Support
+
+This project needs a star️ from you. Don't forget to leave a star✨
+Follow my Github for content
+<br>
+<br>
+<hr>
+<h6 align="center">© Ayush Agnihotri 2022 
+<br>
+All Rights Reserved</h6>
