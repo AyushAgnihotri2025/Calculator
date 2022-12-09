@@ -6,7 +6,6 @@
     <item name="android:windowBackground">@color/windowBackground</item>
     <item name="android:textColorPrimary">@color/textColorPrimary</item>
     <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
-    <item name="android:windowLightStatusBar">true</item>
   </style>
   <style name="CustomDisplayAngleAppearance">
     <item name="neumorph_cornerFamily">rounded</item>
@@ -16,5 +15,19 @@
   <style name="DialogAnimation">
     <item name="android:windowEnterAnimation">@anim/slide_right</item>
     <item name="android:windowExitAnimation">@anim/slide_left</item>
+  </style>
+
+  <style name="textStyle">
+    <item name="android:fontFamily">@font/montserrat</item>
+    <item name="android:textSize">30sp</item>
+    <item name="android:padding">12dp</item>
+  </style>
+
+  <style name="operatorButton" parent="textStyle">
+    <item name="android:textColor">@color/colorPrimary</item>
+  </style>
+
+  <style name="numericButton" parent="textStyle">
+    <item name="android:textColor">@color/colorAccent</item>
   </style>
 </resources>

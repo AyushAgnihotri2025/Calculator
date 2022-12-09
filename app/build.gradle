@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion 33
+  compileSdkVersion 32
 
   defaultConfig {
     applicationId "com.mrayush.calculator"
     minSdkVersion 21
-    targetSdkVersion 33
+    targetSdkVersion 32
     versionCode 4
     versionName "v1.1.0"
 
@@ -45,7 +45,7 @@ dependencies {
   implementation 'de.hdodenhof:circleimageview:3.1.0'
   implementation 'com.google.android.play:core:1.10.3'
   implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.12'
+  testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
