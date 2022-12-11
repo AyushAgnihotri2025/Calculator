@@ -1,6 +1,7 @@
 package com.mrayush.calculator
 
 import android.app.ActionBar
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.content.IntentSender
@@ -290,11 +291,14 @@ class MainActivity : AppCompatActivity() {
             secondProcessingNumber =
                 calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
             if (secondProcessingNumber == 0.0 && operation == Operation.DIVIDE) {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Can't divide by zero",
-                    Toast.LENGTH_SHORT
-                ).show()
+                var alertBuilder = AlertDialog.Builder(this)
+                alertBuilder.setTitle("Math Error")
+                    .setMessage("Can't divide by zero")
+                    .setCancelable(true)
+                    .setPositiveButton("Ok"){dialogInterface, it ->
+                        dialogInterface.cancel()
+                    }
+                    .show()
                 clearDisplay()
             } else {
                 val ans =
