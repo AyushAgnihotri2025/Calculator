@@ -106,16 +106,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aboutUsIntent(){
+        vibration()
         val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
         startActivity(aboutUsIntent)
     }
 
     private fun portFolioIntent(){
+        vibration()
         val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
         startActivity(portFolioIntent)
     }
 
     private fun share() {
+        vibration()
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
@@ -124,6 +127,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
+        vibration()
         val share: Button
         val close: ImageButton
         val dialog = Dialog(this@MainActivity)
@@ -135,9 +139,11 @@ class MainActivity : AppCompatActivity() {
         share = dialog.findViewById(R.id.popupShareBtn)
         close = dialog.findViewById(R.id.closePopup)
         share.setOnClickListener {
+            vibration()
             share()
         }
         close.setOnClickListener {
+            vibration()
             dialog.dismiss()
         }
         dialog.setCancelable(true)
@@ -170,6 +176,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startReviewFlow() {
+        vibration()
         if (reviewInfo != null) {
             val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
             flow.addOnCompleteListener { task ->
@@ -183,6 +190,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun update(is_force_update: Boolean) {
+        vibration()
         if (is_force_update) {
             Toast.makeText(
                 this,
