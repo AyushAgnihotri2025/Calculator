@@ -341,7 +341,8 @@ class MainActivity : AppCompatActivity() {
         first_val: Boolean = true,
         second_val: Boolean = true,
         operator: Boolean = true
-    ) {
+    )
+    {
         if (!screen) {
             calculatorDisplayNonMock.text = ""
         }
@@ -441,10 +442,12 @@ class MainActivity : AppCompatActivity() {
         clearDisplay()
 
         acButton.setOnClickListener {
+            vibration()
             clearDisplay()
         }
 
         commaButton.setOnClickListener {
+            vibration()
             checkOutputScreen()
             if (calculatorDisplayNonMock.text.toString()
                     .lastIndexOf(".") != calculatorDisplayNonMock.text.toString().length - 1
@@ -454,17 +457,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         divideButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.DIVIDE)
         }
 
         multiplyButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.MULTIPLY)
 
         }
 
         minusButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             val displayAsString = calculatorDisplayNonMock.text.toString()
             try {
@@ -481,18 +487,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         plusButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PLUS)
 
         }
 
         percentButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PERCENT)
 
         }
 
         plusAndMinusButton.setOnClickListener {
+            vibration()
             checkOutputScreen(screen = false, first_val = false, check_ans=false)
             if (calculatorDisplayNonMock.text.toString()
                     .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
@@ -509,6 +518,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         equalsButton.setOnClickListener {
+            vibration()
             equalsButtonOnclick()
         }
     }
