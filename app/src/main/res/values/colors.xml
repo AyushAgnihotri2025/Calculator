@@ -35,6 +35,7 @@
   <color name="colorWhite">#ffffff</color>
   <color name="colorBlacky">#3A3A3A</color>
   <color name="colorGreen">#44BF4D</color>
+  <color name="colorRed">#ff3333</color>
 
   <color name="colorLightBackground">#E8E8E8</color>
   <color name="install_color">#E8E8E8</color>

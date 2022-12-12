@@ -5,10 +5,10 @@
     <string name="calculatorDisplayMock">8888888888</string>
     <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
     <string name="calculatorAc">AC</string>
-    <string name="calculatorPlusAndMinus">+/-</string>
+    <string name="calculatorPlusAndMinus">+ / -</string>
     <string name="calculatorPercent">%</string>
     <string name="calculatorDivide">÷</string>
-    <string name="calculatorMultiply">X</string>
+    <string name="calculatorMultiply">x</string>
     <string name="calculatorMinus">-</string>
     <string name="calculatorPlus">+</string>
     <string name="calculatorEquals">=</string>
@@ -47,4 +47,8 @@
 
     <string name="appDescription">Calculator provides simple and advanced mathematical functions in a beautifully designed app.\n\n
         • Perform basic calculations such as addition, subtraction, multiplication, and division.</string>
+    <string name="menu">Menu</string>
+    <string name="close">Close</string>
+    <string name="share">Share App</string>
+    <string name="emoji">Emoji</string>
 </resources>

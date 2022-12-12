@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentSender
 import android.net.Uri
 import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.update
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -54,9 +55,9 @@ class MainActivity : AppCompatActivity() {
     private var reviewInfo : ReviewInfo? = null
     private var manager : ReviewManager? = null
 
-    val TAG = "Update_Button"
+    private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
-    lateinit var appUpdateManager : AppUpdateManager
+    private lateinit var appUpdateManager : AppUpdateManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,51 +78,45 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.menuButton)
         setSupportActionBar(toolbar)
 
-        var toogle : ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
+        val toggle : ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
 
-        drawerlayout.addDrawerListener(toogle)
-        toogle.setDrawerIndicatorEnabled(true)
-        toogle.syncState()
+        drawerlayout.addDrawerListener(toggle)
+        toggle.isDrawerIndicatorEnabled = true
+        toggle.syncState()
 
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.developer -> {
-                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
-                    startActivity(browserIntent)
-                    closeDrawer()
-                }
-                R.id.share -> {
-                    share()
-                    closeDrawer()
-                }
-                R.id.feedback -> {
-                    startReviewFlow()
-                }
-                R.id.update -> {
-                    update(true)
-                }
-                R.id.source_code -> {
-                    showDialog()
-                    closeDrawer()
-                }
-                R.id.about_us -> {
-                    val intent3 = Intent(this@MainActivity, AboutUs::class.java)
-                    startActivity(intent3)
-                    closeDrawer()
-                }
+                R.id.developer -> portFolioIntent()
+                R.id.share ->  share()
+                R.id.feedback -> startReviewFlow()
+                R.id.update -> update(true)
+                R.id.source_code -> showDialog()
+                R.id.about_us -> aboutUsIntent()
             }
+            closeDrawer()
             false
         }
 
     }
 
+    private fun aboutUsIntent(){
+        val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
+        startActivity(aboutUsIntent)
+    }
+
+    private fun portFolioIntent(){
+        val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
+        startActivity(portFolioIntent)
+    }
+
     private fun share() {
-        val intent : Intent = Intent(Intent.ACTION_SEND)
-        intent.setType("text/plain")
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
-        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text, getPackageName()))
-        startActivity(Intent.createChooser(intent, getString(R.string.share_title)))
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text, getPackageName()))
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)))
     }
 
     private fun showDialog() {
@@ -151,23 +146,18 @@ class MainActivity : AppCompatActivity() {
         drawer.closeDrawer(GravityCompat.START)
     }
 
-    private fun openDrawer() {
-        TODO("For v2.0.0")
-        val drawer = findViewById<DrawerLayout>(R.id.menu_drawer)
-        drawer.openDrawer(GravityCompat.START)
-    }
 
     private fun openPlayStore() {
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName()))
-        startActivity(browserIntent)
+        val playStoreIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName()))
+        startActivity(playStoreIntent)
     }
 
     private fun activateReviewInfo() {
         manager = ReviewManagerFactory.create(this)
         val managerInfoTask: Task<ReviewInfo> = manager!!.requestReviewFlow()
         managerInfoTask.addOnCompleteListener { task ->
-            if (task.isSuccessful()) {
-                reviewInfo = task.getResult()
+            if (task.isSuccessful) {
+                reviewInfo = task.result
             } else {
                 Toast.makeText(this, "Failed to Rate the app. Opening PlayStore.", Toast.LENGTH_SHORT).show()
                 openPlayStore()
@@ -201,7 +191,7 @@ class MainActivity : AppCompatActivity() {
 
         val listener = { state: InstallState  ->
             if (state.installStatus() == InstallStatus.DOWNLOADED) {
-                popupSnackbarForCompleteUpdate()
+                popupSnackBarForCompleteUpdate()
             }
         }
 
@@ -243,7 +233,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun popupSnackbarForCompleteUpdate() {
+    private fun popupSnackBarForCompleteUpdate() {
         Snackbar.make(
             findViewById(R.id.context_view),
             "An update has just been downloaded.",

@@ -31,7 +31,6 @@
 </a>
 <br>
 
-</a>
 
 <h1 align=center>Screenshots 📸</h1>
 
