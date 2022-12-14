@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
+        
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -190,8 +191,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun update(is_force_update: Boolean) {
-        vibration()
         if (is_force_update) {
+            vibration()
             Toast.makeText(
                 this,
                 "Checking for an update.",
@@ -433,6 +434,7 @@ class MainActivity : AppCompatActivity() {
         val refIds = group.referencedIds
         for (id in refIds) {
             findViewById<View>(id).setOnClickListener {
+                vibration()
                 checkOutputScreen(first_val=false, operator = false)
                 calculatorDisplayNonMock.text =
                     "${calculatorDisplayNonMock.text.toString()}${(it as? Button)?.text.toString()}"
@@ -529,8 +531,13 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
             } else {
-                vibrator.vibrate(500) // Vibrate method for below API Level 26
+                vibrator.vibrate(1000) // Vibrate method for below API Level 26
             }
         }
     }
+
+    
+
+
+
 }
