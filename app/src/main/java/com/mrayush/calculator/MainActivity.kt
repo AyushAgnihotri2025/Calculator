@@ -55,10 +55,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var navigationView : NavigationView
     lateinit var toolbar : Toolbar
     private var btnShowDialog: Button? = null
-
     private var reviewInfo : ReviewInfo? = null
     private var manager : ReviewManager? = null
-
     private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager : AppUpdateManager
@@ -87,10 +85,7 @@ class MainActivity : AppCompatActivity() {
         drawerlayout.addDrawerListener(toggle)
         toggle.isDrawerIndicatorEnabled = true
         toggle.syncState()
-
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
-        
-
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.developer -> portFolioIntent()
@@ -535,9 +530,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    
-
-
-
 }
