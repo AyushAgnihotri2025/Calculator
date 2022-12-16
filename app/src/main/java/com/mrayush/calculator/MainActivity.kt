@@ -463,7 +463,6 @@ class MainActivity : AppCompatActivity() {
             vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.MULTIPLY)
-
         }
 
         minusButton.setOnClickListener {
