@@ -3,10 +3,14 @@ package com.mrayush.calculator
 import android.app.ActionBar
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.provider.SyncStateContract.Helpers.update
 import android.util.Log
 import android.view.Gravity
@@ -51,10 +55,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var navigationView : NavigationView
     lateinit var toolbar : Toolbar
     private var btnShowDialog: Button? = null
-
     private var reviewInfo : ReviewInfo? = null
     private var manager : ReviewManager? = null
-
     private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager : AppUpdateManager
@@ -83,9 +85,7 @@ class MainActivity : AppCompatActivity() {
         drawerlayout.addDrawerListener(toggle)
         toggle.isDrawerIndicatorEnabled = true
         toggle.syncState()
-
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
-
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.developer -> portFolioIntent()
@@ -102,16 +102,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aboutUsIntent(){
+        vibration()
         val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
         startActivity(aboutUsIntent)
     }
 
     private fun portFolioIntent(){
+        vibration()
         val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
         startActivity(portFolioIntent)
     }
 
     private fun share() {
+        vibration()
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
@@ -120,6 +123,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
+        vibration()
         val share: Button
         val close: ImageButton
         val dialog = Dialog(this@MainActivity)
@@ -131,9 +135,11 @@ class MainActivity : AppCompatActivity() {
         share = dialog.findViewById(R.id.popupShareBtn)
         close = dialog.findViewById(R.id.closePopup)
         share.setOnClickListener {
+            vibration()
             share()
         }
         close.setOnClickListener {
+            vibration()
             dialog.dismiss()
         }
         dialog.setCancelable(true)
@@ -166,6 +172,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startReviewFlow() {
+        vibration()
         if (reviewInfo != null) {
             val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
             flow.addOnCompleteListener { task ->
@@ -180,6 +187,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun update(is_force_update: Boolean) {
         if (is_force_update) {
+            vibration()
             Toast.makeText(
                 this,
                 "Checking for an update.",
@@ -329,7 +337,8 @@ class MainActivity : AppCompatActivity() {
         first_val: Boolean = true,
         second_val: Boolean = true,
         operator: Boolean = true
-    ) {
+    )
+    {
         if (!screen) {
             calculatorDisplayNonMock.text = ""
         }
@@ -420,6 +429,7 @@ class MainActivity : AppCompatActivity() {
         val refIds = group.referencedIds
         for (id in refIds) {
             findViewById<View>(id).setOnClickListener {
+                vibration()
                 checkOutputScreen(first_val=false, operator = false)
                 calculatorDisplayNonMock.text =
                     "${calculatorDisplayNonMock.text.toString()}${(it as? Button)?.text.toString()}"
@@ -429,10 +439,12 @@ class MainActivity : AppCompatActivity() {
         clearDisplay()
 
         acButton.setOnClickListener {
+            vibration()
             clearDisplay()
         }
 
         commaButton.setOnClickListener {
+            vibration()
             checkOutputScreen()
             if (calculatorDisplayNonMock.text.toString()
                     .lastIndexOf(".") != calculatorDisplayNonMock.text.toString().length - 1
@@ -442,17 +454,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         divideButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.DIVIDE)
         }
 
         multiplyButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.MULTIPLY)
-
         }
 
         minusButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             val displayAsString = calculatorDisplayNonMock.text.toString()
             try {
@@ -469,18 +483,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         plusButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PLUS)
 
         }
 
         percentButton.setOnClickListener {
+            vibration()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PERCENT)
 
         }
 
         plusAndMinusButton.setOnClickListener {
+            vibration()
             checkOutputScreen(screen = false, first_val = false, check_ans=false)
             if (calculatorDisplayNonMock.text.toString()
                     .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
@@ -497,7 +514,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         equalsButton.setOnClickListener {
+            vibration()
             equalsButtonOnclick()
+        }
+    }
+
+    private fun vibration(){
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (vibrator.hasVibrator()) { // Vibrator availability checking
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
+            } else {
+                vibrator.vibrate(1000) // Vibrate method for below API Level 26
+            }
         }
     }
 }
