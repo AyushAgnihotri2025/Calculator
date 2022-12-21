@@ -11,7 +11,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.provider.SyncStateContract.Helpers.update
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -28,7 +27,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
-import com.google.android.play.core.appupdate.testing.FakeAppUpdateManager
 import com.google.android.play.core.install.InstallState
 import com.google.android.play.core.install.model.ActivityResult
 import com.google.android.play.core.install.model.AppUpdateType
@@ -42,6 +40,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.roundToLong
+import kotlin.math.round
 
 
 class MainActivity : AppCompatActivity() {
@@ -64,10 +63,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        /* appUpdateManager = FakeAppUpdateManager(this)
-        (appUpdateManager as FakeAppUpdateManager).setUpdateAvailable(2)
-        */
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
 
@@ -305,23 +300,10 @@ class MainActivity : AppCompatActivity() {
                             .toString().replace(".0", "")
                     else
                         calculateExpression().toString()
-                calculatorDisplayNonMock.text =
-                    if (ans.length > 9)
-                        "OVERFLOW"
-                    else
-                        ans
-                if (ans.length > 9){
-                    is_errored_text = true
-                    clearDisplay(true)
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Answer is : "+ans,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    firstProcessingNumber = calculateExpression()
-                    secondProcessingNumber = 0.0
-                }
+               // val rnd = ans.toInt()
+               // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
+                calculatorDisplayNonMock.text = ans
+
             }
             operation = Operation.EMPTY
         } catch (e: NumberFormatException) {
