@@ -518,7 +518,7 @@ class MainActivity : AppCompatActivity() {
     private fun onClickSound(){
         try{
             val soundURI = Uri.parse(
-                "android.resource://com.google.suryansh7202/"+R.raw.press_start)
+                "android.resource://com.mrayush.calculator/"+R.raw.press_start)
             player = MediaPlayer.create(applicationContext,soundURI)
             player?.isLooping =false
             player?.start()
