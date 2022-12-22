@@ -106,6 +106,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun portFolioIntent(){
         vibration()
+        onClickSound()
         val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
         startActivity(portFolioIntent)
     }
@@ -518,7 +519,7 @@ class MainActivity : AppCompatActivity() {
     private fun onClickSound(){
         try{
             val soundURI = Uri.parse(
-                "android.resource://com.mrayush.calculator/"+R.raw.press_start)
+                "android.resource://com.mrayush.calculator/"+R.raw.on_click_sound)
             player = MediaPlayer.create(applicationContext,soundURI)
             player?.isLooping =false
             player?.start()
