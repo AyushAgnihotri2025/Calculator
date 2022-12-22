@@ -99,19 +99,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aboutUsIntent(){
+        onClickSound()
         vibration()
         val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
         startActivity(aboutUsIntent)
     }
 
     private fun portFolioIntent(){
-        vibration()
         onClickSound()
+        vibration()
         val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
         startActivity(portFolioIntent)
     }
 
     private fun share() {
+        onClickSound()
         vibration()
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
@@ -121,6 +123,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
+        onClickSound()
         vibration()
         val share: Button
         val close: ImageButton
@@ -133,10 +136,12 @@ class MainActivity : AppCompatActivity() {
         share = dialog.findViewById(R.id.popupShareBtn)
         close = dialog.findViewById(R.id.closePopup)
         share.setOnClickListener {
+            onClickSound()
             vibration()
             share()
         }
         close.setOnClickListener {
+            onClickSound()
             vibration()
             dialog.dismiss()
         }
@@ -170,6 +175,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startReviewFlow() {
+        onClickSound()
         vibration()
         if (reviewInfo != null) {
             val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
@@ -185,6 +191,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun update(is_force_update: Boolean) {
         if (is_force_update) {
+            onClickSound()
             vibration()
             Toast.makeText(
                 this,
@@ -510,7 +517,7 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
             } else {
-                vibrator.vibrate(1000) // Vibrate method for below API Level 26
+                vibrator.vibrate(100) // Vibrate method for below API Level 26
             }
         }
     }
