@@ -517,7 +517,7 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
             } else {
-                vibrator.vibrate(100) // Vibrate method for below API Level 26
+                vibrator.vibrate(120) // Vibrate method for below API Level 26
             }
         }
     }
