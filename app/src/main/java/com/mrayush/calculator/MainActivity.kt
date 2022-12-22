@@ -516,6 +516,14 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun onClickSound(){
-
+        try{
+            val soundURI = Uri.parse(
+                "android.resource://com.google.suryansh7202/"+R.raw.press_start)
+            player = MediaPlayer.create(applicationContext,soundURI)
+            player?.isLooping =false
+            player?.start()
+        }catch (e: java.lang.Exception){
+            e.printStackTrace()
+        }
     }
 }
