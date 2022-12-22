@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager : AppUpdateManager
+    private var player : MediaPlayer?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -510,5 +512,10 @@ class MainActivity : AppCompatActivity() {
                 vibrator.vibrate(1000) // Vibrate method for below API Level 26
             }
         }
+    }
+
+
+    private fun onClickSound(){
+
     }
 }
