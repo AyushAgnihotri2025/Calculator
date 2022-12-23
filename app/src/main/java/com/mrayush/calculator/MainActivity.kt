@@ -16,9 +16,11 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -83,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.preferences -> darkmode()
                 R.id.developer -> portFolioIntent()
                 R.id.share ->  share()
                 R.id.feedback -> startReviewFlow()
@@ -93,6 +96,41 @@ class MainActivity : AppCompatActivity() {
             closeDrawer()
             false
         }
+
+    }
+
+    private fun darkmode() {
+        vibration()
+        val share: Button
+        val swtch:Switch
+        val close: ImageButton
+        val dialog = Dialog(this@MainActivity)
+        dialog.setContentView(R.layout.darkmodeprompt)
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+        val window = dialog.window
+        window!!.setGravity(Gravity.CENTER)
+        window.attributes.windowAnimations = R.style.DialogAnimation
+        swtch = dialog.findViewById(R.id.modebtn)
+        close = dialog.findViewById(R.id.closePopup)
+       swtch.setOnCheckedChangeListener { compoundButton, b ->
+           if(swtch.isChecked) {
+               getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+               Toast.makeText(this@MainActivity, "Its on", Toast.LENGTH_SHORT).show()
+           }
+           else {
+               getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+               Toast.makeText(this@MainActivity, "Its off", Toast.LENGTH_SHORT).show()
+           }
+       }
+
+
+        close.setOnClickListener {
+            vibration()
+            dialog.dismiss()
+        }
+        dialog.setCancelable(true)
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT)
+        dialog.show()
 
     }
 
