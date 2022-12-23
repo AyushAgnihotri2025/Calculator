@@ -9,6 +9,7 @@
             android:icon="@drawable/ic_share"
             android:title="Share"
             app:showAsAction="always"/>
+
         <item android:id="@+id/feedback"
             android:icon="@drawable/ic_feedback"
             android:title="Feedback" />
