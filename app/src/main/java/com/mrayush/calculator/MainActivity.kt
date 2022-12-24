@@ -431,6 +431,7 @@ class MainActivity : AppCompatActivity() {
         clearDisplay()
 
         acButton.setOnClickListener {
+            onClickSound()
             vibration()
             clearDisplay()
         }
@@ -506,6 +507,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         equalsButton.setOnClickListener {
+            onClickSound()
             vibration()
             equalsButtonOnclick()
         }
