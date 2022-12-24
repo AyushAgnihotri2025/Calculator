@@ -113,8 +113,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun share() {
-        onClickSound()
-        vibration()
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
