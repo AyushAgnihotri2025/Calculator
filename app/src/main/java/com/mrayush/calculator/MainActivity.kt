@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager : AppUpdateManager
+    private var player : MediaPlayer?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,19 +99,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aboutUsIntent(){
+        onClickSound()
         vibration()
         val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
         startActivity(aboutUsIntent)
     }
 
     private fun portFolioIntent(){
+        onClickSound()
         vibration()
         val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
         startActivity(portFolioIntent)
     }
 
     private fun share() {
-        vibration()
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
@@ -118,6 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
+        onClickSound()
         vibration()
         val share: Button
         val close: ImageButton
@@ -130,10 +134,12 @@ class MainActivity : AppCompatActivity() {
         share = dialog.findViewById(R.id.popupShareBtn)
         close = dialog.findViewById(R.id.closePopup)
         share.setOnClickListener {
+            onClickSound()
             vibration()
             share()
         }
         close.setOnClickListener {
+            onClickSound()
             vibration()
             dialog.dismiss()
         }
@@ -167,6 +173,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startReviewFlow() {
+        onClickSound()
         vibration()
         if (reviewInfo != null) {
             val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
@@ -182,6 +189,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun update(is_force_update: Boolean) {
         if (is_force_update) {
+            onClickSound()
             vibration()
             Toast.makeText(
                 this,
@@ -421,6 +429,7 @@ class MainActivity : AppCompatActivity() {
         clearDisplay()
 
         acButton.setOnClickListener {
+            onClickSound()
             vibration()
             clearDisplay()
         }
@@ -496,6 +505,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         equalsButton.setOnClickListener {
+            onClickSound()
             vibration()
             equalsButtonOnclick()
         }
@@ -507,8 +517,21 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
             } else {
-                vibrator.vibrate(1000) // Vibrate method for below API Level 26
+                vibrator.vibrate(120) // Vibrate method for below API Level 26
             }
+        }
+    }
+
+
+    private fun onClickSound(){
+        try{
+            val soundURI = Uri.parse(
+                "android.resource://com.mrayush.calculator/"+R.raw.on_click_sound)
+            player = MediaPlayer.create(applicationContext,soundURI)
+            player?.isLooping =false
+            player?.start()
+        }catch (e: java.lang.Exception){
+            e.printStackTrace()
         }
     }
 }
