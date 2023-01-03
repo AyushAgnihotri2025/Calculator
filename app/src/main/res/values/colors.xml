@@ -16,14 +16,12 @@
   <color name="teal_700">#FF018786</color>
   <color name="black">#FF000000</color>
   <color name="white">#FFFFFFFF</color>
-  <color name="draw">#000000</color>
 
   <color name="color_yellow">#D2FE20</color>
   <color name="color_Blue_Deep">#0072D4</color>
   <color name="color_Blue_Light">#20EFFE</color>
   <color name="color_White">#FFFFFF</color>
   <color name="color_dark_violet">#27273d</color>
-  <color name="popupcolor">#f7f7f7</color>
 
   <color name="colorPrimaryDarkTheme">#232732</color>
   <color name="colorPrimaryDarkDarkTheme">#1B1F28</color>

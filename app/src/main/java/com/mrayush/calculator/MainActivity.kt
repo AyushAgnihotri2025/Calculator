@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,11 +17,9 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -61,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager : AppUpdateManager
+    private var player : MediaPlayer?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.preferences -> darkmode()
                 R.id.developer -> portFolioIntent()
                 R.id.share ->  share()
                 R.id.feedback -> startReviewFlow()
@@ -99,55 +98,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun darkmode() {
-        vibration()
-        val share: Button
-        val swtch:Switch
-        val close: ImageButton
-        val dialog = Dialog(this@MainActivity)
-        dialog.setContentView(R.layout.darkmodeprompt)
-        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        val window = dialog.window
-        window!!.setGravity(Gravity.CENTER)
-        window.attributes.windowAnimations = R.style.DialogAnimation
-        swtch = dialog.findViewById(R.id.modebtn)
-        close = dialog.findViewById(R.id.closePopup)
-       swtch.setOnCheckedChangeListener { compoundButton, b ->
-           if(swtch.isChecked) {
-               getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-               Toast.makeText(this@MainActivity, "Its on", Toast.LENGTH_SHORT).show()
-           }
-           else {
-               getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-               Toast.makeText(this@MainActivity, "Its off", Toast.LENGTH_SHORT).show()
-           }
-       }
-
-
-        close.setOnClickListener {
-            vibration()
-            dialog.dismiss()
-        }
-        dialog.setCancelable(true)
-        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT)
-        dialog.show()
-
-    }
-
     private fun aboutUsIntent(){
+        onClickSound()
         vibration()
         val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
         startActivity(aboutUsIntent)
     }
 
     private fun portFolioIntent(){
+        onClickSound()
         vibration()
         val portFolioIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mrayush.me/?refer=calculator-"+getString(R.string.appVersion)))
         startActivity(portFolioIntent)
     }
 
     private fun share() {
-        vibration()
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
@@ -156,6 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
+        onClickSound()
         vibration()
         val share: Button
         val close: ImageButton
@@ -168,10 +134,12 @@ class MainActivity : AppCompatActivity() {
         share = dialog.findViewById(R.id.popupShareBtn)
         close = dialog.findViewById(R.id.closePopup)
         share.setOnClickListener {
+            onClickSound()
             vibration()
             share()
         }
         close.setOnClickListener {
+            onClickSound()
             vibration()
             dialog.dismiss()
         }
@@ -205,6 +173,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startReviewFlow() {
+        onClickSound()
         vibration()
         if (reviewInfo != null) {
             val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
@@ -220,6 +189,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun update(is_force_update: Boolean) {
         if (is_force_update) {
+            onClickSound()
             vibration()
             Toast.makeText(
                 this,
@@ -459,6 +429,7 @@ class MainActivity : AppCompatActivity() {
         clearDisplay()
 
         acButton.setOnClickListener {
+            onClickSound()
             vibration()
             clearDisplay()
         }
@@ -534,6 +505,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         equalsButton.setOnClickListener {
+            onClickSound()
             vibration()
             equalsButtonOnclick()
         }
@@ -545,8 +517,21 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
             } else {
-                vibrator.vibrate(1000) // Vibrate method for below API Level 26
+                vibrator.vibrate(120) // Vibrate method for below API Level 26
             }
+        }
+    }
+
+
+    private fun onClickSound(){
+        try{
+            val soundURI = Uri.parse(
+                "android.resource://com.mrayush.calculator/"+R.raw.on_click_sound)
+            player = MediaPlayer.create(applicationContext,soundURI)
+            player?.isLooping =false
+            player?.start()
+        }catch (e: java.lang.Exception){
+            e.printStackTrace()
         }
     }
 }
