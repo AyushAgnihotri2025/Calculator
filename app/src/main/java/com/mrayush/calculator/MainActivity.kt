@@ -40,10 +40,7 @@ import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.ceil
-import kotlin.math.floor
-import kotlin.math.roundToLong
-import kotlin.math.round
+import kotlin.math.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -391,6 +388,8 @@ class MainActivity : AppCompatActivity() {
                 .toDouble() / 100000000
             Operation.PERCENT -> (firstProcessingNumber / 100 * secondProcessingNumber * 100000000).roundToLong()
                 .toDouble() / 100000000
+            Operation.POWER -> (firstProcessingNumber.pow(secondProcessingNumber) * 100000000).roundToLong()
+                .toDouble() / 100000000
             else -> firstProcessingNumber
         }
     }
@@ -452,6 +451,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun factorial(){
+        val num = firstProcessingNumber
+        var i = 1
+        var factorial: Long = 1
+        while (i <= num) {
+            factorial *= i.toLong()
+            i++
+
+        }
+
+    }
+
     private fun initListeners() {
         val group = groupOfNumbers
         val refIds = group.referencedIds
@@ -470,6 +482,13 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             clearDisplay()
+        }
+
+
+        powerButton.setOnClickListener {
+            vibration()
+            checkOutputScreen(first_val=false, check_ans=false)
+            isAvailableToOperate(Operation.POWER)
         }
 
         commaButton.setOnClickListener {

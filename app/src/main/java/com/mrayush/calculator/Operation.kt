@@ -6,5 +6,9 @@ enum class Operation {
     PERCENT,
     MINUS,
     PLUS,
+    LOG,
+    FACTORIAL,
+    POWER,
+    PERMUTATION,
     EMPTY
 }
