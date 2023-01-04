@@ -146,11 +146,88 @@
           app:layout_constraintGuide_percent="0.25" />
 
       <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/sixthLineGuideline"
+          android:id="@+id/seventhLineGuideline"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
           app:layout_constraintGuide_percent="0.271" />
+
+
+
+
+      <soup.neumorphism.NeumorphButton
+          android:id="@+id/permutationButton"
+          android:theme="@style/Widget.Neumorph.Button"
+          style="@style/operatorButton"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:drawablePadding="8dp"
+          android:text="@string/calculatorPermutation"
+          android:textAllCaps="false"
+          app:layout_constraintBottom_toTopOf="@+id/acButton"
+          app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+          app:neumorph_backgroundColor="@color/colorAccent" />
+
+
+      <soup.neumorphism.NeumorphButton
+          android:id="@+id/logButton"
+          android:theme="@style/Widget.Neumorph.Button"
+          style="@style/operatorButton"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:drawablePadding="8dp"
+          android:text="@string/calculatorLog"
+          android:textAllCaps="false"
+          app:layout_constraintBottom_toTopOf="@+id/plusAndMinusButton"
+          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+          app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
+          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+          app:neumorph_backgroundColor="@color/colorAccent" />
+
+      <soup.neumorphism.NeumorphButton
+          android:id="@+id/factorialButton"
+          android:theme="@style/Widget.Neumorph.Button"
+          style="@style/operatorButton"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:drawablePadding="8dp"
+          android:text="@string/calculatorFactorial"
+          app:layout_constraintBottom_toTopOf="@+id/percentButton"
+          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+          app:layout_constraintStart_toEndOf="@+id/logButton"
+          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+          app:neumorph_backgroundColor="@color/colorAccent" />
+
+      <soup.neumorphism.NeumorphButton
+          android:id="@+id/powerButton"
+          android:theme="@style/Widget.Neumorph.Button"
+          style="@style/operatorButton"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:drawablePadding="8dp"
+          android:textAllCaps="false"
+          android:text="@string/calculatorPower"
+          app:layout_constraintBottom_toTopOf="@+id/divideButton"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+          app:neumorph_backgroundColor="@color/colorAccent" />
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/sixthLineGuideline"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintGuide_percent="0.3925" />
+
+
+
+
+
+
+
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/acButton"
@@ -214,7 +291,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.414" />
+          app:layout_constraintGuide_percent="0.514" />
 
       <androidx.constraintlayout.widget.Group
           android:id="@+id/groupOfNumbers"
@@ -283,7 +360,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.558" />
+          app:layout_constraintGuide_percent="0.6355" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/fourButton"
@@ -345,7 +422,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.701" />
+          app:layout_constraintGuide_percent="0.757" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/plusButton"
@@ -405,7 +482,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.851" />
+          app:layout_constraintGuide_percent="0.8785" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/zeroButton"

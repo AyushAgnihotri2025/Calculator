@@ -6,6 +6,10 @@
     <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
     <string name="calculatorAc">AC</string>
     <string name="calculatorPlusAndMinus">+ / -</string>
+    <string name="calculatorPermutation">nCr</string>
+    <string name="calculatorLog">ln</string>
+    <string name="calculatorFactorial">!</string>
+    <string name="calculatorPower">^</string>
     <string name="calculatorPercent">%</string>
     <string name="calculatorDivide">÷</string>
     <string name="calculatorMultiply">x</string>
