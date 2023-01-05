@@ -390,6 +390,11 @@ class MainActivity : AppCompatActivity() {
                 .toDouble() / 100000000
             Operation.POWER -> (firstProcessingNumber.pow(secondProcessingNumber) * 100000000).roundToLong()
                 .toDouble() / 100000000
+            Operation.PERMUTATION -> (factorial(firstProcessingNumber)/(factorial(secondProcessingNumber)*factorial(firstProcessingNumber-secondProcessingNumber)) * 100000000).roundToLong() .toDouble() / 100000000
+            Operation.FACTORIAL -> (factorial(firstProcessingNumber) * 100000000).roundToLong()
+                .toDouble() / 100000000
+            Operation.LOG -> (log10(secondProcessingNumber) * 100000000).roundToLong()
+                .toDouble() / 100000000
             else -> firstProcessingNumber
         }
     }
@@ -408,6 +413,7 @@ class MainActivity : AppCompatActivity() {
         second_val: Boolean = true,
         operator: Boolean = true,
         check_ans: Boolean = true
+
     ) {
         if (check_ans) {
             if (is_errored_text || is_ans_showed) {
@@ -443,6 +449,7 @@ class MainActivity : AppCompatActivity() {
                     calculatorDisplayNonMock.text = ""
                     operation = processingOperation
                 }
+
             }
         } catch (e: Exception){
             calculatorDisplayNonMock.text = "ERROR"
@@ -452,15 +459,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun factorial(){
-        val num = firstProcessingNumber
-        var i = 1
-        var factorial: Long = 1
-        while (i <= num) {
-            factorial *= i.toLong()
-            i++
-
-        }
+     fun factorial(n:Double):Double{
+         return if(n==1.00 || n==0.00)1.00 else n*factorial(n-1)
 
     }
 
@@ -478,6 +478,22 @@ class MainActivity : AppCompatActivity() {
 
         clearDisplay()
 
+        logButton.setOnClickListener{
+            vibration()
+            onClickSound()
+            checkOutputScreen(first_val=false, check_ans=false)
+            isAvailableToOperate(Operation.LOG)
+
+        }
+
+        factorialButton.setOnClickListener {
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.FACTORIAL)
+        }
+
+
         acButton.setOnClickListener {
             onClickSound()
             vibration()
@@ -485,8 +501,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+        permutationButton.setOnClickListener {
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val=false, check_ans=false)
+            isAvailableToOperate(Operation.PERMUTATION)
+        }
+
         powerButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.POWER)
         }
@@ -503,18 +528,21 @@ class MainActivity : AppCompatActivity() {
 
         divideButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.DIVIDE)
         }
 
         multiplyButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.MULTIPLY)
         }
 
         minusButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
             val displayAsString = calculatorDisplayNonMock.text.toString()
             try {
@@ -532,6 +560,7 @@ class MainActivity : AppCompatActivity() {
 
         plusButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PLUS)
 
@@ -539,6 +568,7 @@ class MainActivity : AppCompatActivity() {
 
         percentButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PERCENT)
 
@@ -546,6 +576,7 @@ class MainActivity : AppCompatActivity() {
 
         plusAndMinusButton.setOnClickListener {
             vibration()
+            onClickSound()
             checkOutputScreen(screen = false, first_val = false, check_ans=false)
             if (calculatorDisplayNonMock.text.toString()
                     .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
