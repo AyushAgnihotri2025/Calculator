@@ -150,7 +150,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.271" />
+          app:layout_constraintGuide_percent="0.34" />
 
 
 
@@ -220,11 +220,40 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.3925" />
+          android:textAlignment="center"
+          app:layout_constraintGuide_percent="0.45" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:id="@+id/TVBelow"
+          android:text="8888888888"
+          android:background="@drawable/display_gradient_color"
+          android:textSize="30sp"
+          android:textColor="@color/displayMockFontColor"
+          android:fontFamily="@font/digitalnumbers_normal"
+          android:letterSpacing="0.1"
+          app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="@id/secondVerticalLineGuideline"
+          app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" />
 
 
-
-
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:id="@+id/TVBelowVersion"
+          android:fontFamily="@font/museo_bold"
+          android:text="@string/appVersion"
+          android:layout_marginLeft="4dp"
+          android:textSize="20sp"
+          android:textAllCaps="false"
+          android:textColor="@color/textColorPrimary"
+          android:letterSpacing="0.05"
+          app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
+          app:layout_constraintEnd_toEndOf="@id/secondVerticalLineGuideline"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" />
 
 
 
@@ -291,7 +320,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.514" />
+          app:layout_constraintGuide_percent="0.56" />
 
       <androidx.constraintlayout.widget.Group
           android:id="@+id/groupOfNumbers"
@@ -360,7 +389,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.6355" />
+          app:layout_constraintGuide_percent="0.67" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/fourButton"
@@ -422,7 +451,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.757" />
+          app:layout_constraintGuide_percent="0.78" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/plusButton"
@@ -482,7 +511,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.8785" />
+          app:layout_constraintGuide_percent="0.89" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/zeroButton"
@@ -554,17 +583,6 @@
           android:orientation="vertical"
           app:layout_constraintGuide_percent="0.748" />
 
-      <TextView
-          android:id="@+id/appVersion"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="6dp"
-          android:layout_marginTop="38dp"
-          android:fontFamily="@font/museo_bold"
-          android:text="@string/appVersion"
-          android:textColor="@color/textColorPrimary"
-          app:layout_constraintStart_toEndOf="@+id/appInappName"
-          app:layout_constraintTop_toTopOf="parent" />
 
       <androidx.appcompat.widget.Toolbar
           android:id="@+id/menuButton"
