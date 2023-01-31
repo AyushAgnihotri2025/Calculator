@@ -332,16 +332,18 @@
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/sevenButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
+          style="@style/BUTTON"
           android:layout_width="0dp"
           android:layout_height="0dp"
           android:drawablePadding="8dp"
           android:text="@string/calculatorSeven"
+          android:theme="@style/Widget.Neumorph.Button"
           app:layout_constraintBottom_toTopOf="@+id/fourButton"
           app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+          app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
+          app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline"
+          app:layout_constraintVertical_bias="1.0" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/eightButton"

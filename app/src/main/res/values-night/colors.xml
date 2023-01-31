@@ -15,4 +15,12 @@
     <color name="textColorPrimary">#F1F4F1</color>
     <color name="popupcolor">#232222</color>
     <color name="displayNonMockFontColor">#a8a803</color>
+
+    <style name="BUTTON">
+        <item name="editTextColor">#FFF</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:textColor">#FFF</item>
+    </style>
 </resources>

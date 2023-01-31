@@ -4,14 +4,15 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/developer"
             android:icon="@drawable/ic_laptop_mac"
-            android:title="Developer" />
+            android:title="Developer"
+            />
         <item android:id="@+id/share"
             android:icon="@drawable/ic_share"
             android:title="Share"
             app:showAsAction="always"/>
 
         <item android:id="@+id/feedback"
-            android:icon="@drawable/ic_feedback"
+            android:icon="@drawable/bg_window"
             android:title="Feedback" />
         <item android:id="@+id/preferences"
             android:icon="@drawable/ic_baseline_settings_24"
