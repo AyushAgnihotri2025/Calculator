@@ -4,33 +4,33 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/developer"
             android:icon="@drawable/ic_laptop_mac"
-            android:title="Developer"
+            android:title="@string/developer"
             />
         <item android:id="@+id/share"
             android:icon="@drawable/ic_share"
-            android:title="Share"
+            android:title="@string/shareUs"
             app:showAsAction="always"/>
 
         <item android:id="@+id/feedback"
             android:icon="@drawable/bg_window"
-            android:title="Feedback" />
+            android:title="@string/feedback" />
         <item android:id="@+id/preferences"
             android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Preferences" />
+            android:title="@string/preferences" />
         <item android:id="@+id/update"
             android:icon="@drawable/ic_update"
-            android:title="Update" />
+            android:title="@string/update" />
     </group>
     <group android:checkableBehavior="single">
-        <item android:title="Development">
+        <item android:title="@string/development">
             <menu>
                 <item android:id="@+id/source_code"
                     android:icon="@drawable/ic_code"
-                    android:title="Source Code" />
+                    android:title="@string/source_code" />
             </menu>
         </item>
     </group>
     <item android:id="@+id/about_us"
-        android:title="About"
+        android:title="@string/about"
         android:icon="@drawable/ic_person" />
 </menu>
