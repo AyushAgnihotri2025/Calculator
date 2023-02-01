@@ -127,7 +127,7 @@
               android:maxLength="10"
               android:maxLines="1"
               android:scaleY="1.3"
-              android:textColor="#EAEA08"
+              android:textColor="#171F37"
               android:textSize="60sp"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintEnd_toEndOf="parent"
