@@ -335,7 +335,7 @@
           style="@style/BUTTON"
           android:layout_width="0dp"
           android:layout_height="0dp"
-          android:drawablePadding="8dp"
+          android:drawablePadding="10dp"
           android:text="@string/calculatorSeven"
           android:theme="@style/Widget.Neumorph.Button"
           app:layout_constraintBottom_toTopOf="@+id/fourButton"
