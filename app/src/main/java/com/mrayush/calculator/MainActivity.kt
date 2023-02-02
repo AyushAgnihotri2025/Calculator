@@ -60,6 +60,16 @@ class MainActivity : AppCompatActivity() {
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager : AppUpdateManager
     private var player : MediaPlayer?=null
+    private var darkmode = false
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("darkmode", darkmode)
+    }
+
+    if (savedInstanceState != null) {
+            darkmode = savedInstanceState.getBoolean("darkmode")
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,8 +121,10 @@ class MainActivity : AppCompatActivity() {
         window.attributes.windowAnimations = R.style.DialogAnimation
         swtch = dialog.findViewById(R.id.modebtn)
         close = dialog.findViewById(R.id.closePopup)
+        swtch.isChecked = darkmode
         swtch.setOnCheckedChangeListener { compoundButton, b ->
-            if(swtch.isChecked) {
+            darkmode = !darkmode
+            if(darkmode) {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 Toast.makeText(this@MainActivity, "Its on", Toast.LENGTH_SHORT).show()
             }
