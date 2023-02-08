@@ -5,9 +5,9 @@
   <color name="colorAccent">#3A4E89</color>
   <color name="windowBackground">#E5E5E5</color>
   <color name="textColorPrimary">#373A37</color>
-  <color name="displayGradientStart">#CAD4C5</color>
+  <color name="displayGradientStart">#B2BFA5</color>
   <color name="displayGradientEnd">#B2BFA5</color>
-  <color name="displayMockFontColor">#B2BEAA</color>
+  <color name="displayMockFontColor">#BFB8C1AF</color>   ///made a UI enhancement here
   <color name="displayNonMockFontColor">#373A37</color>
   <color name="purple_200">#FFBB86FC</color>
   <color name="purple_500">#FF6200EE</color>
@@ -29,6 +29,8 @@
   <color name="colorPrimaryDarkDarkTheme">#1B1F28</color>
   <color name="colorAccentDarkTheme">#04CE9B</color>
   <color name="colorCardDT">#323844</color>
+  <color name="colorCardDTlight">#323844</color>
+
 
   <color name="colorBackgroundGrayLight">#E8E8E8</color>
   <color name="colorOrange">#FF3300</color>

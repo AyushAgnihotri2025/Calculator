@@ -13,9 +13,9 @@
         <item android:id="@+id/feedback"
             android:icon="@drawable/ic_feedback"
             android:title="Feedback" />
-        <item android:id="@+id/preferences"
+     <!--   <item android:id="@+id/preferences"
             android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Preferences" />
+            android:title="Preferences" /> -->
         <item android:id="@+id/update"
             android:icon="@drawable/ic_update"
             android:title="Update" />
@@ -32,4 +32,7 @@
     <item android:id="@+id/about_us"
         android:title="About"
         android:icon="@drawable/ic_person" />
+    <item android:title="v.1.1.0"
+        android:icon="@drawable/version_icon"
+        />
 </menu>

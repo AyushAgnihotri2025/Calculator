@@ -28,6 +28,6 @@
   </style>
 
   <style name="numericButton" parent="textStyle">
-    <item name="android:textColor">@color/colorAccent</item>
+    <item name="android:textColor">@color/colorCardDT</item>
   </style>
 </resources>

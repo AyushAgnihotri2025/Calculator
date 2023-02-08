@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById<View>(R.id.navigation_menu) as NavigationView
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.preferences -> darkmode()
+           //     R.id.preferences -> darkmode()
                 R.id.developer -> portFolioIntent()
                 R.id.share ->  share()
                 R.id.feedback -> startReviewFlow()
@@ -106,12 +106,30 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
+        daynight()
     }
 
-    private fun darkmode() {
+    private fun daynight(){
+        vibration()
+        val swtch: Switch
+        swtch = findViewById(R.id.daynight)
+        swtch.setOnCheckedChangeListener { compoundButton, b ->
+            if(swtch.isChecked) {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                Toast.makeText(this@MainActivity, "Its on", Toast.LENGTH_SHORT).show()
+
+            }
+            else {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                Toast.makeText(this@MainActivity, "Its off", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    }
+   /* private fun darkmode() {
         vibration()
         val share: Button
-        val swtch:Switch
+        val swtch: Switch
         val close: ImageButton
         val dialog = Dialog(this@MainActivity)
         dialog.setContentView(R.layout.darkmodeprompt)
@@ -134,7 +152,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         close.setOnClickListener {
             vibration()
             dialog.dismiss()
@@ -144,7 +161,7 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
 
     }
-
+*/
     private fun aboutUsIntent(){
         onClickSound()
         vibration()
