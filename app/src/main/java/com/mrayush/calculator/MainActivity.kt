@@ -12,6 +12,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.text.Editable
+import android.text.Selection
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -625,6 +627,14 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             equalsButtonOnclick()
+        }
+
+        backspace.setOnClickListener {
+            var value : String = calculatorDisplayNonMock.text.toString()
+            if (value.length > 0){
+                value = value.substring(0,value.length-1)
+                calculatorDisplayNonMock.setText(value)
+            }
         }
     }
 
