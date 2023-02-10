@@ -647,6 +647,7 @@
           android:layout_width="38dp"
           android:layout_height="37dp"
           android:layout_marginEnd="20dp"
+          android:theme="@style/Theme.AppCompat.DayNight"
           app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent">
@@ -667,6 +668,7 @@
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:theme="@style/Theme.AppCompat.DayNight"
         android:id="@+id/navigation_menu"
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/side_menu"

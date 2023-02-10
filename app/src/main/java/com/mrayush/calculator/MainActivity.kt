@@ -67,10 +67,10 @@ class MainActivity : AppCompatActivity() {
         outState.putBoolean("darkmode", darkmode)
     }
 
-    if (savedInstanceState != null) {
+  /* if (savedInstanceState != null) {
             darkmode = savedInstanceState.getBoolean("darkmode")
         }
-
+*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
