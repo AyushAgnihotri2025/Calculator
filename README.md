@@ -37,8 +37,8 @@
 
 ||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------:|
-| ![Calculator](https://play-lh.googleusercontent.com/QvQqFNpPJNVtYp8nqxrQykh2bNuiAK6s8273yJGNEaHCzeL3RuXpu9NgrDBN2n6vw6w) | ![Calculator](https://play-lh.googleusercontent.com/fWMY38OCf6FMfbjk1T97I3g58KlLdQ_9ZHP-CVb8iuHt7kEOrRY3ikjJ4JPiZdOnmi4) | ![Calculator](https://play-lh.googleusercontent.com/loqdrey0mCp9MwgdqHav83Zho9qaLLMUsNLXh3NhchP5ljvPZRqJ2iZrF6I_CbbHtg) |
-| ![Calculator](https://play-lh.googleusercontent.com/p36LBGYbvLFqEUZobbZuLh84Yj9YvirGrGmW9yrZ-e_O_WEUBs35p2H7aGv7neXNtd8w) | ![Calculator](https://play-lh.googleusercontent.com/gIFfYbOFV1-WfqLGYMrOMiLpSFM7JtySnL1h_J8FupvKYZwzzVwq55Y1cQ8DFze9LLE) | ![Calculator](https://play-lh.googleusercontent.com/W0P0vybL2rDk4kCgMgbfZ_0jUAPUjTly-OV6PINI_8J2NX_BO2OsLfykEpFZJtXUlAq6) |
+| ![Calculator](assets/readmeImages/img3.jpg) | ![Calculator](assets/readmeImages/cut2.jpg) | ![Calculator](assets/readmeImages/cut1.jpg) |
+| ![Calculator](assets/readmeImages/img.jpg) | ![Calculator](assets/readmeImages/img1.jpg) | ![Calculator](assets/readmeImages/img2.jpg) |
 | | ![Calculator](https://play-lh.googleusercontent.com/UC2FU-K6OSqtvl70StyvX1SXgibCJgt7GZQTYkdVIqeOsSHZjaL-e3NLNs_t4rjYHa0) |
 
 # 📜App Description
