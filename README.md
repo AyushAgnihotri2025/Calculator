@@ -37,8 +37,8 @@
 
 ||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------:|
-| ![Calculator](assets/readmeImages/img3.jpg) | ![Calculator](assets/readmeImages/cut2.jpg) | ![Calculator](assets/readmeImages/cut1.jpg) |
-| ![Calculator](assets/readmeImages/img.jpg) | ![Calculator](assets/readmeImages/img1.jpg) | ![Calculator](assets/readmeImages/img2.jpg) |
+| ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8C2_Wk4gGrm8mNxRTp9jnAT-oWcbohxgG60VPEYgIG7XQpF0ryt_JVCbtULLhC-yxx0DfjBKsP6pbGu5jACfvr_C6aR8gyU7Td9aua0bxGJIMvh5xTvD-dW7SVjeyL67UgSzUZwWtDEY1jNZzJ1Thik=w288-h512-no?authuser=0) | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8AcGB9fcezkahOdkC5KNb9ueagWtIvvfIoCI-O2ha1tl5Icri_IGsNy17Myth8QKHXC7WLxquEjgYsUOHR0oozi7g-yqtfFBX32m0OZkG-hd-pe_Cw64kuawiGXT1bRRmPf36W80hDnRods998fJAvJ=w288-h512-no?authuser=0) | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8AHB-wsyUqu9pgFB3oHWkViJ_qaAEoeJW83-QjMtdlrv4aZl02zw10--YykcL9lLkTHQkUwb8ghu5AAwp9GgdhLlVIUIe0QZg_lK5IckXa6uA8I8yw2YL6OC-KBdJyw9BJMpVN1Nbg0tZAxtJEvIUOj=w288-h512-no?authuser=0) |
+| ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8BI6nh7Egl-JMq_7cCvf-D2flqqzPqdRG34A3Pjt3iqZpxmlJoY5Z7xpuU0suVkjKowm23GP5kviDjFghSTTqLPMXPHDJzgFs3MDzSl9QJ_UECnf_bsi2LPozrhRf5Z-r7_xtclokAFhNSDPEMkUlBb=w288-h512-no?authuser=0) | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8AV06bWboCBOEhtcJqXqwMjOpd0dcz-zuFNm5wz2cQAbN_LWMI0Bb8Ib_yBZg6CBNb6F7luAiIdS_oxcQKSc7TSgrrR4qeKxkuEXktLzAzUY_NjekWTmXDwMP64Xwfe0EYoPD5YfeivgyOc_uvhMfqn=w288-h512-no?authuser=0) | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8AiH7w-iPU7WJ81IT0v_kXIycdoVJOe-dnj3or7vZZ0aV3H15yjU55kqW1qzl7zc80IZLL4aEScwreqzx_rtiuAHc1O6_Qu8RKdI22hY_44FwPZHaLGRFqG0BqtWUdTzs13h9Cx1CsqK8vJPbDjdrwY=w288-h512-no?authuser=0) |
 | | ![Calculator](https://play-lh.googleusercontent.com/UC2FU-K6OSqtvl70StyvX1SXgibCJgt7GZQTYkdVIqeOsSHZjaL-e3NLNs_t4rjYHa0) |
 
 # 📜App Description
