@@ -8,10 +8,10 @@
     android:id="@+id/menu_drawer"
     android:fitsSystemWindows="false"
     tools:openDrawer="start">
-  <ScrollView
+  <!--<ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent">
-
+      -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/context_view"
@@ -693,7 +693,7 @@
       </androidx.appcompat.widget.Toolbar>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-  </ScrollView>
+  <!--</ScrollView>-->
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
