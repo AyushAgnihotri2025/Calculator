@@ -8,10 +8,11 @@
     android:id="@+id/menu_drawer"
     android:fitsSystemWindows="false"
     tools:openDrawer="start">
- <!-- <ScrollView
+  <!--<ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent">
--->
+      -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/context_view"
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawableStart="@drawable/daynight"
+          android:minHeight="48dp"
           app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
           app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
           app:layout_constraintStart_toEndOf="@+id/appInappName"
@@ -155,7 +157,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.25" />
+          app:layout_constraintGuide_percent="0.23" />
 
       <androidx.constraintlayout.widget.Guideline
           android:id="@+id/seventhLineGuideline"
@@ -225,6 +227,7 @@
           android:id="@+id/powerButton"
           android:theme="@style/Widget.Neumorph.Button"
           style="@style/operatorButton"
+          app:neumorph_shadowElevation="3dp"
           android:layout_width="0dp"
           app:neumorph_shadowColorLight="#00000000"
           app:neumorph_shadowColorDark="#00000000"
@@ -238,6 +241,27 @@
           app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
           app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
+      <soup.neumorphism.NeumorphButton
+          android:id="@+id/backspace"
+          android:theme="@style/Widget.Neumorph.Button"
+          style="@style/operatorButton"
+          app:neumorph_shadowElevation="3dp"
+          app:neumorph_shadowColorLight="#00000000"
+          app:neumorph_shadowColorDark="#00000000"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:drawablePadding="8dp"
+          android:textAllCaps="false"
+          android:text="←"
+          app:layout_constraintTop_toBottomOf="@id/underDisplayGuideline"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="@id/thirdVerticalLineGuideline"
+          app:layout_constraintBottom_toTopOf="@+id/powerButton"
+          app:neumorph_backgroundColor="@color/colorCardDTlight"/>
+
+
+
+
       <androidx.constraintlayout.widget.Guideline
           android:id="@+id/sixthLineGuideline"
           android:layout_width="wrap_content"
@@ -245,41 +269,47 @@
           android:orientation="horizontal"
           android:textAlignment="center"
           app:layout_constraintGuide_percent="0.45" />
-
-   <!--   <TextView
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/fourthVerticalLineGuideline"
           android:layout_width="wrap_content"
-          android:layout_height="match_parent"
+          android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03"/>
+
+
+      <!-- <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:id="@+id/TVBelowVersion"
+           android:fontFamily="@font/museo_bold"
+           android:text="@string/appVersion"
+           android:layout_marginLeft="4dp"
+           android:textSize="20sp"
+           android:textAllCaps="false"
+           android:textColor="@color/textColorPrimary"
+           android:letterSpacing="0.05"
+           app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
+           app:layout_constraintEnd_toEndOf="@id/secondVerticalLineGuideline"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" /> -->
+
+
+      <TextView
           android:id="@+id/TVBelow"
-          android:text="8888888888"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:background="@drawable/display_gradient_color"
-          android:textSize="30sp"
-          android:textColor="@color/displayMockFontColor"
           android:fontFamily="@font/digitalnumbers_normal"
           android:letterSpacing="0.1"
+          android:text="8888888888"
+          android:textColor="@color/displayMockFontColor"
+          android:textSize="30sp"
+          app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline"
+          app:layout_constraintEnd_toEndOf="@id/thirdVerticalLineGuideline"
+          app:layout_constraintHorizontal_bias="0.101"
+          app:layout_constraintStart_toStartOf="@id/fourthVerticalLineGuideline"
           app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@id/secondVerticalLineGuideline"
-          app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" />
-
--->
-     <!-- <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="match_parent"
-          android:id="@+id/TVBelowVersion"
-          android:fontFamily="@font/museo_bold"
-          android:text="@string/appVersion"
-          android:layout_marginLeft="4dp"
-          android:textSize="20sp"
-          android:textAllCaps="false"
-          android:textColor="@color/textColorPrimary"
-          android:letterSpacing="0.05"
-          app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
-          app:layout_constraintEnd_toEndOf="@id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" /> -->
-
-
-
+          app:layout_constraintVertical_bias="0.538" />
 
       <soup.neumorphism.NeumorphButton
           android:id="@+id/acButton"
@@ -647,7 +677,6 @@
           android:layout_width="38dp"
           android:layout_height="37dp"
           android:layout_marginEnd="20dp"
-          android:theme="@style/Theme.AppCompat.DayNight"
           app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent">
