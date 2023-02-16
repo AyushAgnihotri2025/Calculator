@@ -41,6 +41,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawableStart="@drawable/daynight"
+          android:minHeight="48dp"
           app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
           app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
           app:layout_constraintStart_toEndOf="@+id/appInappName"
