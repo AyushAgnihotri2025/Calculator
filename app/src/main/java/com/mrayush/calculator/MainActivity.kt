@@ -6,25 +6,23 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.text.Editable
-import android.text.Selection
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Switch
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.FileProvider
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -42,6 +40,8 @@ import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
+import java.io.FileOutputStream
 import kotlin.math.*
 
 
@@ -179,11 +179,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun share() {
+        val i : ImageView = ImageView(applicationContext)
+        i.setImageResource(R.drawable.banner)
+        val bitmapDrawable = i.drawable as BitmapDrawable
+        val bitmap = bitmapDrawable.bitmap
+        val uri: Uri = getImageToShare(bitmap)
         val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.type = "text/plain"
+        shareIntent.setType("image/*")
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
         shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text, getPackageName()))
+        shareIntent.putExtra(Intent.EXTRA_STREAM,uri)
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)))
+    }
+    private fun getImageToShare(bitmap: Bitmap): Uri {
+        val folder : File = File(cacheDir,"images")
+
+
+        folder.mkdirs()
+        val file: File = File(folder,"shared_image.jpg")
+        val fileOutputStream: FileOutputStream = FileOutputStream(file)
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,fileOutputStream)
+        fileOutputStream.flush()
+        fileOutputStream.close()
+
+        val uri: Uri = FileProvider.getUriForFile(applicationContext,"com.mrayush.calculator",file)
+        return uri
+
     }
 
     private fun showDialog() {
@@ -630,6 +652,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         backspace.setOnClickListener {
+            onClickSound()
+            vibration()
             var value : String = calculatorDisplayNonMock.text.toString()
             if (value.length > 0){
                 value = value.substring(0,value.length-1)
