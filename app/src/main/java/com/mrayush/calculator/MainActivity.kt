@@ -512,10 +512,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-     fun factorial(n:Double):Double{
-         return if(n==1.00 || n==0.00)1.00 else n*factorial(n-1)
+     fun factorial(n: Double): Double {
+         if (n < 0) {
+             val errorMessage = "ERROR"
+             Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+             return 0.0
+         } else {
+             return if (n == 1.00 || n == 0.00) 1.00 else n * factorial(n - 1)
+         }
 
-    }
+     }
 
     private fun initListeners() {
         val group = groupOfNumbers
@@ -686,3 +692,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
