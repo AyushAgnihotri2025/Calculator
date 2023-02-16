@@ -2,6 +2,8 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorShadowLight">@color/neumorph_shadowColorLight</item>
+        <item name="colorShadowDark">@color/neumorph_shadowColorDark</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
