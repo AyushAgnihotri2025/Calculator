@@ -1,7 +1,7 @@
 <resources>
     <string name="appName">Calculator</string>
     <string name="appInnappName">Calculator</string>
-    <string name="appVersion">v.1.1.0</string>
+    <string name="appVersion">v1.2.0</string>
     <string name="calculatorDisplayMock">8888888888</string>
     <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
     <string name="calculatorAc">AC</string>
@@ -39,8 +39,8 @@
     <string name="navigation_open">Open Navigation Drawer</string>
     <string name="navigation_close">Close Navigation Drawer</string>
 
-    <string name="popup_heading">Uhh Sorry.</string>
-    <string name="popup_text">The source code will be made public after completion of 100+ downloads of the app on PlayStore. So, kindly share the app with your friends also.</string>
+    <string name="popup_heading">Thanks.</string>
+    <string name="popup_text">Thanks a lot for your love that helped our app to cross 500+ downloads on PlayStore within few months. So, the Source Code is now public on GitHub. Share the app with your friends if it helped you or it\'s source code helped you learn anything new.</string>
 
     <string name="share_subject">Hey, Go and check out this cool calculator.</string>
     <string name="share_text">Hey, I have just found an amazing and beautifully designed Calculator. I will recommend you to go and check it out once.\n\n

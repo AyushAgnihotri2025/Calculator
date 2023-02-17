@@ -13,693 +13,694 @@
       android:layout_height="match_parent">
       -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/context_view"
-        android:layout_width="match_parent"
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/context_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="@+id/zeroButton"
+      app:layout_constraintStart_toEndOf="@+id/zeroButton"
+      tools:context=".MainActivity">
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/zeroButton"
-        app:layout_constraintStart_toEndOf="@+id/zeroButton"
-        tools:context=".MainActivity">
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
 
+    <Switch
+        android:id="@+id/daynight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/daynight"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+        app:layout_constraintStart_toEndOf="@+id/appInappName"
+        app:layout_constraintTop_toTopOf="parent" />
 
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/leftGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          app:layout_constraintGuide_percent="0.02" />
+    <TextView
+        android:id="@+id/appInappName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/museo_bold"
+        android:text="@string/appInnappName"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/rightGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          app:layout_constraintGuide_percent="0.98" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/aboveDisplayGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.097" />
 
-      <Switch
-          android:id="@+id/daynight"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:drawableStart="@drawable/daynight"
-          android:minHeight="48dp"
-          app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
-          app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-          app:layout_constraintStart_toEndOf="@+id/appInappName"
-          app:layout_constraintTop_toTopOf="parent" />
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/calculatorDisplay"
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/underDisplayGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+        app:layout_constraintTop_toTopOf="@+id/aboveDisplayGuideline"
+        app:neumorph_shadowElevation="-20dp"
+        app:neumorph_shapeAppearance="@style/CustomDisplayAngleAppearance"
+        app:neumorph_shapeType="pressed">
 
-      <TextView
-          android:id="@+id/appInappName"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="25dp"
-          android:layout_marginTop="25dp"
-          android:fontFamily="@font/museo_bold"
-          android:text="@string/appInnappName"
-          android:textColor="@color/textColorPrimary"
-          android:textSize="28sp"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/calculatorDisplayWrapper"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/display_gradient_color">
 
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/aboveDisplayGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.097" />
-
-      <soup.neumorphism.NeumorphCardView
-          android:id="@+id/calculatorDisplay"
-          style="@style/Widget.Neumorph.CardView"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:padding="5dp"
-          app:layout_constraintBottom_toTopOf="@+id/underDisplayGuideline"
-          app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-          app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-          app:layout_constraintTop_toTopOf="@+id/aboveDisplayGuideline"
-          app:neumorph_shadowElevation="-20dp"
-          app:neumorph_shapeAppearance="@style/CustomDisplayAngleAppearance"
-          app:neumorph_shapeType="pressed">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/calculatorDisplayWrapper"
+        <TextView
+            android:id="@+id/calculatorDisplayMock"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/display_gradient_color">
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/digitalnumbers_normal"
+            android:letterSpacing="0.1"
+            android:maxLines="1"
+            android:scaleY="1.3"
+            android:text="@string/calculatorDisplayMock"
+            android:textColor="@color/displayMockFontColor"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-          <TextView
-              android:id="@+id/calculatorDisplayMock"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginStart="24dp"
-              android:layout_marginTop="24dp"
-              android:layout_marginEnd="24dp"
-              android:layout_marginBottom="24dp"
-              android:fontFamily="@font/digitalnumbers_normal"
-              android:letterSpacing="0.1"
-              android:maxLines="1"
-              android:scaleY="1.3"
-              android:text="@string/calculatorDisplayMock"
-              android:textColor="@color/displayMockFontColor"
-              android:textSize="60sp"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/calculatorDisplayMockCommas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/digitalnumbers_normal"
+            android:letterSpacing="0.1"
+            android:maxLines="1"
+            android:scaleY="1.3"
+            android:text=""
+            android:textColor="@color/displayMockFontColor"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-          <TextView
-              android:id="@+id/calculatorDisplayMockCommas"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginStart="24dp"
-              android:layout_marginTop="24dp"
-              android:layout_marginEnd="24dp"
-              android:layout_marginBottom="24dp"
-              android:fontFamily="@font/digitalnumbers_normal"
-              android:letterSpacing="0.1"
-              android:maxLines="1"
-              android:scaleY="1.3"
-              android:text=""
-              android:textColor="@color/displayMockFontColor"
-              android:textSize="60sp"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/calculatorDisplayNonMock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/digitalnumbers_normal"
+            android:letterSpacing="0.1"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:scaleY="1.3"
+            android:textColor="@color/displayNonMockFontColor"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-          <TextView
-              android:id="@+id/calculatorDisplayNonMock"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginStart="24dp"
-              android:layout_marginTop="24dp"
-              android:layout_marginEnd="24dp"
-              android:layout_marginBottom="24dp"
-              android:fontFamily="@font/digitalnumbers_normal"
-              android:letterSpacing="0.1"
-              android:maxLength="10"
-              android:maxLines="1"
-              android:scaleY="1.3"
-              android:textColor="@color/displayNonMockFontColor"
-              android:textSize="60sp"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="parent" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </soup.neumorphism.NeumorphCardView>
 
-      </soup.neumorphism.NeumorphCardView>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/underDisplayGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
 
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/underDisplayGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.23" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/seventhLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.34" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/seventhLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.34" />
 
 
 
 
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/permutationButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          app:neumorph_shadowElevation="3dp"
-          style="@style/operatorButton"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorPermutation"
-          android:textAllCaps="false"
-          app:layout_constraintBottom_toTopOf="@+id/acButton"
-          app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/permutationButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        app:neumorph_shadowElevation="3dp"
+        style="@style/operatorButton"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorPermutation"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/acButton"
+        app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
 
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/logButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorLog"
-          android:textAllCaps="false"
-          app:layout_constraintBottom_toTopOf="@+id/plusAndMinusButton"
-          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/logButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorLog"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/plusAndMinusButton"
+        app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/factorialButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorFactorial"
-          app:layout_constraintBottom_toTopOf="@+id/percentButton"
-          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintStart_toEndOf="@+id/logButton"
-          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/factorialButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorFactorial"
+        app:layout_constraintBottom_toTopOf="@+id/percentButton"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintStart_toEndOf="@+id/logButton"
+        app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/powerButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:textAllCaps="false"
-          android:text="@string/calculatorPower"
-          app:layout_constraintBottom_toTopOf="@+id/divideButton"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/powerButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:textAllCaps="false"
+        android:text="@string/calculatorPower"
+        app:layout_constraintBottom_toTopOf="@+id/divideButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/backspace"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:textAllCaps="false"
-          android:text="←"
-          app:layout_constraintTop_toBottomOf="@id/underDisplayGuideline"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@id/thirdVerticalLineGuideline"
-          app:layout_constraintBottom_toTopOf="@+id/powerButton"
-          app:neumorph_backgroundColor="@color/colorCardDTlight"/>
-
-
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/backspace"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:textAllCaps="false"
+        android:text="←"
+        app:layout_constraintTop_toBottomOf="@id/underDisplayGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/thirdVerticalLineGuideline"
+        app:layout_constraintBottom_toTopOf="@+id/powerButton"
+        app:neumorph_backgroundColor="@color/colorCardDTlight"/>
 
 
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/sixthLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          android:textAlignment="center"
-          app:layout_constraintGuide_percent="0.45" />
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/fourthVerticalLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sixthLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintGuide_percent="0.45" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fourthVerticalLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.03"/>
 
 
-      <!-- <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:id="@+id/TVBelowVersion"
-           android:fontFamily="@font/museo_bold"
-           android:text="@string/appVersion"
-           android:layout_marginLeft="4dp"
-           android:textSize="20sp"
-           android:textAllCaps="false"
-           android:textColor="@color/textColorPrimary"
-           android:letterSpacing="0.05"
-           app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
-           app:layout_constraintEnd_toEndOf="@id/secondVerticalLineGuideline"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" /> -->
+    <!-- <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         android:id="@+id/TVBelowVersion"
+         android:fontFamily="@font/museo_bold"
+         android:text="@string/appVersion"
+         android:layout_marginLeft="4dp"
+         android:textSize="20sp"
+         android:textAllCaps="false"
+         android:textColor="@color/textColorPrimary"
+         android:letterSpacing="0.05"
+         app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
+         app:layout_constraintEnd_toEndOf="@id/secondVerticalLineGuideline"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline" /> -->
 
 
-      <TextView
-          android:id="@+id/TVBelow"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:background="@drawable/display_gradient_color"
-          android:fontFamily="@font/digitalnumbers_normal"
-          android:letterSpacing="0.1"
-          android:text="8888888888"
-          android:textColor="@color/displayMockFontColor"
-          android:textSize="30sp"
-          app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline"
-          app:layout_constraintEnd_toEndOf="@id/thirdVerticalLineGuideline"
-          app:layout_constraintHorizontal_bias="0.101"
-          app:layout_constraintStart_toStartOf="@id/fourthVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
-          app:layout_constraintVertical_bias="0.538" />
+    <TextView
+        android:id="@+id/TVBelow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/display_gradient_color"
+        android:fontFamily="@font/digitalnumbers_normal"
+        android:letterSpacing="0.1"
+        android:text="8888888888"
+        android:textColor="@color/displayMockFontColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/seventhLineGuideline"
+        app:layout_constraintEnd_toEndOf="@id/thirdVerticalLineGuideline"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="@id/fourthVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@id/underDisplayGuideline"
+        app:layout_constraintVertical_bias="0.538" />
 
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/acButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorAc"
-          app:layout_constraintBottom_toTopOf="@+id/sevenButton"
-          app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/plusAndMinusButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorPlusAndMinus"
-          app:layout_constraintBottom_toTopOf="@+id/eightButton"
-          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/percentButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorPercent"
-          app:layout_constraintBottom_toTopOf="@+id/nineButton"
-          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintStart_toEndOf="@+id/plusAndMinusButton"
-          app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/divideButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorDivide"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          app:layout_constraintBottom_toTopOf="@+id/multiplyButton"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/fifthLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.56" />
-
-      <androidx.constraintlayout.widget.Group
-          android:id="@+id/groupOfNumbers"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:constraint_referenced_ids="oneButton,fiveButton,sixButton,threeButton,nineButton,fourButton,sevenButton,twoButton,eightButton, zeroButton"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/sevenButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorSeven"
-          app:layout_constraintBottom_toTopOf="@+id/fourButton"
-          app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/eightButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorEight"
-          app:layout_constraintBottom_toTopOf="@+id/fiveButton"
-          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/nineButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorNine"
-          app:layout_constraintBottom_toTopOf="@+id/sixButton"
-          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintStart_toEndOf="@+id/eightButton"
-          app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/multiplyButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:gravity="center"
-          android:text="@string/calculatorMultiply"
-          app:neumorph_backgroundColor="@color/colorCardDTlight"
-          app:layout_constraintBottom_toTopOf="@+id/minusButton"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline"/>
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/fourthLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.67" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/fourButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorFour"
-          app:layout_constraintBottom_toTopOf="@+id/oneButton"
-          app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/fiveButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:fontFamily="@font/montserrat"
-          android:padding="12dp"
-          android:text="@string/calculatorFive"
-          app:layout_constraintBottom_toTopOf="@+id/twoButton"
-          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/sixButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorSix"
-          app:layout_constraintBottom_toTopOf="@+id/threeButton"
-          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintStart_toEndOf="@+id/fiveButton"
-          app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/minusButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorMinus"
-          app:layout_constraintBottom_toTopOf="@+id/plusButton"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/thirdLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.78" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/plusButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/operatorButton"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorPlus"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          app:neumorph_shadowElevation="3dp"
-          app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/oneButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorOne"
-          app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
-          app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/threeButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorThree"
-          app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
-          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintStart_toEndOf="@+id/twoButton"
-          app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/twoButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorTwo"
-          app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
-          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/secondLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="0.89" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/zeroButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          app:neumorph_shadowElevation="3dp"
-          android:text="@string/calculatorZero"
-          app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
-          app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/secondLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/commaButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          style="@style/numericButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:text="@string/calculatorDot"
-          app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
-          app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintStart_toEndOf="@+id/zeroButton"
-          app:layout_constraintTop_toTopOf="@+id/secondLineGuideline" />
-
-      <soup.neumorphism.NeumorphButton
-          android:id="@+id/equalsButton"
-          android:theme="@style/Widget.Neumorph.Button"
-          app:neumorph_shadowColorLight="#00000000"
-          app:neumorph_shadowColorDark="#00000000"
-          style="@style/operatorButton"
-          app:neumorph_shadowElevation="3dp"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:drawablePadding="8dp"
-          android:fontFamily="@font/montserrat"
-          android:padding="12dp"
-          android:text="@string/calculatorEquals"
-          app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
-          app:layout_constraintTop_toTopOf="@+id/secondLineGuideline"
-          app:neumorph_backgroundColor="@color/colorCardDTlight" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/firstLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          app:layout_constraintGuide_percent="1" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/firstVerticalLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          app:layout_constraintGuide_percent="0.25304136" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/secondVerticalLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          app:layout_constraintGuide_percent="0.5" />
-
-      <androidx.constraintlayout.widget.Guideline
-          android:id="@+id/thirdVerticalLineGuideline"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          app:layout_constraintGuide_percent="0.748" />
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/acButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorAc"
+        app:layout_constraintBottom_toTopOf="@+id/sevenButton"
+        app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
 
-      <androidx.appcompat.widget.Toolbar
-          android:id="@+id/menuButton"
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/plusAndMinusButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorPlusAndMinus"
+        app:layout_constraintBottom_toTopOf="@+id/eightButton"
+        app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/percentButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorPercent"
+        app:layout_constraintBottom_toTopOf="@+id/nineButton"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintStart_toEndOf="@+id/plusAndMinusButton"
+        app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/divideButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorDivide"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        app:layout_constraintBottom_toTopOf="@+id/multiplyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/sixthLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fifthLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.56" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupOfNumbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="oneButton,fiveButton,sixButton,threeButton,nineButton,fourButton,sevenButton,twoButton,eightButton, zeroButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/sevenButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorSeven"
+        app:layout_constraintBottom_toTopOf="@+id/fourButton"
+        app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/eightButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorEight"
+        app:layout_constraintBottom_toTopOf="@+id/fiveButton"
+        app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/nineButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorNine"
+        app:layout_constraintBottom_toTopOf="@+id/sixButton"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintStart_toEndOf="@+id/eightButton"
+        app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/multiplyButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="@string/calculatorMultiply"
+        app:neumorph_backgroundColor="@color/colorCardDTlight"
+        app:layout_constraintBottom_toTopOf="@+id/minusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/fifthLineGuideline"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fourthLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/fourButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorFour"
+        app:layout_constraintBottom_toTopOf="@+id/oneButton"
+        app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/fiveButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/montserrat"
+        android:padding="12dp"
+        android:text="@string/calculatorFive"
+        app:layout_constraintBottom_toTopOf="@+id/twoButton"
+        app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/sixButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorSix"
+        app:layout_constraintBottom_toTopOf="@+id/threeButton"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintStart_toEndOf="@+id/fiveButton"
+        app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/minusButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorMinus"
+        app:layout_constraintBottom_toTopOf="@+id/plusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/fourthLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/thirdLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/plusButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/operatorButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorPlus"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        app:neumorph_shadowElevation="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/oneButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorOne"
+        app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/threeButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorThree"
+        app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintStart_toEndOf="@+id/twoButton"
+        app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/twoButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorTwo"
+        app:layout_constraintBottom_toTopOf="@+id/secondLineGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/secondLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/zeroButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        app:neumorph_shadowElevation="3dp"
+        android:text="@string/calculatorZero"
+        app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secondLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/commaButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        style="@style/numericButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:text="@string/calculatorDot"
+        app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintStart_toEndOf="@+id/zeroButton"
+        app:layout_constraintTop_toTopOf="@+id/secondLineGuideline" />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/equalsButton"
+        android:theme="@style/Widget.Neumorph.Button"
+        app:neumorph_shadowColorLight="#00000000"
+        app:neumorph_shadowColorDark="#00000000"
+        style="@style/operatorButton"
+        app:neumorph_shadowElevation="3dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/montserrat"
+        android:padding="12dp"
+        android:text="@string/calculatorEquals"
+        app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
+        app:layout_constraintTop_toTopOf="@+id/secondLineGuideline"
+        app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/firstLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/firstVerticalLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25304136" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/secondVerticalLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/thirdVerticalLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.748" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/menuButton"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="20dp"
+        android:theme="@style/Theme.AppCompat.DayNight"
+        app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+      <ImageView
           android:layout_width="38dp"
           android:layout_height="37dp"
-          android:layout_marginEnd="20dp"
-          app:layout_constraintBottom_toTopOf="@+id/calculatorDisplay"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent">
+          android:layout_marginStart="345dp"
+          android:layout_marginTop="20dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@drawable/ic_menu"
+          android:contentDescription="@string/menu" />
+    </androidx.appcompat.widget.Toolbar>
 
-        <ImageView
-            android:layout_width="38dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="345dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_menu"
-            android:contentDescription="@string/menu" />
-      </androidx.appcompat.widget.Toolbar>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
   <!--</ScrollView>-->
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:theme="@style/Theme.AppCompat.DayNight"
-        android:id="@+id/navigation_menu"
-        app:headerLayout="@layout/menu_header"
-        app:menu="@menu/side_menu"
-        android:layout_gravity = "start" />
+  <com.google.android.material.navigation.NavigationView
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:theme="@style/Theme.AppCompat.DayNight"
+      android:id="@+id/navigation_menu"
+      app:headerLayout="@layout/menu_header"
+      app:menu="@menu/side_menu"
+      android:layout_gravity = "start" />
 </androidx.drawerlayout.widget.DrawerLayout>

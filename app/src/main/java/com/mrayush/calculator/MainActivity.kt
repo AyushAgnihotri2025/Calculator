@@ -118,12 +118,12 @@ class MainActivity : AppCompatActivity() {
         swtch.setOnCheckedChangeListener { compoundButton, b ->
             if(swtch.isChecked) {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Toast.makeText(this@MainActivity, "Its on", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "Successfully switch to Night Mode.", Toast.LENGTH_SHORT).show()
 
             }
             else {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Toast.makeText(this@MainActivity, "Its off", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "Successfully switch to Day Mode.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -193,7 +193,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun getImageToShare(bitmap: Bitmap): Uri {
         val folder : File = File(cacheDir,"images")
-
 
         folder.mkdirs()
         val file: File = File(folder,"shared_image.jpg")
@@ -398,7 +397,26 @@ class MainActivity : AppCompatActivity() {
                         calculateExpression().toString()
                 // val rnd = ans.toInt()
                 // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
-                calculatorDisplayNonMock.text = ans
+                calculatorDisplayNonMock.text =
+                    if (ans.length > 9)
+                        "OVERFLOW"
+                    else
+                        ans
+                if (ans.length > 9){
+                    var alertBuilder = AlertDialog.Builder(this)
+                    is_errored_text = true
+                    clearDisplay(true)
+                    alertBuilder.setTitle("Answer Overflow")
+                        .setMessage("Answer is : "+ans)
+                        .setCancelable(true)
+                        .setPositiveButton("Ok"){dialogInterface, it ->
+                            dialogInterface.cancel()
+                        }
+                        .show()
+                } else {
+                    firstProcessingNumber = calculateExpression()
+                    secondProcessingNumber = 0.0
+                }
 
             }
             operation = Operation.EMPTY
