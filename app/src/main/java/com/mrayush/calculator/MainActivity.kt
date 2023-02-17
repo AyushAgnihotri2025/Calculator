@@ -118,12 +118,12 @@ class MainActivity : AppCompatActivity() {
         swtch.setOnCheckedChangeListener { compoundButton, b ->
             if(swtch.isChecked) {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Toast.makeText(this@MainActivity, "Successfully switch to Night Mode.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "Successfully switched to Night Mode.", Toast.LENGTH_SHORT).show()
 
             }
             else {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Toast.makeText(this@MainActivity, "Successfully switch to Day Mode.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "Successfully switched to Day Mode.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -323,7 +323,7 @@ class MainActivity : AppCompatActivity() {
                 if (is_force_update) {
                     Toast.makeText(
                         this,
-                        "App is already updated UP-TO date.",
+                        "App is already UP-TO date.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -381,7 +381,7 @@ class MainActivity : AppCompatActivity() {
             if (secondProcessingNumber == 0.0 && operation == Operation.DIVIDE) {
                 var alertBuilder = AlertDialog.Builder(this)
                 alertBuilder.setTitle("Math Error")
-                    .setMessage("Can't divide by zero")
+                    .setMessage("Exception:Can't divide by zero")
                     .setCancelable(true)
                     .setPositiveButton("Ok"){dialogInterface, it ->
                         dialogInterface.cancel()
@@ -407,7 +407,7 @@ class MainActivity : AppCompatActivity() {
                     is_errored_text = true
                     clearDisplay(true)
                     alertBuilder.setTitle("Answer Overflow")
-                        .setMessage("Answer is : "+ans)
+                        .setMessage("Answer is Out of Bounds: "+ans)
                         .setCancelable(true)
                         .setPositiveButton("Ok"){dialogInterface, it ->
                             dialogInterface.cancel()
