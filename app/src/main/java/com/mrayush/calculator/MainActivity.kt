@@ -1,5 +1,6 @@
 package com.mrayush.calculator
 
+import android.annotation.SuppressLint
 import android.app.ActionBar
 import android.app.AlertDialog
 import android.app.Dialog
@@ -374,12 +375,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun equalsButtonOnclick() {
         try {
+
+            if(operation == Operation.LOG || operation == Operation.SQRT)
+            {
+                firstProcessingNumber =
+                    calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
+
+                val ans =
+                    if ((floor(calculateExpression()) == ceil(calculateExpression())))
+                        calculateExpression()
+                            .toString().replace(".0", "")
+                    else
+                        calculateExpression().toString()
+                // val rnd = ans.toInt()
+                // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
+                calculatorDisplayNonMock.text = ans
+            }
+            if(operation == Operation.FACTORIAL)
+            {
+                val ans =
+                    if ((floor(calculateExpression()) == ceil(calculateExpression())))
+                        calculateExpression()
+                            .toString().replace(".0", "")
+                    else
+                        calculateExpression().toString()
+                // val rnd = ans.toInt()
+                // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
+                calculatorDisplayNonMock.text = ans
+            }
             Log.d("MM", calculatorDisplayNonMock.text.toString().toBigDecimal().toString())
             secondProcessingNumber =
                 calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
+
             if (secondProcessingNumber == 0.0 && operation == Operation.DIVIDE) {
+                Log.d("MM", calculatorDisplayNonMock.text.toString().toBigDecimal().toString())
+                secondProcessingNumber =
+                    calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
                 var alertBuilder = AlertDialog.Builder(this)
                 alertBuilder.setTitle("Math Error")
                     .setMessage("Can't divide by zero")
@@ -389,7 +423,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     .show()
                 clearDisplay()
-            } else {
+            }
+
+            else{
                 val ans =
                     if ((floor(calculateExpression()) == ceil(calculateExpression())))
                         calculateExpression()
@@ -446,7 +482,9 @@ class MainActivity : AppCompatActivity() {
             Operation.PERMUTATION -> (factorial(firstProcessingNumber)/(factorial(secondProcessingNumber)*factorial(firstProcessingNumber-secondProcessingNumber)) * 100000000).roundToLong() .toDouble() / 100000000
             Operation.FACTORIAL -> (factorial(firstProcessingNumber) * 100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.LOG -> (log10(secondProcessingNumber) * 100000000).roundToLong()
+            Operation.LOG -> (log10(firstProcessingNumber) * 100000000).roundToLong()
+                .toDouble() / 100000000
+            Operation.SQRT -> (sqrt(firstProcessingNumber) *100000000).roundToLong()
                 .toDouble() / 100000000
             else -> firstProcessingNumber
         }
@@ -458,6 +496,11 @@ class MainActivity : AppCompatActivity() {
         ) {
             onClickOperation(operation)
         }
+        else
+        {
+            onClickOperation(operation)
+        }
+
     }
 
     private fun checkOutputScreen(
@@ -502,6 +545,9 @@ class MainActivity : AppCompatActivity() {
                     calculatorDisplayNonMock.text = ""
                     operation = processingOperation
                 }
+                else{
+                    operation = processingOperation
+                }
 
             }
         } catch (e: Exception){
@@ -523,6 +569,7 @@ class MainActivity : AppCompatActivity() {
 
      }
 
+    @SuppressLint("SetTextI18n")
     private fun initListeners() {
         val group = groupOfNumbers
         val refIds = group.referencedIds
@@ -540,7 +587,7 @@ class MainActivity : AppCompatActivity() {
         logButton.setOnClickListener{
             vibration()
             onClickSound()
-            checkOutputScreen(first_val=false, check_ans=false)
+            checkOutputScreen(second_val = false, check_ans=false)
             isAvailableToOperate(Operation.LOG)
 
         }
@@ -550,6 +597,13 @@ class MainActivity : AppCompatActivity() {
             vibration()
             checkOutputScreen(first_val = false,second_val = false, check_ans=false)
             isAvailableToOperate(Operation.FACTORIAL)
+        }
+        sqrt.setOnClickListener {
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.SQRT)
+
         }
 
 
