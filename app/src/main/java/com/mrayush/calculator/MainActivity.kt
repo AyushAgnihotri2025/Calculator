@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.IntentSender
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.icu.number.ScientificNotation
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
@@ -423,8 +424,9 @@ class MainActivity : AppCompatActivity() {
                     .show()
                 clearDisplay()
             }
-
-            else{
+            if (operation == Operation.DIVIDE || operation == Operation.MULTIPLY || operation == Operation.POWER || operation == Operation.PLUS
+                || operation == Operation.MINUS || operation == Operation.PERMUTATION || operation == Operation.PERCENT)
+            {
                 val ans =
                     if ((floor(calculateExpression()) == ceil(calculateExpression())))
                         calculateExpression()
@@ -433,6 +435,18 @@ class MainActivity : AppCompatActivity() {
                         calculateExpression().toString()
                 // val rnd = ans.toInt()
                 // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
+                calculatorDisplayNonMock.text = ans
+            }
+
+            else{
+                val ans =
+                    if ((floor(calculateExpression()) == ceil(calculateExpression())))
+                        calculateExpression()
+                            .toString().replace(".0", "")
+                    else
+                        calculateExpression().toString()
+//                 val rnd = ans.toInt()
+//                 val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
                 calculatorDisplayNonMock.text =
                     if (ans.length > 9)
                         "OVERFLOW"
@@ -449,6 +463,7 @@ class MainActivity : AppCompatActivity() {
                             dialogInterface.cancel()
                         }
                         .show()
+
                 } else {
                     firstProcessingNumber = calculateExpression()
                     secondProcessingNumber = 0.0
