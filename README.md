@@ -5,7 +5,7 @@
   
 ## 🔗 Download the App 
 
-<a href="https://play.google.com/store/apps/details?id=com.mrayush.calculator"><img src="https://cdn.mrayush.me/image/dev/Google_Play_Store_badge.png" width="20%" /></a>
+<a href="https://play.google.com/store/apps/details?id=com.mrayush.calculator"><img src="https://cdn.mrayush.me/img/dev/Google_Play_Store_badge.png" width="20%" /></a>
  
 ## 🤔 What is this App
  
