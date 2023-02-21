@@ -30,6 +30,7 @@
   <color name="colorAccentDarkTheme">#04CE9B</color>
   <color name="colorCardDT">#323844</color>
   <color name="colorCardDTlight">#323844</color>
+  <color name="acBackspaceColor">#ED1F10</color>
 
 
   <color name="colorBackgroundGrayLight">#E8E8E8</color>

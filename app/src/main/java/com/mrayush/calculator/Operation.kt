@@ -10,5 +10,6 @@ enum class Operation {
     FACTORIAL,
     POWER,
     PERMUTATION,
-    EMPTY
+    EMPTY,
+    SQRT
 }
