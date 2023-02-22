@@ -451,22 +451,27 @@ class MainActivity : AppCompatActivity() {
                         calculateExpression().toString()
 //                 val rnd = ans.toInt()
 //                 val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
-                calculatorDisplayNonMock.text =
-                    if (ans.length > 9)
-                        "OVERFLOW"
-                    else
-                        ans
+//                calculatorDisplayNonMock.text =
+//                    if (ans.length > 9)
+//                        "OVERFLOW"
+//                    else
+//                        ans
                 if (ans.length > 9){
-                    var alertBuilder = AlertDialog.Builder(this)
-                    is_errored_text = true
-                    clearDisplay(true)
-                    alertBuilder.setTitle("Answer Overflow")
-                        .setMessage("Answer is : "+ans)
-                        .setCancelable(true)
-                        .setPositiveButton("Ok"){dialogInterface, it ->
-                            dialogInterface.cancel()
-                        }
-                        .show()
+//                    var alertBuilder = AlertDialog.Builder(this)
+//                    is_errored_text = true
+//                    clearDisplay(true)
+//                    alertBuilder.setTitle("Answer Overflow")
+//                        .setMessage("Answer is : "+ans)
+//                        .setCancelable(true)
+//                        .setPositiveButton("Ok"){dialogInterface, it ->
+//                            dialogInterface.cancel()
+//                        }
+//                        .show()
+                    val number : Double = ans.toDouble()
+                    val toast : Toast = Toast.makeText(this , "Full answer = "+ans , Toast.LENGTH_LONG)
+                    toast.show()
+                    val scientificNotation = String.format("%.2e", number)
+                    calculatorDisplayNonMock.text = scientificNotation
 
                 } else {
                     firstProcessingNumber = calculateExpression()
