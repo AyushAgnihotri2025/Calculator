@@ -11,5 +11,8 @@ enum class Operation {
     POWER,
     PERMUTATION,
     EMPTY,
-    SQRT
+    SQRT,
+    SIN,
+    COS,
+    TAN
 }

@@ -52,7 +52,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/popupShareBtn"
+                android:id="@+id/popupSourceBtn"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
