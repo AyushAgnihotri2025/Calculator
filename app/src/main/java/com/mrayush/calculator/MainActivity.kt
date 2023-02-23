@@ -114,6 +114,11 @@ class MainActivity : AppCompatActivity() {
         daynight()
     }
 
+    private fun AppVersionOption(){
+        vibration()
+    }
+
+
     private fun daynight(){
         vibration()
         val swtch: Switch
