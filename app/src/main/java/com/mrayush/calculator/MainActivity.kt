@@ -212,7 +212,7 @@ class MainActivity : AppCompatActivity() {
     private fun showDialog() {
         onClickSound()
         vibration()
-        val share: Button
+        val sourceCode: Button
         val close: ImageButton
         val dialog = Dialog(this@MainActivity)
         dialog.setContentView(R.layout.popup)
@@ -220,12 +220,15 @@ class MainActivity : AppCompatActivity() {
         val window = dialog.window
         window!!.setGravity(Gravity.CENTER)
         window.attributes.windowAnimations = R.style.DialogAnimation
-        share = dialog.findViewById(R.id.popupShareBtn)
+        sourceCode = dialog.findViewById(R.id.popupSourceBtn)
         close = dialog.findViewById(R.id.closePopup)
-        share.setOnClickListener {
+        sourceCode.setOnClickListener {
             onClickSound()
             vibration()
-            share()
+            val URL : String = "https://github.com/AyushAgnihotri2025/Calculator"
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(URL)
+            startActivity(browserIntent)
         }
         close.setOnClickListener {
             onClickSound()
@@ -379,7 +382,8 @@ class MainActivity : AppCompatActivity() {
     private fun equalsButtonOnclick() {
         try {
 
-            if(operation == Operation.LOG || operation == Operation.SQRT)
+            if(operation == Operation.LOG || operation == Operation.SQRT || operation == Operation.SIN || operation == Operation.COS
+                || operation == Operation.TAN)
             {
                 firstProcessingNumber =
                     calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
@@ -447,22 +451,27 @@ class MainActivity : AppCompatActivity() {
                         calculateExpression().toString()
 //                 val rnd = ans.toInt()
 //                 val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
-                calculatorDisplayNonMock.text =
-                    if (ans.length > 9)
-                        "OVERFLOW"
-                    else
-                        ans
+//                calculatorDisplayNonMock.text =
+//                    if (ans.length > 9)
+//                        "OVERFLOW"
+//                    else
+//                        ans
                 if (ans.length > 9){
-                    var alertBuilder = AlertDialog.Builder(this)
-                    is_errored_text = true
-                    clearDisplay(true)
-                    alertBuilder.setTitle("Answer Overflow")
-                        .setMessage("Answer is : "+ans)
-                        .setCancelable(true)
-                        .setPositiveButton("Ok"){dialogInterface, it ->
-                            dialogInterface.cancel()
-                        }
-                        .show()
+//                    var alertBuilder = AlertDialog.Builder(this)
+//                    is_errored_text = true
+//                    clearDisplay(true)
+//                    alertBuilder.setTitle("Answer Overflow")
+//                        .setMessage("Answer is : "+ans)
+//                        .setCancelable(true)
+//                        .setPositiveButton("Ok"){dialogInterface, it ->
+//                            dialogInterface.cancel()
+//                        }
+//                        .show()
+                    val number : Double = ans.toDouble()
+                    val toast : Toast = Toast.makeText(this , "Full answer = "+ans , Toast.LENGTH_LONG)
+                    toast.show()
+                    val scientificNotation = String.format("%.2e", number)
+                    calculatorDisplayNonMock.text = scientificNotation
 
                 } else {
                     firstProcessingNumber = calculateExpression()
@@ -519,6 +528,9 @@ class MainActivity : AppCompatActivity() {
                 .toDouble() / 100000000
             Operation.SQRT -> (sqrt(firstProcessingNumber) *100000000).roundToLong()
                 .toDouble() / 100000000
+            Operation.SIN -> (Math.round((sin(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
+            Operation.COS -> (Math.round((cos(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
+            Operation.TAN -> (Math.round((tan(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
             else -> firstProcessingNumber
         }
     }
@@ -638,6 +650,24 @@ class MainActivity : AppCompatActivity() {
             isAvailableToOperate(Operation.SQRT)
 
         }
+        sinButton.setOnClickListener {
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.SIN)
+        }
+        cosButton.setOnClickListener {
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.COS)
+        }
+        tanButton.setOnClickListener {
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.TAN)
+        }
 
 
         acButton.setOnClickListener {
@@ -703,6 +733,8 @@ class MainActivity : AppCompatActivity() {
                 clearDisplay()
             }
         }
+
+
 
         plusButton.setOnClickListener {
             vibration()
