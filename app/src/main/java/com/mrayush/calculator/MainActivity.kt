@@ -105,6 +105,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.update -> update(true)
                 R.id.source_code -> showDialog()
                 R.id.about_us -> aboutUsIntent()
+                R.id.appVersionOption -> AppVersionOption()
             }
             closeDrawer()
             false
