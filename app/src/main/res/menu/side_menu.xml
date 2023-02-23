@@ -32,7 +32,8 @@
     <item android:id="@+id/about_us"
         android:title="About"
         android:icon="@drawable/ic_person" />
-    <item android:title="@string/appVersion"
+    <item android:id="@+id/appVersionOption"
+        android:title="@string/appVersion"
         android:icon="@drawable/version_icon"
         />
 </menu>
