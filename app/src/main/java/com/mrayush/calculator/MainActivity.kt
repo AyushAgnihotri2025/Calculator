@@ -116,6 +116,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun AppVersionOption(){
         vibration()
+        Toast.makeText(this@MainActivity,"Current version of App is : " + getString(R.string.appVersion),Toast.LENGTH_LONG).show()
     }
 
 
