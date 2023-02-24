@@ -105,6 +105,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.update -> update(true)
                 R.id.source_code -> showDialog()
                 R.id.about_us -> aboutUsIntent()
+                R.id.appVersionOption -> AppVersionOption()
             }
             closeDrawer()
             false
@@ -112,6 +113,12 @@ class MainActivity : AppCompatActivity() {
 
         daynight()
     }
+
+    private fun AppVersionOption(){
+        vibration()
+        Toast.makeText(this@MainActivity,"Current version of App is : " + getString(R.string.appVersion),Toast.LENGTH_LONG).show()
+    }
+
 
     private fun daynight(){
         vibration()
