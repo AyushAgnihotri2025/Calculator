@@ -7,30 +7,30 @@
             android:title="@string/Developer" />
         <item android:id="@+id/share"
             android:icon="@drawable/ic_share"
-            android:title="Share"
+            android:title="@string/Share"
             app:showAsAction="always"/>
 
         <item android:id="@+id/feedback"
             android:icon="@drawable/ic_feedback"
-            android:title="Feedback" />
+            android:title="@string/Feedback" />
      <!--   <item android:id="@+id/preferences"
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="Preferences" /> -->
         <item android:id="@+id/update"
             android:icon="@drawable/ic_update"
-            android:title="Update" />
+            android:title="@string/Update" />
     </group>
     <group android:checkableBehavior="single">
-        <item android:title="Development">
+        <item android:title="@string/Development">
             <menu>
                 <item android:id="@+id/source_code"
                     android:icon="@drawable/ic_code"
-                    android:title="Source Code" />
+                    android:title="@string/Source_Code" />
             </menu>
         </item>
     </group>
     <item android:id="@+id/about_us"
-        android:title="About"
+        android:title="@string/About"
         android:icon="@drawable/ic_person" />
     <item android:id="@+id/appVersionOption"
         android:title="@string/appVersion"

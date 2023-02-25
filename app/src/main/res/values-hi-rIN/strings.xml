@@ -44,7 +44,7 @@
     <string name="popup_text">आपके प्यार के लिए बहुत-बहुत धन्यवाद जिसने हमारे ऐप को कुछ ही महीनों में PlayStore पर 500+ डाउनलोड का आंकड़ा पार करने में मदद की। इसलिए, स्रोत कोड अब GitHub पर सार्वजनिक है। ऐप को अपने दोस्तों के साथ साझा करें यदि यह आपकी मदद करता है या इसके स्रोत कोड ने आपको कुछ नया सीखने में मदद की है।</string>
 
     <string name="share_subject">अरे, जाओ और इस शानदार कैलकुलेटर को देखो।</string>
-    <string name="share_text">अरे, मुझे अभी-अभी एक अद्भुत और खूबसूरती से डिज़ाइन किया गया कैलकुलेटर मिला है। मैं आपको एक बार जाने और इसे देखने की सलाह दूंगा। \n\n
+    <string name="share_text">अरे, मुझे अभी-अभी एक अद्भुत और खूबसूरती से डिज़ाइन किया गया कैलकुलेटर मिला है। मैं आपको एक बार, इसे देखने की सलाह दूंगा। \n\n
 
         लिंक: https://calculator.mrayush.me\n\n
        यहाँ से डाउनलोड करें: https://play.google.com/store/apps/details?id=%1$s</string>
@@ -56,4 +56,11 @@
     <string name="close">बंद करें</string>
     <string name="share">ऐप शेयर करें</string>
     <string name="emoji">इमोजी</string>
+    <string name="Developer">डेवलपर</string>
+    <string name="Source_Code">सोर्स कोड</string>
+    <string name="Feedback">प्रतिक्रिया</string>
+    <string name="Update">अपडेट</string>
+    <string name="Development">डेवलपमेंट</string>
+    <string name="Share">शेयर करे</string>
+    <string name="About">बारे में</string>
 </resources>
