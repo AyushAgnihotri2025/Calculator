@@ -29,31 +29,31 @@
     <string name="calculatorTwo">2</string>
     <string name="calculatorOne">1</string>
     <string name="calculatorZero">0</string>
-    <string name="title_activity_about">About</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_about">बारे में</string>
+    <string name="navigation_drawer_open">नेविगेशन ड्रावर खोलें</string>
+    <string name="navigation_drawer_close">नेविगेशन ड्रावर बंद करें</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">होम</string>
+    <string name="menu_gallery">गेलरी</string>
+    <string name="menu_slideshow">स्लाइड शो</string>
 
-    <string name="navigation_open">Open Navigation Drawer</string>
-    <string name="navigation_close">Close Navigation Drawer</string>
+    <string name="navigation_open">नेविगेशन ड्रावर खोलें</string>
+    <string name="navigation_close">नेविगेशन ड्रावर बंद करें</string>
 
-    <string name="popup_heading">Thanks.</string>
-    <string name="popup_text">Thanks a lot for your love that helped our app to cross 500+ downloads on PlayStore within few months. So, the Source Code is now public on GitHub. Share the app with your friends if it helped you or it\'s source code helped you learn anything new.</string>
+    <string name="popup_heading">धन्यवाद</string>
+    <string name="popup_text">आपके प्यार के लिए बहुत-बहुत धन्यवाद जिसने हमारे ऐप को कुछ ही महीनों में PlayStore पर 500+ डाउनलोड का आंकड़ा पार करने में मदद की। इसलिए, स्रोत कोड अब GitHub पर सार्वजनिक है। ऐप को अपने दोस्तों के साथ साझा करें यदि यह आपकी मदद करता है या इसके स्रोत कोड ने आपको कुछ नया सीखने में मदद की है।</string>
 
-    <string name="share_subject">Hey, Go and check out this cool calculator.</string>
-    <string name="share_text">Hey, I have just found an amazing and beautifully designed Calculator. I will recommend you to go and check it out once.\n\n
+    <string name="share_subject">अरे, जाओ और इस शानदार कैलकुलेटर को देखो।</string>
+    <string name="share_text">अरे, मुझे अभी-अभी एक अद्भुत और खूबसूरती से डिज़ाइन किया गया कैलकुलेटर मिला है। मैं आपको एक बार जाने और इसे देखने की सलाह दूंगा। \n\n
 
-        Link: https://calculator.mrayush.me\n\n
-        Download it from here: https://play.google.com/store/apps/details?id=%1$s</string>
-    <string name="share_title">Share Via</string>
+        लिंक: https://calculator.mrayush.me\n\n
+       यहाँ से डाउनलोड करें: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_title">शेयर करें</string>
 
-    <string name="appDescription">Calculator provides simple and advanced mathematical functions in a beautifully designed app.\n\n
-        • Perform basic calculations such as addition, subtraction, multiplication, and division.</string>
-    <string name="menu">Menu</string>
-    <string name="close">Close</string>
-    <string name="share">Share App</string>
-    <string name="emoji">Emoji</string>
+    <string name="appDescription">यह कैलक्यूलेटर खूबसूरती से डिज़ाइन किए गए ऐप में सरल और उन्नत गणितीय कार्य प्रदान करता है।\n\n
+        • जोड़, घटाव, गुणा और भाग जैसी बुनियादी गणनाएँ करें।</string>
+    <string name="menu">मेन्यू</string>
+    <string name="close">बंद करें</string>
+    <string name="share">ऐप शेयर करें</string>
+    <string name="emoji">इमोजी</string>
 </resources>
