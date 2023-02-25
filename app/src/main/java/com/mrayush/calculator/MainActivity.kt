@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun AppVersionOption(){
         vibration()
-        Toast.makeText(this@MainActivity,"Current version of App is : " + getString(R.string.appVersion),Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity,getString(R.string.About_version) + getString(R.string.appVersion),Toast.LENGTH_LONG).show()
     }
 
 
@@ -127,12 +127,12 @@ class MainActivity : AppCompatActivity() {
         swtch.setOnCheckedChangeListener { compoundButton, b ->
             if(swtch.isChecked) {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Toast.makeText(this@MainActivity, "Successfully switch to Night Mode.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_on), Toast.LENGTH_SHORT).show()
 
             }
             else {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Toast.makeText(this@MainActivity, "Successfully switch to Day Mode.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -265,7 +265,7 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 reviewInfo = task.result
             } else {
-                Toast.makeText(this, "Failed to Rate the app. Opening PlayStore.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.Error_In_Rating), Toast.LENGTH_SHORT).show()
                 openPlayStore()
             }
         }
@@ -279,7 +279,7 @@ class MainActivity : AppCompatActivity() {
             flow.addOnCompleteListener { task ->
                 Toast.makeText(
                     this,
-                    "Thank you so much for rating the app.",
+                    getString(R.string.Rating_successfull_message),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -292,7 +292,7 @@ class MainActivity : AppCompatActivity() {
             vibration()
             Toast.makeText(
                 this,
-                "Checking for an update.",
+                getString(R.string.Update_Check),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -326,7 +326,7 @@ class MainActivity : AppCompatActivity() {
                 if (is_force_update) {
                     Toast.makeText(
                         this,
-                        "Unable to update app from Inside. Opening Google PlayStore.",
+                        getString(R.string.Open_Play_store),
                         Toast.LENGTH_SHORT
                     ).show()
                     openPlayStore()
@@ -335,7 +335,7 @@ class MainActivity : AppCompatActivity() {
                 if (is_force_update) {
                     Toast.makeText(
                         this,
-                        "App is already updated UP-TO date.",
+                        getString(R.string.Already_update),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -346,7 +346,7 @@ class MainActivity : AppCompatActivity() {
     private fun popupSnackBarForCompleteUpdate() {
         Snackbar.make(
             findViewById(R.id.context_view),
-            "An update has just been downloaded.",
+            getString(R.string.Update_downloading),
             Snackbar.LENGTH_INDEFINITE
         ).apply {
             setAction("RESTART") { appUpdateManager.completeUpdate() }
@@ -370,14 +370,14 @@ class MainActivity : AppCompatActivity() {
                 if (resultCode == ActivityResult.RESULT_IN_APP_UPDATE_FAILED) {
                     Toast.makeText(
                         this,
-                        "Unable to update app from Inside. Opening Google PlayStore.",
+                        getString(R.string.Open_Play_store) ,
                         Toast.LENGTH_SHORT
                     ).show()
                     openPlayStore()
                 } else {
                     Toast.makeText(
                         this,
-                        "Update successfully cancelled.",
+                        getString(R.string.Update_completed),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
