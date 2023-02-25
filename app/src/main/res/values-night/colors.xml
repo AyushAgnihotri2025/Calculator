@@ -18,5 +18,6 @@
     <color name="colorCardDT">#E5E1E1</color>
     <color name="colorCardDTlight">#1E3D67</color>
     <color name="acBackspaceColor">#ED1F10</color>
+    <color name="colorBackgroundGrayLight">@color/colorPrimaryDarkTheme</color>
 
 </resources>

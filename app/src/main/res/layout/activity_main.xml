@@ -157,14 +157,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.23" />
+        app:layout_constraintGuide_percent="0.22" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eighthLineGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.335" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/seventhLineGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.34" />
+        app:layout_constraintGuide_percent="0.43" />
 
 
 
@@ -202,12 +208,12 @@
         app:layout_constraintBottom_toTopOf="@+id/permutationButton"
         app:layout_constraintEnd_toStartOf="@+id/firstVerticalLineGuideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/underDisplayGuideline"
+        app:layout_constraintTop_toTopOf="@+id/eighthLineGuideline"
         app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
 
     <soup.neumorphism.NeumorphButton
-        android:id="@+id/logButton"
+        android:id="@+id/percentButton"
         android:theme="@style/Widget.Neumorph.Button"
         style="@style/operatorButton"
         app:neumorph_shadowElevation="3dp"
@@ -216,7 +222,7 @@
         app:neumorph_shadowColorDark="#00000000"
         android:layout_height="0dp"
         android:drawablePadding="8dp"
-        android:text="@string/calculatorLog"
+        android:text="@string/calculatorPercent"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/cosButton"
         app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
@@ -236,8 +242,8 @@
         android:drawablePadding="8dp"
         android:text="@string/calculatorPlusAndMinus"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/logButton"
-        app:layout_constraintTop_toTopOf="@+id/underDisplayGuideline"
+        app:layout_constraintBottom_toTopOf="@+id/percentButton"
+        app:layout_constraintTop_toTopOf="@+id/eighthLineGuideline"
         app:layout_constraintStart_toStartOf="@+id/firstVerticalLineGuideline"
         app:layout_constraintEnd_toEndOf="@+id/secondVerticalLineGuideline"
         app:neumorph_backgroundColor="@color/colorCardDTlight"/>
@@ -255,7 +261,7 @@
         android:text="@string/calculatorFactorial"
         app:layout_constraintBottom_toTopOf="@+id/tanButton"
         app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
-        app:layout_constraintStart_toEndOf="@+id/logButton"
+        app:layout_constraintStart_toEndOf="@+id/percentButton"
         app:layout_constraintTop_toTopOf="@+id/seventhLineGuideline"
         app:neumorph_backgroundColor="@color/colorCardDTlight" />
 
@@ -290,7 +296,7 @@
           android:textAllCaps="false"
           android:text="←"
           android:textColor="@color/acBackspaceColor"
-          app:layout_constraintTop_toBottomOf="@id/underDisplayGuideline"
+          app:layout_constraintTop_toBottomOf="@id/eighthLineGuideline"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="@id/thirdVerticalLineGuideline"
           app:layout_constraintBottom_toTopOf="@+id/powerButton"
@@ -309,7 +315,7 @@
           android:textAllCaps="false"
           android:text="@string/calculatorAc"
           android:textColor="@color/acBackspaceColor"
-          app:layout_constraintTop_toBottomOf="@id/underDisplayGuideline"
+          app:layout_constraintTop_toBottomOf="@id/eighthLineGuideline"
           app:layout_constraintBottom_toTopOf="@+id/factorialButton"
           app:layout_constraintStart_toStartOf="@+id/secondVerticalLineGuideline"
           app:layout_constraintEnd_toStartOf="@+id/thirdVerticalLineGuideline"
@@ -325,7 +331,7 @@
           android:layout_height="wrap_content"
           android:orientation="horizontal"
           android:textAlignment="center"
-          app:layout_constraintGuide_percent="0.45" />
+          app:layout_constraintGuide_percent="0.525" />
 
 
       <!-- <TextView
@@ -422,7 +428,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.56" />
+        app:layout_constraintGuide_percent="0.62" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupOfNumbers"
@@ -497,7 +503,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_percent="0.715" />
 
     <soup.neumorphism.NeumorphButton
         android:id="@+id/fourButton"
@@ -566,7 +572,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.81" />
 
     <soup.neumorphism.NeumorphButton
         android:id="@+id/plusButton"
@@ -599,19 +605,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/thirdLineGuideline" />
 
-    <soup.neumorphism.NeumorphButton
-        android:id="@+id/percentButton"
-        android:theme="@style/Widget.Neumorph.Button"
-        style="@style/numericButton"
-        app:neumorph_shadowElevation="3dp"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawablePadding="8dp"
-        android:text="@string/calculatorPercent"
-      app:layout_constraintBottom_toTopOf="@id/firstLineGuideline"
-      app:layout_constraintTop_toBottomOf="@id/secondLineGuideline"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="@id/firstVerticalLineGuideline"/>
 
     <soup.neumorphism.NeumorphButton
         android:id="@+id/threeButton"
@@ -646,7 +639,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.89" />
+        app:layout_constraintGuide_percent="0.905" />
 
     <soup.neumorphism.NeumorphButton
         android:id="@+id/zeroButton"
@@ -659,7 +652,7 @@
         android:text="@string/calculatorZero"
         app:layout_constraintBottom_toTopOf="@+id/firstLineGuideline"
         app:layout_constraintEnd_toStartOf="@+id/secondVerticalLineGuideline"
-        app:layout_constraintStart_toStartOf="@id/firstVerticalLineGuideline"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/secondLineGuideline" />
 
     <soup.neumorphism.NeumorphButton
@@ -694,6 +687,90 @@
         app:layout_constraintStart_toStartOf="@+id/thirdVerticalLineGuideline"
         app:layout_constraintTop_toTopOf="@+id/secondLineGuideline"
         app:neumorph_backgroundColor="@color/colorCardDTlight" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/colorBackgroundGrayLight"
+        android:layout_marginTop="10dp"
+      app:layout_constraintTop_toTopOf="@+id/underDisplayGuideline"
+      app:layout_constraintBottom_toTopOf="@+id/eighthLineGuideline"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent">
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/fourthVerticalLineGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25304136" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/fifthVerticalLineGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/sixthVerticalLineGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.748" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/lnButton"
+            android:theme="@style/Widget.Neumorph.Button"
+            app:neumorph_shadowColorLight="#00000000"
+            app:neumorph_shadowColorDark="#00000000"
+            style="@style/operatorButton"
+            app:neumorph_shadowElevation="3dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/montserrat"
+            android:padding="12dp"
+            android:text="ln"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+          app:layout_constraintLeft_toLeftOf="@+id/sixthVerticalLineGuideline"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+            app:neumorph_backgroundColor="@color/colorCardDTlight"/>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/logButton"
+            android:theme="@style/Widget.Neumorph.Button"
+            app:neumorph_shadowColorLight="#00000000"
+            app:neumorph_shadowColorDark="#00000000"
+            style="@style/operatorButton"
+            app:neumorph_shadowElevation="3dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/montserrat"
+            android:padding="12dp"
+            android:text="log"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/fifthVerticalLineGuideline"
+            app:layout_constraintRight_toRightOf="@id/sixthVerticalLineGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:neumorph_backgroundColor="@color/colorCardDTlight"/>
+
+
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/firstLineGuideline"

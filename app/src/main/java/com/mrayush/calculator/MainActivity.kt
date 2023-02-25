@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import android.graphics.Bitmap
+import android.graphics.Path.Op
 import android.graphics.drawable.BitmapDrawable
 import android.icu.number.ScientificNotation
 import android.media.MediaPlayer
@@ -386,14 +387,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     private fun equalsButtonOnclick() {
         try {
 
-            if(operation == Operation.LOG || operation == Operation.SQRT || operation == Operation.SIN || operation == Operation.COS
-                || operation == Operation.TAN)
+            if(operation == Operation.log || operation == Operation.sqrt || operation == Operation.sin || operation == Operation.cos
+                || operation == Operation.tan || operation == Operation.ln)
             {
-                firstProcessingNumber =
-                    calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
+//                firstProcessingNumber =
+//                    calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
+                val num = extractDouble(calculatorDisplayNonMock.text.toString()).toString()
+                firstProcessingNumber = num.toDouble()
 
                 val ans =
                     if ((floor(calculateExpression()) == ceil(calculateExpression())))
@@ -405,7 +409,7 @@ class MainActivity : AppCompatActivity() {
                 // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
                 calculatorDisplayNonMock.text = ans
             }
-            if(operation == Operation.FACTORIAL)
+            if(operation == Operation.FACT)
             {
                 val ans =
                     if ((floor(calculateExpression()) == ceil(calculateExpression())))
@@ -417,36 +421,44 @@ class MainActivity : AppCompatActivity() {
                 // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
                 calculatorDisplayNonMock.text = ans
             }
-            Log.d("MM", calculatorDisplayNonMock.text.toString().toBigDecimal().toString())
-            secondProcessingNumber =
-                calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
+//            Log.d("MM", calculatorDisplayNonMock.text.toString().toBigDecimal().toString())
+//            secondProcessingNumber =
+//                calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
 
-            if (secondProcessingNumber == 0.0 && operation == Operation.DIVIDE) {
-                Log.d("MM", calculatorDisplayNonMock.text.toString().toBigDecimal().toString())
-                secondProcessingNumber =
-                    calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
-                var alertBuilder = AlertDialog.Builder(this)
-                alertBuilder.setTitle("Math Error")
-                    .setMessage("Can't divide by zero")
-                    .setCancelable(true)
-                    .setPositiveButton("Ok"){dialogInterface, it ->
-                        dialogInterface.cancel()
-                    }
-                    .show()
-                clearDisplay()
-            }
-            if (operation == Operation.DIVIDE || operation == Operation.MULTIPLY || operation == Operation.POWER || operation == Operation.PLUS
-                || operation == Operation.MINUS || operation == Operation.PERMUTATION || operation == Operation.PERCENT)
+
+
+
+            if (operation == Operation.DVD || operation == Operation.MUL || operation == Operation.POW || operation == Operation.PLUS
+                || operation == Operation.MINUS || operation == Operation.nCr || operation == Operation.PERCENT)
             {
-                val ans =
-                    if ((floor(calculateExpression()) == ceil(calculateExpression())))
-                        calculateExpression()
-                            .toString().replace(".0", "")
-                    else
-                        calculateExpression().toString()
-                // val rnd = ans.toInt()
-                // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
-                calculatorDisplayNonMock.text = ans
+
+                val num2 = extractFirstNumberAfterOperator(calculatorDisplayNonMock.text.toString() , operation.toString()).toString()
+                secondProcessingNumber = num2.toDouble()
+
+                if (secondProcessingNumber == 0.0 && operation == Operation.DVD) {
+                    Log.d("MM", calculatorDisplayNonMock.text.toString().toBigDecimal().toString())
+
+                    val alertBuilder = AlertDialog.Builder(this)
+                    alertBuilder.setTitle("Math Error")
+                        .setMessage("Can't divide by zero")
+                        .setCancelable(true)
+                        .setPositiveButton("Ok"){dialogInterface, it ->
+                            dialogInterface.cancel()
+                        }
+                        .show()
+                    clearDisplay()
+                }
+                else {
+                    val ans =
+                        if ((floor(calculateExpression()) == ceil(calculateExpression())))
+                            calculateExpression()
+                                .toString().replace(".0", "")
+                        else
+                            calculateExpression().toString()
+                    // val rnd = ans.toInt()
+                    // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
+                    calculatorDisplayNonMock.text = ans
+                }
             }
 
             else{
@@ -495,6 +507,19 @@ class MainActivity : AppCompatActivity() {
         is_ans_showed = true
     }
 
+    fun extractDouble(input: String): Double? {
+        val regex = Regex("-?\\d+\\.?\\d*") // regular expression for matching numerical values
+        val matchResult = regex.find(input)
+        return matchResult?.value?.toDoubleOrNull()
+    }
+
+    fun extractFirstNumberAfterOperator(str: String, searchStr: String): Double? {
+        val escapedSearchStr = Regex.escape(searchStr) // escape search string to avoid regex syntax errors
+        val regex = Regex("$escapedSearchStr.*?(\\d+\\.?\\d*)") // regular expression for matching a numerical value after a search string
+        val matchResult = regex.find(str)
+        return matchResult?.groupValues?.getOrNull(1)?.toDoubleOrNull()
+    }
+
     private fun clearDisplay(
         screen: Boolean = false,
         first_val: Boolean = true,
@@ -516,9 +541,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateExpression(): Double {
         return when (operation) {
-            Operation.DIVIDE -> (firstProcessingNumber / secondProcessingNumber * 100000000).roundToLong()
+            Operation.DVD -> (firstProcessingNumber / secondProcessingNumber * 100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.MULTIPLY -> (firstProcessingNumber * secondProcessingNumber * 100000000).roundToLong()
+            Operation.MUL -> (firstProcessingNumber * secondProcessingNumber * 100000000).roundToLong()
                 .toDouble() / 100000000
             Operation.MINUS -> ((firstProcessingNumber - secondProcessingNumber) * 100000000).roundToLong()
                 .toDouble() / 100000000
@@ -526,18 +551,20 @@ class MainActivity : AppCompatActivity() {
                 .toDouble() / 100000000
             Operation.PERCENT -> (firstProcessingNumber / 100 * secondProcessingNumber * 100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.POWER -> (firstProcessingNumber.pow(secondProcessingNumber) * 100000000).roundToLong()
+            Operation.POW -> (firstProcessingNumber.pow(secondProcessingNumber) * 100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.PERMUTATION -> (factorial(firstProcessingNumber)/(factorial(secondProcessingNumber)*factorial(firstProcessingNumber-secondProcessingNumber)) * 100000000).roundToLong() .toDouble() / 100000000
-            Operation.FACTORIAL -> (factorial(firstProcessingNumber) * 100000000).roundToLong()
+            Operation.nCr -> (factorial(firstProcessingNumber)/(factorial(secondProcessingNumber)*factorial(firstProcessingNumber-secondProcessingNumber)) * 100000000).roundToLong() .toDouble() / 100000000
+            Operation.FACT -> (factorial(firstProcessingNumber) * 100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.LOG -> (log10(firstProcessingNumber) * 100000000).roundToLong()
+            Operation.log -> (log10(firstProcessingNumber) * 100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.SQRT -> (sqrt(firstProcessingNumber) *100000000).roundToLong()
+            Operation.sqrt -> (sqrt(firstProcessingNumber) *100000000).roundToLong()
                 .toDouble() / 100000000
-            Operation.SIN -> (Math.round((sin(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
-            Operation.COS -> (Math.round((cos(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
-            Operation.TAN -> (Math.round((tan(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
+            Operation.ln -> (log(firstProcessingNumber,2.7182818284) * 100000000).roundToLong()
+                .toDouble() / 100000000
+            Operation.sin -> (Math.round((sin(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
+            Operation.cos -> (Math.round((cos(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
+            Operation.tan -> (Math.round((tan(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
             else -> firstProcessingNumber
         }
     }
@@ -594,11 +621,14 @@ class MainActivity : AppCompatActivity() {
                 if (calculatorDisplayNonMock.text.toString().isNotEmpty()) {
                     firstProcessingNumber =
                         calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
-                    calculatorDisplayNonMock.text = ""
                     operation = processingOperation
+
+
+                    calculatorDisplayNonMock.setText(firstProcessingNumber.toString() + operation.toString())
                 }
                 else{
                     operation = processingOperation
+                    calculatorDisplayNonMock.setText(operation.toString())
                 }
 
             }
@@ -640,7 +670,14 @@ class MainActivity : AppCompatActivity() {
             vibration()
             onClickSound()
             checkOutputScreen(second_val = false, check_ans=false)
-            isAvailableToOperate(Operation.LOG)
+            isAvailableToOperate(Operation.log)
+
+        }
+        lnButton.setOnClickListener{
+            vibration()
+            onClickSound()
+            checkOutputScreen(second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.ln)
 
         }
 
@@ -648,32 +685,32 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             checkOutputScreen(first_val = false,second_val = false, check_ans=false)
-            isAvailableToOperate(Operation.FACTORIAL)
+            isAvailableToOperate(Operation.FACT)
         }
         sqrt.setOnClickListener {
             onClickSound()
             vibration()
             checkOutputScreen(first_val = false,second_val = false, check_ans=false)
-            isAvailableToOperate(Operation.SQRT)
+            isAvailableToOperate(Operation.sqrt)
 
         }
         sinButton.setOnClickListener {
             onClickSound()
             vibration()
             checkOutputScreen(first_val = false,second_val = false, check_ans=false)
-            isAvailableToOperate(Operation.SIN)
+            isAvailableToOperate(Operation.sin)
         }
         cosButton.setOnClickListener {
             onClickSound()
             vibration()
             checkOutputScreen(first_val = false,second_val = false, check_ans=false)
-            isAvailableToOperate(Operation.COS)
+            isAvailableToOperate(Operation.cos)
         }
         tanButton.setOnClickListener {
             onClickSound()
             vibration()
             checkOutputScreen(first_val = false,second_val = false, check_ans=false)
-            isAvailableToOperate(Operation.TAN)
+            isAvailableToOperate(Operation.tan)
         }
 
 
@@ -689,14 +726,14 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             checkOutputScreen(first_val=false, check_ans=false)
-            isAvailableToOperate(Operation.PERMUTATION)
+            isAvailableToOperate(Operation.nCr)
         }
 
         powerButton.setOnClickListener {
             vibration()
             onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
-            isAvailableToOperate(Operation.POWER)
+            isAvailableToOperate(Operation.POW)
         }
 
         commaButton.setOnClickListener {
@@ -713,14 +750,14 @@ class MainActivity : AppCompatActivity() {
             vibration()
             onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
-            isAvailableToOperate(Operation.DIVIDE)
+            isAvailableToOperate(Operation.DVD)
         }
 
         multiplyButton.setOnClickListener {
             vibration()
             onClickSound()
             checkOutputScreen(first_val=false, check_ans=false)
-            isAvailableToOperate(Operation.MULTIPLY)
+            isAvailableToOperate(Operation.MUL)
         }
 
         minusButton.setOnClickListener {

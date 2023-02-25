@@ -1,18 +1,19 @@
 package com.mrayush.calculator
 
 enum class Operation {
-    DIVIDE,
-    MULTIPLY,
+    DVD,
+    MUL,
     PERCENT,
     MINUS,
     PLUS,
-    LOG,
-    FACTORIAL,
-    POWER,
-    PERMUTATION,
+    log,
+    ln,
+    FACT,
+    POW,
+    nCr,
     EMPTY,
-    SQRT,
-    SIN,
-    COS,
-    TAN
+    sqrt,
+    sin,
+    cos,
+    tan
 }
