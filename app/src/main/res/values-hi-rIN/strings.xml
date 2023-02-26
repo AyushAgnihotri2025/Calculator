@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Calculator</string>
+    <string name="appInnappName">Calculator</string>
+    <string name="appVersion">v1.2.0</string>
+    <string name="calculatorDisplayMock">8888888888</string>
+    <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
+    <string name="calculatorAc">AC</string>
+    <string name="calculatorPlusAndMinus">+ / -</string>
+    <string name="calculatorPermutation">nCr</string>
+    <string name="calculatorLog">ln</string>
+    <string name="calculatorFactorial">!</string>
+    <string name="calculatorPower">^</string>
+    <string name="calculatorPercent">%</string>
+    <string name="calculatorDivide">÷</string>
+    <string name="calculatorMultiply">x</string>
+    <string name="calculatorMinus">-</string>
+    <string name="calculatorPlus">+</string>
+    <string name="calculatorEquals">=</string>
+    <string name="calculatorComma">,</string>
+    <string name="calculatorDot">.</string>
+    <string name="calculatorNine">9</string>
+    <string name="calculatorEight">8</string>
+    <string name="calculatorSeven">7</string>
+    <string name="calculatorSix">6</string>
+    <string name="calculatorFive">5</string>
+    <string name="calculatorFour">4</string>
+    <string name="calculatorThree">3</string>
+    <string name="calculatorTwo">2</string>
+    <string name="calculatorOne">1</string>
+    <string name="calculatorZero">0</string>
+    <string name="title_activity_about">बारे में</string>
+    <string name="navigation_drawer_open">नेविगेशन ड्रावर खोलें</string>
+    <string name="navigation_drawer_close">नेविगेशन ड्रावर बंद करें</string>
+
+    <string name="menu_home">होम</string>
+    <string name="menu_gallery">गेलरी</string>
+    <string name="menu_slideshow">स्लाइड शो</string>
+
+    <string name="navigation_open">नेविगेशन ड्रावर खोलें</string>
+    <string name="navigation_close">नेविगेशन ड्रावर बंद करें</string>
+
+    <string name="popup_heading">धन्यवाद</string>
+    <string name="popup_text">आपके प्यार के लिए बहुत-बहुत धन्यवाद जिसने हमारे ऐप को कुछ ही महीनों में प्लेस्टोर पर 500+ डाउनलोड का आंकड़ा पार करने में मदद की। इसलिए, स्रोत कोड अब GitHub पर सार्वजनिक है। ऐप को अपने दोस्तों के साथ साझा करें यदि यह आपकी मदद करता है या इसके स्रोत कोड ने आपको कुछ नया सीखने में मदद की है।</string>
+
+    <string name="share_subject">अरे, जाओ और इस शानदार कैलकुलेटर को देखो।</string>
+    <string name="share_text">अरे, मुझे अभी-अभी एक अद्भुत और खूबसूरती से डिज़ाइन किया गया कैलकुलेटर मिला है। मैं आपको एक बार, इसे देखने की सलाह दूंगा। \n\n
+
+        लिंक: https://calculator.mrayush.me\n\n
+       यहाँ से डाउनलोड करें: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_title">शेयर करें</string>
+
+    <string name="appDescription">यह कैलक्यूलेटर खूबसूरती से डिज़ाइन किए गए ऐप में सरल और उन्नत गणितीय कार्य प्रदान करता है।\n\n
+        • जोड़, घटाव, गुणा और भाग जैसी बुनियादी गणनाएँ करें।</string>
+    <string name="menu">मेन्यू</string>
+    <string name="close">बंद करें</string>
+    <string name="share">ऐप शेयर करें</string>
+    <string name="emoji">इमोजी</string>
+    <string name="Developer">डेवलपर</string>
+    <string name="Source_Code">सोर्स कोड</string>
+    <string name="Feedback">प्रतिक्रिया</string>
+    <string name="Update">अपडेट</string>
+    <string name="Development">डेवलपमेंट</string>
+    <string name="Share">शेयर करे</string>
+    <string name="About">बारे में</string>
+    <string name="About_version">ऐप का वर्तमान वर्शन है :</string>
+    <string name="Night_Mode_on">नाइट मोड में सफलतापूर्वक स्विच हुआ।</string>
+    <string name="Night_Mode_off">डे मोड में सफलतापूर्वक स्विच हुआ।</string>
+    <string name="Error_In_Rating">ऐप को रेट करने में विफल। प्लेस्टोर खोल रहा हूँ।</string>
+    <string name="Rating_successfull_message">ऐप को रेटिंग देने के लिए आपका बहुत-बहुत धन्यवाद। प्लेस्टोर।</string>
+    <string name="Update_Check">अपडेट के लिए जाँच की जा रही है।</string>
+    <string name="Already_update">ऐप पहले ही यूपी-टू डेट अपडेट कर चुका है।</string>
+    <string name="Open_Play_store">ऐप को अंदर से अपडेट करने में असमर्थ। गूगल प्लेस्टोर खोल रहा हूँ।</string>
+    <string name="Update_downloading">एक अद्यतन अभी डाउनलोड किया गया है।</string>
+    <string name="Update_completed">अपडेट सफलतापूर्वक रद्द कर दिया गया।</string>
+</resources>
