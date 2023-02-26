@@ -2,6 +2,7 @@ package com.mrayush.calculator
 
 import android.annotation.SuppressLint
 import android.app.ActionBar
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
@@ -145,6 +146,14 @@ class MainActivity : AppCompatActivity() {
         val editor = getSharedPreferences("Setting",Context.MODE_PRIVATE).edit()
         editor.putString("My_Lang",Lang)
         editor.apply()
+    }
+
+    private fun loadLocate(){
+        val sharedPreferences=getSharedPreferences("Setting", Activity.MODE_PRIVATE)
+        val language= sharedPreferences.getString("My_Lang","")
+        if (language != null) {
+            setLocate(language)
+        }
     }
 
     private fun AppVersionOption(){
