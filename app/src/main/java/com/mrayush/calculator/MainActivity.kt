@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
     private fun showChangeLanguage() {
         val listItems = arrayOf("English","हिन्दी")
         val mBuilder = androidx.appcompat.app.AlertDialog.Builder(this@MainActivity)
-        mBuilder.setTitle("Choose Language")
+        mBuilder.setTitle(getString(R.string.choose_language))
         mBuilder.setSingleChoiceItems(listItems,-1){dialog,which->
             if( which ==0){
                 setLocate("en")
