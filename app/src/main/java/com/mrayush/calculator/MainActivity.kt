@@ -7,6 +7,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Path.Op
 import android.graphics.drawable.BitmapDrawable
@@ -45,6 +46,7 @@ import com.google.android.play.core.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
 import kotlin.math.*
 
 
@@ -132,6 +134,17 @@ class MainActivity : AppCompatActivity() {
         }
         val mDialog = mBuilder.create()
         mDialog.show()
+    }
+
+    private fun setLocate(Lang: String) {
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        baseContext.resources.updateConfiguration(config,baseContext.resources.displayMetrics)
+        val editor = getSharedPreferences("Setting",Context.MODE_PRIVATE).edit()
+        editor.putString("My_Lang",Lang)
+        editor.apply()
     }
 
     private fun AppVersionOption(){
