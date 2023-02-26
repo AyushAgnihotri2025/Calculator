@@ -58,7 +58,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="14dp"
                 android:background="@drawable/green"
                 android:text="Source Code"
                 android:textAllCaps="false"
