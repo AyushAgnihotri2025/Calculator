@@ -107,13 +107,31 @@ class MainActivity : AppCompatActivity() {
                 R.id.source_code -> showDialog()
                 R.id.about_us -> aboutUsIntent()
                 R.id.appVersionOption -> AppVersionOption()
-                
+                R.id.chooseLanguage -> showChangeLanguage()
             }
             closeDrawer()
             false
         }
 
         daynight()
+    }
+
+    private fun showChangeLanguage() {
+        val listItems = arrayOf("English","हिन्दी")
+        val mBuilder = androidx.appcompat.app.AlertDialog.Builder(this@MainActivity)
+        mBuilder.setTitle("Choose Language")
+        mBuilder.setSingleChoiceItems(listItems,-1){dialog,which->
+            if( which ==0){
+                setLocate("en")
+                recreate()
+            }else if(which ==1){
+                setLocate("hi")
+                recreate()
+            }
+            dialog.dismiss()
+        }
+        val mDialog = mBuilder.create()
+        mDialog.show()
     }
 
     private fun AppVersionOption(){
