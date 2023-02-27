@@ -87,8 +87,7 @@ class MainActivity : AppCompatActivity() {
         appUpdateManager = AppUpdateManagerFactory.create(this)
         initListeners()
         activateReviewInfo()
-
-
+      
         drawerlayout = findViewById(R.id.menu_drawer)
         navigationView = findViewById(R.id.navigation_menu)
         toolbar = findViewById(R.id.menuButton)
