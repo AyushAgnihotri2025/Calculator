@@ -162,8 +162,6 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this@MainActivity,getString(R.string.About_version) + getString(R.string.appVersion),Toast.LENGTH_LONG).show()
     }
 
-
-
     // load Dark night after open the app
     private fun loadDarkNight(){
         val sharedPreferences=getSharedPreferences("DayNight", Activity.MODE_PRIVATE)
@@ -174,7 +172,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // load daynight acctually
+    // load DayNight actually
     private fun daynight(){
         vibration()
         val swtch: Switch
@@ -187,7 +185,6 @@ class MainActivity : AppCompatActivity() {
                 setDayNight("no")
             }
         }
-
     }
 
     private fun setDayNight(daynightMode: String) {
@@ -203,10 +200,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
         }
     }
-    
-
-
-
 
     /* private fun darkmode() {
         vibration()
