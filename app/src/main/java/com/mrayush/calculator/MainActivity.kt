@@ -120,6 +120,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showChangeLanguage() {
+        vibration()
         val listItems = arrayOf("English","हिन्दी")
         val mBuilder = androidx.appcompat.app.AlertDialog.Builder(this@MainActivity)
         mBuilder.setTitle(getString(R.string.choose_language))
@@ -230,6 +231,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun share() {
+        vibration()
         val i : ImageView = ImageView(applicationContext)
         i.setImageResource(R.drawable.banner)
         val bitmapDrawable = i.drawable as BitmapDrawable
@@ -898,9 +900,9 @@ class MainActivity : AppCompatActivity() {
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (vibrator.hasVibrator()) { // Vibrator availability checking
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
+                vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE)) // New vibrate method for API Level 26 or higher
             } else {
-                vibrator.vibrate(120) // Vibrate method for below API Level 26
+                vibrator.vibrate(140) // Vibrate method for below API Level 26
             }
         }
     }
