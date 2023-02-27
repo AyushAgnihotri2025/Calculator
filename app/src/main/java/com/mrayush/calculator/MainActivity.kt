@@ -232,6 +232,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun share() {
+        vibration()
         val i : ImageView = ImageView(applicationContext)
         i.setImageResource(R.drawable.banner)
         val bitmapDrawable = i.drawable as BitmapDrawable
