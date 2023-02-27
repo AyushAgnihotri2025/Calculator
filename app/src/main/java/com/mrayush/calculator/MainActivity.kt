@@ -164,6 +164,16 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    // load Dark night after open the app
+    private fun loadDarkNight(){
+        val sharedPreferences=getSharedPreferences("DayNight", Activity.MODE_PRIVATE)
+        val DayNight= sharedPreferences.getString("My_DayNight","")
+        if (DayNight != null) {
+            setDayNight(DayNight)
+        }
+    }
+
+
     // load daynight acctually
     private fun daynight(){
         vibration()
@@ -172,15 +182,14 @@ class MainActivity : AppCompatActivity() {
         swtch.setOnCheckedChangeListener { compoundButton, b ->
             if(swtch.isChecked) {
                 setDayNight("yes")
-
             }
             else {
                 setDayNight("no")
-
             }
         }
 
     }
+
 
 
 
