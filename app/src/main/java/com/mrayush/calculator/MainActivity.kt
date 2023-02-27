@@ -45,6 +45,7 @@ import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -434,7 +435,7 @@ class MainActivity : AppCompatActivity() {
         try {
 
             if(operation == Operation.log || operation == Operation.sqrt || operation == Operation.sin || operation == Operation.cos
-                || operation == Operation.tan || operation == Operation.ln)
+                || operation == Operation.tan || operation == Operation.ln || operation == Operation.e)
             {
 //                firstProcessingNumber =
 //                    calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble()
@@ -540,7 +541,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-            operation = Operation.EMPTY
+
         } catch (e: NumberFormatException) {
             calculatorDisplayNonMock.text = "ERROR"
             is_errored_text = true
@@ -607,6 +608,8 @@ class MainActivity : AppCompatActivity() {
             Operation.sin -> (Math.round((sin(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
             Operation.cos -> (Math.round((cos(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
             Operation.tan -> (Math.round((tan(Math.toRadians(firstProcessingNumber)))*100000000).toDouble()/100000000)
+            Operation.e-> (2.7182818284.pow(firstProcessingNumber)* 100000000).roundToLong()
+                .toDouble() / 100000000
             else -> firstProcessingNumber
         }
     }
@@ -708,6 +711,7 @@ class MainActivity : AppCompatActivity() {
 
         clearDisplay()
 
+
         logButton.setOnClickListener{
             vibration()
             onClickSound()
@@ -715,6 +719,15 @@ class MainActivity : AppCompatActivity() {
             isAvailableToOperate(Operation.log)
 
         }
+
+        expButton.setOnClickListener{
+            vibration()
+            onClickSound()
+            checkOutputScreen(second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.e)
+
+        }
+
         lnButton.setOnClickListener{
             vibration()
             onClickSound()
@@ -805,7 +818,7 @@ class MainActivity : AppCompatActivity() {
         minusButton.setOnClickListener {
             vibration()
             onClickSound()
-            checkOutputScreen(first_val=false, check_ans=false)
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
             val displayAsString = calculatorDisplayNonMock.text.toString()
             try {
                 if (displayAsString.isNotEmpty()) {
@@ -871,6 +884,16 @@ class MainActivity : AppCompatActivity() {
                 calculatorDisplayNonMock.setText(value)
             }
         }
+        piButton.setOnClickListener {
+            onClickSound()
+            vibration()
+            if(operation != Operation.EMPTY)
+                calculatorDisplayNonMock.setText(operation.toString() +"3.14")
+            else
+                calculatorDisplayNonMock.setText("3.14")
+
+        }
+
     }
 
     private fun vibration(){

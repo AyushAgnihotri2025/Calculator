@@ -15,5 +15,6 @@ enum class Operation {
     sqrt,
     sin,
     cos,
-    tan
+    tan,
+    e
 }

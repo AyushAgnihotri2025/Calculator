@@ -764,6 +764,48 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:neumorph_backgroundColor="@color/colorCardDTlight"/>
 
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/expButton"
+            android:theme="@style/Widget.Neumorph.Button"
+            app:neumorph_shadowColorLight="#00000000"
+            app:neumorph_shadowColorDark="#00000000"
+            style="@style/operatorButton"
+            app:neumorph_shadowElevation="3dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/montserrat"
+            android:padding="12dp"
+            android:text="eˣ"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="@+id/fourthVerticalLineGuideline"
+            app:layout_constraintRight_toRightOf="@id/fifthVerticalLineGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:neumorph_backgroundColor="@color/colorCardDTlight"/>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/piButton"
+            android:theme="@style/Widget.Neumorph.Button"
+            app:neumorph_shadowColorLight="#00000000"
+            app:neumorph_shadowColorDark="#00000000"
+            style="@style/operatorButton"
+            app:neumorph_shadowElevation="3dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/montserrat"
+            android:padding="12dp"
+            android:text="π"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/fourthVerticalLineGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:neumorph_backgroundColor="@color/colorCardDTlight"/>
+
 
 
 
