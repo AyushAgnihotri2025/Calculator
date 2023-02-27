@@ -163,23 +163,27 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+    // load daynight acctually
     private fun daynight(){
         vibration()
         val swtch: Switch
         swtch = findViewById(R.id.daynight)
         swtch.setOnCheckedChangeListener { compoundButton, b ->
             if(swtch.isChecked) {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_on), Toast.LENGTH_SHORT).show()
+                setDayNight("yes")
 
             }
             else {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
+                setDayNight("no")
+
             }
         }
 
     }
+
+
+
    /* private fun darkmode() {
         vibration()
         val share: Button
