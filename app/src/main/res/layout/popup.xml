@@ -6,11 +6,11 @@
 
     <RelativeLayout
         android:layout_width="250dp"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         android:layout_centerInParent="true">
         <RelativeLayout
             android:layout_width="250dp"
-            android:layout_height="450dp"
+            android:layout_height="380dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/background_popup">
@@ -58,7 +58,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="14dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/green"
                 android:text="Source Code"
                 android:textAllCaps="false"
