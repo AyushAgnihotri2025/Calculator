@@ -19,6 +19,9 @@
         <item android:id="@+id/update"
             android:icon="@drawable/ic_update"
             android:title="@string/Update" />
+        <item android:id="@+id/chooseLanguage"
+            android:icon="@drawable/ic_choose_language"
+            android:title="@string/choose_language" />
     </group>
     <group android:checkableBehavior="single">
         <item android:title="@string/Development">

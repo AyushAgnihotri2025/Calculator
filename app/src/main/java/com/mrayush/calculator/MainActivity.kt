@@ -2,11 +2,13 @@ package com.mrayush.calculator
 
 import android.annotation.SuppressLint
 import android.app.ActionBar
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Path.Op
 import android.graphics.drawable.BitmapDrawable
@@ -45,6 +47,7 @@ import com.google.android.play.core.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
 import kotlin.math.*
 
 
@@ -78,6 +81,7 @@ class MainActivity : AppCompatActivity() {
 */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadLocate()
         setContentView(R.layout.activity_main)
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
@@ -107,12 +111,50 @@ class MainActivity : AppCompatActivity() {
                 R.id.source_code -> showDialog()
                 R.id.about_us -> aboutUsIntent()
                 R.id.appVersionOption -> AppVersionOption()
+                R.id.chooseLanguage -> showChangeLanguage()
             }
             closeDrawer()
             false
         }
 
         daynight()
+    }
+
+    private fun showChangeLanguage() {
+        val listItems = arrayOf("English","हिन्दी")
+        val mBuilder = androidx.appcompat.app.AlertDialog.Builder(this@MainActivity)
+        mBuilder.setTitle(getString(R.string.choose_language))
+        mBuilder.setSingleChoiceItems(listItems,-1){dialog,which->
+            if( which ==0){
+                setLocate("en")
+                recreate()
+            }else if(which ==1){
+                setLocate("hi")
+                recreate()
+            }
+            dialog.dismiss()
+        }
+        val mDialog = mBuilder.create()
+        mDialog.show()
+    }
+
+    private fun setLocate(Lang: String) {
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        baseContext.resources.updateConfiguration(config,baseContext.resources.displayMetrics)
+        val editor = getSharedPreferences("Setting",Context.MODE_PRIVATE).edit()
+        editor.putString("My_Lang",Lang)
+        editor.apply()
+    }
+
+    private fun loadLocate(){
+        val sharedPreferences=getSharedPreferences("Setting", Activity.MODE_PRIVATE)
+        val language= sharedPreferences.getString("My_Lang","")
+        if (language != null) {
+            setLocate(language)
+        }
     }
 
     private fun AppVersionOption(){

@@ -73,4 +73,5 @@
     <string name="Open_Play_store">ऐप को अंदर से अपडेट करने में असमर्थ। गूगल प्लेस्टोर खोल रहा हूँ।</string>
     <string name="Update_downloading">एक अद्यतन अभी डाउनलोड किया गया है।</string>
     <string name="Update_completed">अपडेट सफलतापूर्वक रद्द कर दिया गया।</string>
+    <string name="choose_language">भाषा चुनें</string>
 </resources>
