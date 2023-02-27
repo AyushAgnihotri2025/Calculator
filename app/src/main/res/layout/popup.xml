@@ -6,11 +6,11 @@
 
     <RelativeLayout
         android:layout_width="250dp"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         android:layout_centerInParent="true">
         <RelativeLayout
             android:layout_width="250dp"
-            android:layout_height="450dp"
+            android:layout_height="380dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/background_popup">
@@ -49,7 +49,8 @@
                 android:textAlignment="center"
                 android:textColor="#a3a3a3"
                 android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <Button
                 android:id="@+id/popupSourceBtn"
