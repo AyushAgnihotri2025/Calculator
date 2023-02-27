@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocate()
+        loadDayNight()
         setContentView(R.layout.activity_main)
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
@@ -163,7 +164,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // load Dark night after open the app
-    private fun loadDarkNight(){
+    private fun loadDayNight(){
         val sharedPreferences=getSharedPreferences("DayNight", Activity.MODE_PRIVATE)
         val DayNight= sharedPreferences.getString("My_DayNight","")
         if (DayNight != null) {
