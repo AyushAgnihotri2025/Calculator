@@ -190,10 +190,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun setDayNight(daynightMode: String) {
+        val editor = getSharedPreferences("DayNight",Context.MODE_PRIVATE).edit()
+        editor.putString("My_DayNight",daynightMode)
+        editor.apply()
+        if(daynightMode=="yes"){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_on), Toast.LENGTH_SHORT).show()
+        }
+        else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
+        }
+    }
+    
 
 
 
-   /* private fun darkmode() {
+
+    /* private fun darkmode() {
         vibration()
         val share: Button
         val swtch: Switch
