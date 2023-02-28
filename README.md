@@ -2,12 +2,31 @@
 
 <a href="https://www.android.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-plain.svg" alt="Android" width="40" height="40"/></a>   <a href="https://kotlinlang.org/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" width="40" height="40"/></a>
   
-  
-## 🔗 Download the App 
+## 📝 Table of Contents
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+      <li><a href="#download"> Download the App </a></li>
+      <li><a href="#what">What is this App</a></li>
+      <li><a href="#des">App Description</a></li>
+      <li><a href="#contribute">How to Contribute?</a></li>
+      <li><a href="#want">Want to Contribute/Resources</a></li>
+      <li><a href="#conduct">Code of Conduct</a></li>
+      <li><a href="#support">Support</a></li>
+  </ol>
+</details>
+
+
+
+
+
+
+## 🔗 Download the App <a name = "download"></a>
 
 <a href="https://play.google.com/store/apps/details?id=com.mrayush.calculator"><img src="https://cdn.mrayush.me/img/dev/Google_Play_Store_badge.png" width="20%" /></a>
  
-## 🤔 What is this App
+## 🤔 What is this App<a name = "what"></a>
  
 ✍️ This will basically provide simple and advanced mathematical functions in a beautifully designed app.
 
@@ -41,13 +60,13 @@
 | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8BI6nh7Egl-JMq_7cCvf-D2flqqzPqdRG34A3Pjt3iqZpxmlJoY5Z7xpuU0suVkjKowm23GP5kviDjFghSTTqLPMXPHDJzgFs3MDzSl9QJ_UECnf_bsi2LPozrhRf5Z-r7_xtclokAFhNSDPEMkUlBb=w288-h512-no?authuser=0) | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8AV06bWboCBOEhtcJqXqwMjOpd0dcz-zuFNm5wz2cQAbN_LWMI0Bb8Ib_yBZg6CBNb6F7luAiIdS_oxcQKSc7TSgrrR4qeKxkuEXktLzAzUY_NjekWTmXDwMP64Xwfe0EYoPD5YfeivgyOc_uvhMfqn=w288-h512-no?authuser=0) | ![Calculator](https://lh3.googleusercontent.com/pw/AMWts8AiH7w-iPU7WJ81IT0v_kXIycdoVJOe-dnj3or7vZZ0aV3H15yjU55kqW1qzl7zc80IZLL4aEScwreqzx_rtiuAHc1O6_Qu8RKdI22hY_44FwPZHaLGRFqG0BqtWUdTzs13h9Cx1CsqK8vJPbDjdrwY=w288-h512-no?authuser=0) |
 | | ![Calculator](https://play-lh.googleusercontent.com/UC2FU-K6OSqtvl70StyvX1SXgibCJgt7GZQTYkdVIqeOsSHZjaL-e3NLNs_t4rjYHa0) |
 
-# 📜App Description
+# 📜App Description<a name = "des"></a>
   
 Calculator provides simple and advanced mathematical functions in a beautifully designed app.
 
 • Perform basic calculations such as addition, subtraction, multiplication, and division.
   
-# 🖱️ How to Contribute 
+# 🖱️ How to Contribute <a name = "contribute"></a>
 
 If you think that you can add a new feature or want to fix a bug, we invite you to contribute to Calculator and make this project better. To start contributing, follow the below instructions:
 
@@ -149,16 +168,16 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 - Check out our [contribution guidelines](/CONTRIBUTING.md) for more information.
 
 
-## Want to contribute?
+## Want to contribute?<a name = "want"></a>
 - Take a look at [`contributing ideas.`](Contributionidea.md).
 - Take a look at [`contributing guidelines`](CONTRIBUTING.md).
 - Refer [GitHub Flow](https://guides.github.com/introduction/flow).
 
-## Code of Conduct
+## Code of Conduct<a name = "conduct"></a>
 
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 
-## 🙏🏽 Support
+## 🙏🏽 Support<a name = "support"></a>
 
 This project needs a star️ from you. Don't forget to leave a star✨
 Follow my Github for content
