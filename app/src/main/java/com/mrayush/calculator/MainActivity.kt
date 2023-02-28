@@ -111,12 +111,29 @@ class MainActivity : AppCompatActivity() {
                 R.id.about_us -> aboutUsIntent()
                 R.id.appVersionOption -> AppVersionOption()
                 R.id.chooseLanguage -> showChangeLanguage()
+                R.id.report_bug -> ReportBug()
             }
             closeDrawer()
             false
         }
 
         daynight()
+    }
+
+    private fun ReportBug() {
+        val recipient = "ayushagnihotri2025@gmail.com"
+        val subject = "Report for the Bug - Calculator Application"
+        val message = "Email message body"
+
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+            putExtra(Intent.EXTRA_TEXT, message)
+        }
+
+        startActivity(intent)
+
     }
 
     private fun showChangeLanguage() {
