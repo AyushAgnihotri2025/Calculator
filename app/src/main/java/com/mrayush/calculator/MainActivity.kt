@@ -133,9 +133,7 @@ class MainActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_SUBJECT, subject)
             putExtra(Intent.EXTRA_TEXT, message)
         }
-
         startActivity(intent)
-
     }
 
     private fun showChangeLanguage() {
