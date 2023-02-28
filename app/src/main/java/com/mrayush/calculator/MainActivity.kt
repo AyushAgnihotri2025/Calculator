@@ -318,6 +318,7 @@ class MainActivity : AppCompatActivity() {
     private fun startReviewFlow() {
         onClickSound()
         vibration()
+        Toast.makeText(this@MainActivity, "↓ ↓ Scroll Down to Rate Us ↓ ↓", Toast.LENGTH_LONG).show()
         if (reviewInfo != null) {
             val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
             flow.addOnCompleteListener { task ->
