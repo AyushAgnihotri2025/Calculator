@@ -121,6 +121,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun ReportBug() {
+        vibration()
+        onClickSound()
         val recipient = "ayushagnihotri2025@gmail.com"
         val subject = "Report for the Bug - Calculator Application"
         val message = "Email message body"
