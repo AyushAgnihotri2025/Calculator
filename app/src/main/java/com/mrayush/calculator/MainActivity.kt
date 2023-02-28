@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocate()
+        loadDayNight()
         setContentView(R.layout.activity_main)
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
@@ -179,25 +180,46 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this@MainActivity,getString(R.string.About_version) + getString(R.string.appVersion),Toast.LENGTH_LONG).show()
     }
 
+    // load Dark night after open the app
+    private fun loadDayNight(){
+        val sharedPreferences=getSharedPreferences("DayNight", Activity.MODE_PRIVATE)
+        val DayNight= sharedPreferences.getString("My_DayNight","")
+        if (DayNight != null) {
+            setDayNight(DayNight)
+        }
+    }
 
+
+    // load DayNight actually
     private fun daynight(){
         vibration()
         val swtch: Switch
         swtch = findViewById(R.id.daynight)
         swtch.setOnCheckedChangeListener { compoundButton, b ->
             if(swtch.isChecked) {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_on), Toast.LENGTH_SHORT).show()
-
+                setDayNight("yes")
             }
             else {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
+                setDayNight("no")
             }
         }
-
     }
-   /* private fun darkmode() {
+
+    private fun setDayNight(daynightMode: String) {
+        val editor = getSharedPreferences("DayNight",Context.MODE_PRIVATE).edit()
+        editor.putString("My_DayNight",daynightMode)
+        editor.apply()
+        if(daynightMode=="yes"){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_on), Toast.LENGTH_SHORT).show()
+        }
+        else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /* private fun darkmode() {
         vibration()
         val share: Button
         val swtch: Switch
@@ -335,16 +357,23 @@ class MainActivity : AppCompatActivity() {
     private fun startReviewFlow() {
         onClickSound()
         vibration()
-        if (reviewInfo != null) {
-            val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
-            flow.addOnCompleteListener { task ->
-                Toast.makeText(
-                    this,
-                    getString(R.string.Rating_successfull_message),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+        Toast.makeText(this@MainActivity, getString(R.string.scroll_down_for_rating), Toast.LENGTH_LONG).show()
+        
+        val playStoreIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName()))
+        startActivity(playStoreIntent)
+
+        // For future reference
+
+//        if (reviewInfo != null) {
+//            val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
+//            flow.addOnCompleteListener { task ->
+//                Toast.makeText(
+//                    this,
+//                    getString(R.string.Rating_successfull_message),
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
     }
 
     private fun update(is_force_update: Boolean) {

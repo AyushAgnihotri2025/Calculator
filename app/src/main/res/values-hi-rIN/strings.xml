@@ -75,4 +75,5 @@
     <string name="Update_completed">अपडेट सफलतापूर्वक रद्द कर दिया गया।</string>
     <string name="choose_language">भाषा चुनें</string>
     <string name="Report_bug">रिपोर्ट बग</string>
+    <string name="scroll_down_for_rating">↓ ↓ हमें रेट करने के लिए नीचे स्क्रॉल करना होगा ↓ ↓</string>
 </resources>
