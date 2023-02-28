@@ -16,6 +16,6 @@
     <style name="DialogStyle" parent="Theme.AppCompat.Dialog">
         <item name="android:windowMinWidthMajor">80%</item>
         <item name="android:windowMinWidthMinor">80%</item>
-
+        <item name="android:statusBarColor">#00000000</item>
     </style>
 </resources>
