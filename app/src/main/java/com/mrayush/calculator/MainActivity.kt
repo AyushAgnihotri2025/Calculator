@@ -340,6 +340,7 @@ class MainActivity : AppCompatActivity() {
     private fun startReviewFlow() {
         onClickSound()
         vibration()
+        Toast.makeText(this@MainActivity, getString(R.string.scroll_down_for_rating), Toast.LENGTH_LONG).show()
         
         val playStoreIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName()))
         startActivity(playStoreIntent)

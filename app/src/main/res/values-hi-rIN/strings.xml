@@ -74,4 +74,6 @@
     <string name="Update_downloading">एक अद्यतन अभी डाउनलोड किया गया है।</string>
     <string name="Update_completed">अपडेट सफलतापूर्वक रद्द कर दिया गया।</string>
     <string name="choose_language">भाषा चुनें</string>
+    <string name="scroll_down_for_rating">↓ ↓ हमें रेट करने के लिए नीचे स्क्रॉल करना होगा ↓ ↓</string>
+
 </resources>
