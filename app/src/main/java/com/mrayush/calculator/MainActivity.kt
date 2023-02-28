@@ -318,16 +318,22 @@ class MainActivity : AppCompatActivity() {
     private fun startReviewFlow() {
         onClickSound()
         vibration()
-        if (reviewInfo != null) {
-            val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
-            flow.addOnCompleteListener { task ->
-                Toast.makeText(
-                    this,
-                    getString(R.string.Rating_successfull_message),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+        
+        val playStoreIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName()))
+        startActivity(playStoreIntent)
+
+        // For future reference
+
+//        if (reviewInfo != null) {
+//            val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
+//            flow.addOnCompleteListener { task ->
+//                Toast.makeText(
+//                    this,
+//                    getString(R.string.Rating_successfull_message),
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
     }
 
     private fun update(is_force_update: Boolean) {
