@@ -26,6 +26,9 @@
     <group android:checkableBehavior="single">
         <item android:title="@string/Development">
             <menu>
+                <item android:id="@+id/report_bug"
+                    android:icon="@drawable/ic_report_bug"
+                    android:title="@string/Report_bug" />
                 <item android:id="@+id/source_code"
                     android:icon="@drawable/ic_code"
                     android:title="@string/Source_Code" />
