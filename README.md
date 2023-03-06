@@ -184,6 +184,6 @@ Follow my Github for content
 <br>
 <br>
 <hr>
-<h6 align="center">© Ayush Agnihotri 2022 
+<h6 align="center">© Ayush Agnihotri 2023 
 <br>
 All Rights Reserved</h6>
