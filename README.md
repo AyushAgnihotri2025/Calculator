@@ -17,11 +17,6 @@
   </ol>
 </details>
 
-
-
-
-
-
 ## 🔗 Download the App <a name = "download"></a>
 
 <a href="https://play.google.com/store/apps/details?id=com.mrayush.calculator"><img src="https://cdn.mrayush.me/img/dev/Google_Play_Store_badge.png" width="20%" /></a>
@@ -184,6 +179,6 @@ Follow my Github for content
 <br>
 <br>
 <hr>
-<h6 align="center">© Ayush Agnihotri 2023 
+<h6 align="center">© Ayush Agnihotri 2023
 <br>
 All Rights Reserved</h6>
