@@ -49,5 +49,7 @@ dependencies {
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+  //gif libraries for splash screen
+  implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.28'
 
 }
