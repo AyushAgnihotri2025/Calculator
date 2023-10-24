@@ -1002,7 +1002,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Check", value.length.toString())
                 var value2: String = value.substring(value.length - 3, value.length)
                 Log.d("Check", value2)
-                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")) {
+                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")|| value2.equals("3.14")) {
 
                 }
             } else {
@@ -1031,6 +1031,8 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             var value : String = calculatorDisplayNonMock.text.toString()
+            if (value.length==1)
+                clearDisplay()
             if (value.length >= 3){
                 Log.d("Check",value.length.toString())
                 var value2 : String = value.substring(value.length-3,value.length)
@@ -1038,6 +1040,8 @@ class MainActivity : AppCompatActivity() {
                 if (value2.equals("sin")||value2.equals("cos")||value2.equals("tan")) {
                     value = value.substring(0,value.length-3)
                     calculatorDisplayNonMock.setText(value)
+                    if(value.isEmpty())
+                        clearDisplay()
                 }
             }
             else {
