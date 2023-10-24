@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
 
     // load DayNight actually
     private fun daynight(){
-        vibration()
+//        vibration()
         val swtch: Switch? = findViewById(R.id.daynight)
 
         // Load the state of the switch from SharedPreferences
@@ -207,8 +207,10 @@ class MainActivity : AppCompatActivity() {
         swtch?.setOnCheckedChangeListener { compoundButton, b ->
             if (compoundButton is Switch && compoundButton.isChecked) {
                 setDayNight("yes")
+                vibration()
             } else {
                 setDayNight("no")
+                vibration()
             }
 
             // Save the state of the switch to SharedPreferences
@@ -1018,9 +1020,20 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             var value : String = calculatorDisplayNonMock.text.toString()
-            if (value.length > 0){
-                value = value.substring(0,value.length-1)
-                calculatorDisplayNonMock.setText(value)
+            if (value.length >= 3){
+                Log.d("Check",value.length.toString())
+                var value2 : String = value.substring(value.length-3,value.length)
+                Log.d("Check",value2)
+                if (value2.equals("sin")||value2.equals("cos")||value2.equals("tan")) {
+                    value = value.substring(0,value.length-3)
+                    calculatorDisplayNonMock.setText(value)
+                }
+            }
+            else {
+                if (value.length > 0) {
+                    value = value.substring(0, value.length - 1)
+                    calculatorDisplayNonMock.setText(value)
+                }
             }
         }
 
