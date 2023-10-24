@@ -851,6 +851,7 @@ class MainActivity : AppCompatActivity() {
         logButton.setOnClickListener{
             vibration()
             onClickSound()
+            Log.d("log",calculatorDisplayNonMock.text.toString())
             checkOutputScreen(second_val = false, check_ans=false)
             isAvailableToOperate(Operation.log)
         }
@@ -995,18 +996,28 @@ class MainActivity : AppCompatActivity() {
         plusAndMinusButton.setOnClickListener {
             vibration()
             onClickSound()
-            checkOutputScreen(screen = false, first_val = false, check_ans=false)
-            if (calculatorDisplayNonMock.text.toString()
-                    .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
-            ) {
-                firstProcessingNumber =
-                    +calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble() * -1
-                calculatorDisplayNonMock.text =
-                    if ((floor(firstProcessingNumber) == ceil(firstProcessingNumber)))
-                        firstProcessingNumber
-                            .toString().replace(".0", "")
-                    else
-                        firstProcessingNumber.toString()
+            checkOutputScreen(screen = false, first_val = false, check_ans = false)
+            var value: String = calculatorDisplayNonMock.text.toString()
+            if (value.length >= 3) {
+                Log.d("Check", value.length.toString())
+                var value2: String = value.substring(value.length - 3, value.length)
+                Log.d("Check", value2)
+                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")) {
+
+                }
+            } else {
+                if (calculatorDisplayNonMock.text.toString()
+                        .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
+                ) {
+                    firstProcessingNumber =
+                        +calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble() * -1
+                    calculatorDisplayNonMock.text =
+                        if ((floor(firstProcessingNumber) == ceil(firstProcessingNumber)))
+                            firstProcessingNumber
+                                .toString().replace(".0", "")
+                        else
+                            firstProcessingNumber.toString()
+                }
             }
         }
 
