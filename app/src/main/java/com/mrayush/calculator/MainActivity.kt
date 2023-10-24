@@ -53,7 +53,6 @@ import kotlin.math.*
 
 
 class MainActivity : AppCompatActivity() {
-
     private var operation: Operation = Operation.EMPTY
     private var firstProcessingNumber = 0.0
     private var secondProcessingNumber = 0.0
@@ -96,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.menuButton)
         setSupportActionBar(toolbar)
 
-        val toggle : ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
+        val toggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
 
         drawerlayout.addDrawerListener(toggle)
         toggle.isDrawerIndicatorEnabled = true
@@ -187,6 +186,7 @@ class MainActivity : AppCompatActivity() {
         val DayNight= sharedPreferences.getString("My_DayNight","")
         if (DayNight != null) {
             setDayNight(DayNight)
+
         }
     }
 
@@ -194,15 +194,27 @@ class MainActivity : AppCompatActivity() {
     // load DayNight actually
     private fun daynight(){
         vibration()
-        val swtch: Switch
-        swtch = findViewById(R.id.daynight)
-        swtch.setOnCheckedChangeListener { compoundButton, b ->
-            if(swtch.isChecked) {
+        val swtch: Switch? = findViewById(R.id.daynight)
+
+        // Load the state of the switch from SharedPreferences
+        val sharedPreferences = getSharedPreferences("DayNight", Context.MODE_PRIVATE)
+        val switchState = sharedPreferences.getBoolean("My_Switch", false)
+
+        if (swtch != null && swtch is Switch) {
+            swtch.isChecked = switchState
+        }
+
+        swtch?.setOnCheckedChangeListener { compoundButton, b ->
+            if (compoundButton is Switch && compoundButton.isChecked) {
                 setDayNight("yes")
-            }
-            else {
+            } else {
                 setDayNight("no")
             }
+
+            // Save the state of the switch to SharedPreferences
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("My_Switch", compoundButton.isChecked)
+            editor.apply()
         }
     }
 

@@ -685,7 +685,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.748" />
+            app:layout_constraintGuide_begin="308dp" />
 
         <soup.neumorphism.NeumorphButton
             android:id="@+id/lnButton"
