@@ -866,6 +866,7 @@ class MainActivity : AppCompatActivity() {
         lnButton.setOnClickListener{
             vibration()
             onClickSound()
+            Log.d("ln",calculatorDisplayNonMock.text.toString())
             checkOutputScreen(second_val = false, check_ans=false)
             isAvailableToOperate(Operation.ln)
         }
@@ -997,26 +998,50 @@ class MainActivity : AppCompatActivity() {
             vibration()
             onClickSound()
             checkOutputScreen(screen = false, first_val = false, check_ans = false)
-            var value: String = calculatorDisplayNonMock.text.toString()
-            if (value.length >= 3) {
-                Log.d("Check", value.length.toString())
-                var value2: String = value.substring(value.length - 3, value.length)
-                Log.d("Check", value2)
-                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")|| value2.equals("3.14")) {
-
-                }
-            } else {
-                if (calculatorDisplayNonMock.text.toString()
-                        .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
+            if (calculatorDisplayNonMock.text.toString().isNotEmpty()) {
+                var value: String = calculatorDisplayNonMock.text.toString()
+                var lastElement: String = value.substring(value.length - 1, value.length)
+                if (lastElement.equals("+")
+                    || lastElement.equals("^")
+                    || lastElement.equals("/")
+                    || lastElement.equals("*")
+                    || lastElement.equals("-")
+                    || lastElement.equals("%")
+                    || lastElement.equals("!")
+                    || lastElement.equals("C")
+                    || lastElement.equals("e")
+                    || lastElement.equals("√")
                 ) {
-                    firstProcessingNumber =
-                        +calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble() * -1
-                    calculatorDisplayNonMock.text =
-                        if ((floor(firstProcessingNumber) == ceil(firstProcessingNumber)))
-                            firstProcessingNumber
-                                .toString().replace(".0", "")
-                        else
-                            firstProcessingNumber.toString()
+                    clearDisplay()
+                }
+                else if(value.substring(value.length - 2, value.length).equals("ln"))
+                    clearDisplay()
+
+
+                if (value.length >= 3) {
+                    Log.d("Check", value.length.toString())
+                    var value2: String = value.substring(value.length - 3, value.length)
+                    Log.d("Check", value2)
+                    if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan") || value2.equals(
+                            "3.14"
+                        )
+                    ) {
+
+                    }
+                } else {
+                    if (calculatorDisplayNonMock.text.toString()
+                            .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
+                    ) {
+                        firstProcessingNumber =
+                            +calculatorDisplayNonMock.text.toString().replace(',', '.')
+                                .toDouble() * -1
+                        calculatorDisplayNonMock.text =
+                            if ((floor(firstProcessingNumber) == ceil(firstProcessingNumber)))
+                                firstProcessingNumber
+                                    .toString().replace(".0", "")
+                            else
+                                firstProcessingNumber.toString()
+                    }
                 }
             }
         }
@@ -1033,16 +1058,27 @@ class MainActivity : AppCompatActivity() {
             var value : String = calculatorDisplayNonMock.text.toString()
             if (value.length==1)
                 clearDisplay()
-            if (value.length >= 3){
-                Log.d("Check",value.length.toString())
-                var value2 : String = value.substring(value.length-3,value.length)
-                Log.d("Check",value2)
-                if (value2.equals("sin")||value2.equals("cos")||value2.equals("tan")) {
-                    value = value.substring(0,value.length-3)
+            if (value.length == 3) {
+                Log.d("Check", value.length.toString())
+                var value2: String = value.substring(value.length - 3, value.length)
+                Log.d("Check", value2)
+                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")) {
+                    value = value.substring(0, value.length - 3)
                     calculatorDisplayNonMock.setText(value)
-                    if(value.isEmpty())
+                    if (value.isEmpty())
                         clearDisplay()
                 }
+            }
+            else if (value.length == 4){
+                 var value2 = value.substring(value.length-4,value.length)
+                if(value2.equals("3.14"))
+                    value = value.substring(0,value.length-4)
+                calculatorDisplayNonMock.setText(value)
+                if(value.isEmpty())
+                    clearDisplay()
+
+
+
             }
             else {
                 if (value.length > 0) {
