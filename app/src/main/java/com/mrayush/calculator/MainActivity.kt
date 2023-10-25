@@ -1067,7 +1067,7 @@ class MainActivity : AppCompatActivity() {
                     clearDisplay()
             }
             else {
-                if (value.length > 0) {
+                if (value.isNotEmpty()) {
                     value = value.substring(0, value.length - 1)
                     calculatorDisplayNonMock.setText(value)
                 }
