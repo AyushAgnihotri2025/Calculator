@@ -23,13 +23,14 @@ class AboutUs : AppCompatActivity() {
             .setCustomFont("museo.ttf")
             .setImage(R.mipmap.ic_launcher)
             .setDescription(getString(R.string.appDescription))
-            .addItem(Element().setTitle("Current Version : "+getString(R.string.appVersion)).setGravity(Gravity.CENTER).setOnClickListener {
-                Toast.makeText(
-                    this@AboutUs,
-                    "Current version of App is : " + getString(R.string.appVersion),
-                    Toast.LENGTH_LONG
-                ).show()
-            })
+            .addItem(Element().setTitle("Current Version : "+getString(R.string.appVersion)).setGravity(Gravity.CENTER))
+//            .setOnClickListener {
+//                Toast.makeText(
+//                    this@AboutUs,
+//                    "Current version of App is : " + getString(R.string.appVersion),
+//                    Toast.LENGTH_LONG
+//                ).show()
+//            }
             .addGroup("CONNECT WITH US!")
             .addEmail("mrayushcontact@gmail.com")
             .addWebsite("https://calculator.mrayush.me")
@@ -50,13 +51,13 @@ class AboutUs : AppCompatActivity() {
         copyright.title = copyrightString
         copyright.iconDrawable = R.drawable.ic_copyright
         copyright.gravity = Gravity.CENTER
-        copyright.onClickListener = View.OnClickListener {
-            Toast.makeText(
-                this@AboutUs,
-                copyrightString,
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+//        copyright.onClickListener = View.OnClickListener {
+//            Toast.makeText(
+//                this@AboutUs,
+//                copyrightString,
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
         return copyright
     }
 }

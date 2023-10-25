@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.FileProvider
+import androidx.core.text.isDigitsOnly
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -53,7 +54,6 @@ import kotlin.math.*
 
 
 class MainActivity : AppCompatActivity() {
-
     private var operation: Operation = Operation.EMPTY
     private var firstProcessingNumber = 0.0
     private var secondProcessingNumber = 0.0
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.menuButton)
         setSupportActionBar(toolbar)
 
-        val toggle : ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
+        val toggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
 
         drawerlayout.addDrawerListener(toggle)
         toggle.isDrawerIndicatorEnabled = true
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.chooseLanguage -> showChangeLanguage()
                 R.id.report_bug -> ReportBug()
             }
-            closeDrawer()
+//            closeDrawer()
             false
         }
 
@@ -187,22 +187,37 @@ class MainActivity : AppCompatActivity() {
         val DayNight= sharedPreferences.getString("My_DayNight","")
         if (DayNight != null) {
             setDayNight(DayNight)
+
         }
     }
 
 
     // load DayNight actually
     private fun daynight(){
-        vibration()
-        val swtch: Switch
-        swtch = findViewById(R.id.daynight)
-        swtch.setOnCheckedChangeListener { compoundButton, b ->
-            if(swtch.isChecked) {
+//        vibration()
+        val swtch: Switch? = findViewById(R.id.daynight)
+
+        // Load the state of the switch from SharedPreferences
+        val sharedPreferences = getSharedPreferences("DayNight", Context.MODE_PRIVATE)
+        val switchState = sharedPreferences.getBoolean("My_Switch", false)
+
+        if (swtch != null && swtch is Switch) {
+            swtch.isChecked = switchState
+        }
+
+        swtch?.setOnCheckedChangeListener { compoundButton, b ->
+            if (compoundButton is Switch && compoundButton.isChecked) {
                 setDayNight("yes")
-            }
-            else {
+                vibration()
+            } else {
                 setDayNight("no")
+                vibration()
             }
+
+            // Save the state of the switch to SharedPreferences
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("My_Switch", compoundButton.isChecked)
+            editor.apply()
         }
     }
 
@@ -212,11 +227,9 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
         if(daynightMode=="yes"){
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_on), Toast.LENGTH_SHORT).show()
         }
         else{
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            Toast.makeText(this@MainActivity, getString(R.string.Night_Mode_off), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -316,7 +329,7 @@ class MainActivity : AppCompatActivity() {
         sourceCode.setOnClickListener {
             onClickSound()
             vibration()
-            val URL : String = "https://github.com/AyushAgnihotri2025/Calculator"
+            val URL = "https://github.com/AyushAgnihotri2025/Calculator"
             val browserIntent = Intent(Intent.ACTION_VIEW)
             browserIntent.data = Uri.parse(URL)
             startActivity(browserIntent)
@@ -839,6 +852,7 @@ class MainActivity : AppCompatActivity() {
         logButton.setOnClickListener{
             vibration()
             onClickSound()
+            Log.d("log",calculatorDisplayNonMock.text.toString())
             checkOutputScreen(second_val = false, check_ans=false)
             isAvailableToOperate(Operation.log)
         }
@@ -853,6 +867,7 @@ class MainActivity : AppCompatActivity() {
         lnButton.setOnClickListener{
             vibration()
             onClickSound()
+            Log.d("ln",calculatorDisplayNonMock.text.toString())
             checkOutputScreen(second_val = false, check_ans=false)
             isAvailableToOperate(Operation.ln)
         }
@@ -983,18 +998,55 @@ class MainActivity : AppCompatActivity() {
         plusAndMinusButton.setOnClickListener {
             vibration()
             onClickSound()
-            checkOutputScreen(screen = false, first_val = false, check_ans=false)
-            if (calculatorDisplayNonMock.text.toString()
-                    .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
-            ) {
-                firstProcessingNumber =
-                    +calculatorDisplayNonMock.text.toString().replace(',', '.').toDouble() * -1
-                calculatorDisplayNonMock.text =
-                    if ((floor(firstProcessingNumber) == ceil(firstProcessingNumber)))
-                        firstProcessingNumber
-                            .toString().replace(".0", "")
-                    else
-                        firstProcessingNumber.toString()
+            checkOutputScreen(screen = false, first_val = false, check_ans = false)
+
+//            if(!calculatorDisplayNonMock.text.isDigitsOnly())
+
+            if (calculatorDisplayNonMock.text.toString().isNotEmpty()) {
+                var value: String = calculatorDisplayNonMock.text.toString()
+                var lastElement: String = value.substring(value.length - 1, value.length)
+                if (lastElement.equals("+")
+                    || lastElement.equals("^")
+                    || lastElement.equals("/")
+                    || lastElement.equals("*")
+                    || lastElement.equals("-")
+                    || lastElement.equals("%")
+                    || lastElement.equals("!")
+                    || lastElement.equals("C")
+                    || lastElement.equals("e")
+                    || lastElement.equals("√")
+                ) {
+                    clearDisplay()
+                }
+                else if (value.length >= 3) {
+                    Log.d("Check", value.length.toString())
+                    var value2: String = value.substring(value.length - 3, value.length)
+                    Log.d("Check", value2)
+                    if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan") || value2.equals(
+                            "3.14"
+                        )
+                    ) {
+
+
+                    }
+                }
+                else if(calculatorDisplayNonMock.text.isDigitsOnly()){
+                    if (calculatorDisplayNonMock.text.toString()
+                            .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
+                    ) {
+                        firstProcessingNumber =
+                            +calculatorDisplayNonMock.text.toString().replace(',', '.')
+                                .toDouble() * -1
+                        calculatorDisplayNonMock.text =
+                            if ((floor(firstProcessingNumber) == ceil(firstProcessingNumber)))
+                                firstProcessingNumber
+                                    .toString().replace(".0", "")
+                            else
+                                firstProcessingNumber.toString()
+                    }
+                }
+                else if(value.substring(value.length - 2, value.length).equals("ln"))
+                    clearDisplay()
             }
         }
 
@@ -1008,9 +1060,35 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             vibration()
             var value : String = calculatorDisplayNonMock.text.toString()
-            if (value.length > 0){
-                value = value.substring(0,value.length-1)
+            if (value.length==1)
+                clearDisplay()
+            if (value.length == 3) {
+                Log.d("Check", value.length.toString())
+                var value2: String = value.substring(value.length - 3, value.length)
+                Log.d("Check", value2)
+                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")) {
+                    value = value.substring(0, value.length - 3)
+                    calculatorDisplayNonMock.setText(value)
+                    if (value.isEmpty())
+                        clearDisplay()
+                }
+            }
+            else if (value.length == 4){
+                 var value2 = value.substring(value.length-4,value.length)
+                if(value2.equals("3.14"))
+                    value = value.substring(0,value.length-4)
                 calculatorDisplayNonMock.setText(value)
+                if(value.isEmpty())
+                    clearDisplay()
+
+
+
+            }
+            else {
+                if (value.length > 0) {
+                    value = value.substring(0, value.length - 1)
+                    calculatorDisplayNonMock.setText(value)
+                }
             }
         }
 
