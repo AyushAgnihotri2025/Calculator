@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.FileProvider
+import androidx.core.text.isDigitsOnly
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -998,6 +999,9 @@ class MainActivity : AppCompatActivity() {
             vibration()
             onClickSound()
             checkOutputScreen(screen = false, first_val = false, check_ans = false)
+
+//            if(!calculatorDisplayNonMock.text.isDigitsOnly())
+
             if (calculatorDisplayNonMock.text.toString().isNotEmpty()) {
                 var value: String = calculatorDisplayNonMock.text.toString()
                 var lastElement: String = value.substring(value.length - 1, value.length)
@@ -1014,11 +1018,7 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     clearDisplay()
                 }
-                else if(value.substring(value.length - 2, value.length).equals("ln"))
-                    clearDisplay()
-
-
-                if (value.length >= 3) {
+                else if (value.length >= 3) {
                     Log.d("Check", value.length.toString())
                     var value2: String = value.substring(value.length - 3, value.length)
                     Log.d("Check", value2)
@@ -1027,8 +1027,10 @@ class MainActivity : AppCompatActivity() {
                         )
                     ) {
 
+
                     }
-                } else {
+                }
+                else if(calculatorDisplayNonMock.text.isDigitsOnly()){
                     if (calculatorDisplayNonMock.text.toString()
                             .isNotEmpty() && calculatorDisplayNonMock.text.toString() != "-"
                     ) {
@@ -1043,6 +1045,8 @@ class MainActivity : AppCompatActivity() {
                                 firstProcessingNumber.toString()
                     }
                 }
+                else if(value.substring(value.length - 2, value.length).equals("ln"))
+                    clearDisplay()
             }
         }
 
