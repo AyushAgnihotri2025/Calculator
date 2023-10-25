@@ -1075,8 +1075,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         piButton.setOnClickListener {
-            onClickSound()
             vibration()
+            onClickSound()
             if(operation != Operation.EMPTY) {
                 if (firstProcessingNumber == 0.0) {
                     calculatorDisplayNonMock.setText(getOperatorSymbol(operation.toString()) + "3.14")
