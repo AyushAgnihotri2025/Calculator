@@ -579,24 +579,12 @@ class MainActivity : AppCompatActivity() {
                             .toString().replace(".0", "")
                     else
                         calculateExpression().toString()
-//                 val rnd = ans.toInt()
-//                 val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
-//                calculatorDisplayNonMock.text =
-//                    if (ans.length > 9)
-//                        "OVERFLOW"
-//                    else
-//                        ans
+
+                calculatorDisplayNonMock.setText(calculateExpression().toString())
+                Log.d("overflow",calculateExpression().toString())
+
                 if (ans.length > 9){
-//                    var alertBuilder = AlertDialog.Builder(this)
-//                    is_errored_text = true
-//                    clearDisplay(true)
-//                    alertBuilder.setTitle("Answer Overflow")
-//                        .setMessage("Answer is : "+ans)
-//                        .setCancelable(true)
-//                        .setPositiveButton("Ok"){dialogInterface, it ->
-//                            dialogInterface.cancel()
-//                        }
-//                        .show()
+
                     val number : Double = ans.toDouble()
 
                     val alertBuilder = AlertDialog.Builder(this)
@@ -1018,7 +1006,7 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     clearDisplay()
                 }
-                else if (value.length >= 3) {
+                else if (value.length >= 3 && !calculatorDisplayNonMock.text.isDigitsOnly()) {
                     Log.d("Check", value.length.toString())
                     var value2: String = value.substring(value.length - 3, value.length)
                     Log.d("Check", value2)
@@ -1062,27 +1050,21 @@ class MainActivity : AppCompatActivity() {
             var value : String = calculatorDisplayNonMock.text.toString()
             if (value.length==1)
                 clearDisplay()
-            if (value.length == 3) {
-                Log.d("Check", value.length.toString())
-                var value2: String = value.substring(value.length - 3, value.length)
-                Log.d("Check", value2)
-                if (value2.equals("sin") || value2.equals("cos") || value2.equals("tan")) {
+            if (value.length == 3 && ( value.substring(value.length - 3, value.length).equals("sin")||
+                        value.substring(value.length - 3, value.length).equals("cos")||
+                        value.substring(value.length - 3, value.length).equals("tan"))) {
+
                     value = value.substring(0, value.length - 3)
                     calculatorDisplayNonMock.setText(value)
                     if (value.isEmpty())
                         clearDisplay()
-                }
+
             }
-            else if (value.length == 4){
-                 var value2 = value.substring(value.length-4,value.length)
-                if(value2.equals("3.14"))
+            else if (value.length == 4 && value.substring(value.length-4,value.length).equals("3.14")){
                     value = value.substring(0,value.length-4)
                 calculatorDisplayNonMock.setText(value)
                 if(value.isEmpty())
                     clearDisplay()
-
-
-
             }
             else {
                 if (value.length > 0) {
