@@ -988,7 +988,7 @@ class MainActivity : AppCompatActivity() {
             onClickSound()
             checkOutputScreen(screen = false, first_val = false, check_ans = false)
 
-//            if(!calculatorDisplayNonMock.text.isDigitsOnly())
+
 
             if (calculatorDisplayNonMock.text.toString().isNotEmpty()) {
                 var value: String = calculatorDisplayNonMock.text.toString()
