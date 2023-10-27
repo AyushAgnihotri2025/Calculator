@@ -20,6 +20,7 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }
     }
+
     private fun initializeMainScreen(onInitializationComplete: () -> Unit) {
         // Simulate initialization tasks (you should replace this with your actual tasks)
         Handler(Looper.getMainLooper()).postDelayed({
