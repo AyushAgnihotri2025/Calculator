@@ -5,6 +5,7 @@ import android.app.ActionBar
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
@@ -45,8 +46,10 @@ import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
+import com.mrayush.calculator.screens.DataScreen
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.data_screen.textView3
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -70,7 +73,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appUpdateManager : AppUpdateManager
     private var player : MediaPlayer?=null
     private var darkmode = false
-    private val operators = charArrayOf('/', '*', '%', '-', '+', 'l', 'o', 'g', 'n', '!', '^', 'C', '√', 's', 'i', 'n', 'c', 'o', 't', 'a', 'e')
+    private val operators = charArrayOf('/', '*', '%', '-', '+', 'l', 'o', 'g', 'n', '!', '^', 'C', '√', 's', 'i', 'n', 'c', 'o', 't', 'a', 'e','m','d')
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -95,6 +98,8 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.navigation_menu)
         toolbar = findViewById(R.id.menuButton)
         setSupportActionBar(toolbar)
+
+
 
         val toggle = ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_open, R.string.navigation_close)
 
@@ -275,6 +280,7 @@ class MainActivity : AppCompatActivity() {
         val aboutUsIntent = Intent(this@MainActivity, AboutUs::class.java)
         startActivity(aboutUsIntent)
     }
+
 
     private fun portFolioIntent(){
         onClickSound()
@@ -513,8 +519,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun equalsButtonOnclick() {
         try {
+
+            val dbHelper = CalculatorDatabaseHelper(this)
+            val db = dbHelper.writableDatabase
+
+
+
             if(operation == Operation.log || operation == Operation.sqrt || operation == Operation.sin || operation == Operation.cos
-                || operation == Operation.tan || operation == Operation.ln || operation == Operation.e)
+                || operation == Operation.tan || operation == Operation.ln || operation == Operation.e||operation==Operation.inv)
             {
                 val ans =
                     if ((floor(calculateExpression()) == ceil(calculateExpression())))
@@ -524,8 +536,18 @@ class MainActivity : AppCompatActivity() {
                         calculateExpression().toString()
                 calculatorDisplayNonMock.text = ans
 
+                val contentValues = ContentValues().apply {
+                    put("first_number", firstProcessingNumber)
+                    put("operation", getOperatorSymbol(operation.name))
+                    put("second_number", secondProcessingNumber)
+                    put("equals","=")
+                    put("result",ans.toDouble())
+                }
+                db.insert("calculations", null, contentValues)
+
                 firstProcessingNumber = calculateExpression()
                 secondProcessingNumber = 0.0
+
                 operation = Operation.EMPTY
             }
 
@@ -537,14 +559,21 @@ class MainActivity : AppCompatActivity() {
                     else
                         calculateExpression().toString()
                 calculatorDisplayNonMock.text = ans
-
+                val contentValues = ContentValues().apply {
+                    put("first_number", firstProcessingNumber)
+                    put("operation", getOperatorSymbol(operation.name))
+                    put("second_number", secondProcessingNumber)
+                    put("equals","=")
+                    put("result",ans.toDouble())
+                }
+                db.insert("calculations", null, contentValues)
                 firstProcessingNumber = calculateExpression()
                 secondProcessingNumber = 0.0
                 operation = Operation.EMPTY
             }
 
             if (operation == Operation.DVD || operation == Operation.MUL || operation == Operation.POW || operation == Operation.PLUS
-                || operation == Operation.MINUS || operation == Operation.nCr || operation == Operation.PERCENT)
+                || operation == Operation.MINUS || operation == Operation.nCr || operation == Operation.PERCENT||operation == Operation.mod)
             {
                 if (secondProcessingNumber == 0.0 && operation == Operation.DVD) {
                     val alertBuilder = AlertDialog.Builder(this)
@@ -567,7 +596,14 @@ class MainActivity : AppCompatActivity() {
                     // val rnd = ans.toInt()
                     // val ans2 = (round(rnd.toDouble() * 1000.0)/1000.0).toString()
                     calculatorDisplayNonMock.text = ans
-
+                    val contentValues = ContentValues().apply {
+                        put("first_number", firstProcessingNumber)
+                        put("operation", getOperatorSymbol(operation.name))
+                        put("second_number", secondProcessingNumber)
+                        put("equals","=")
+                        put("result",ans.toDouble())
+                    }
+                    db.insert("calculations", null, contentValues)
                     firstProcessingNumber = calculateExpression()
                     secondProcessingNumber = 0.0
                     operation = Operation.EMPTY
@@ -595,11 +631,26 @@ class MainActivity : AppCompatActivity() {
                             dialogInterface.cancel()
                         }
                         .show()
-
+                    val contentValues = ContentValues().apply {
+                        put("first_number", firstProcessingNumber)
+                        put("operation", getOperatorSymbol(operation.name))
+                        put("second_number", secondProcessingNumber)
+                        put("equals","=")
+                        put("result",ans.toDouble())
+                    }
+                    db.insert("calculations", null, contentValues)
                     val scientificNotation = String.format("%.2e", number)
                     calculatorDisplayNonMock.text = scientificNotation
 
                 } else {
+                    val contentValues = ContentValues().apply {
+                        put("first_number", firstProcessingNumber)
+                        put("operation", getOperatorSymbol(operation.name))
+                        put("second_number", secondProcessingNumber)
+                        put("equals","=")
+                        put("result",ans.toDouble())
+                    }
+                    db.insert("calculations", null, contentValues)
                     firstProcessingNumber = calculateExpression()
                     secondProcessingNumber = 0.0
                     operation = Operation.EMPTY
@@ -676,6 +727,8 @@ class MainActivity : AppCompatActivity() {
             Operation.tan -> (Math.round((tan(Math.toRadians(secondProcessingNumber)))*100000000).toDouble()/100000000)
             Operation.e-> (2.7182818284.pow(secondProcessingNumber)* 100000000).roundToLong()
                 .toDouble() / 100000000
+
+
             else -> firstProcessingNumber
         }
     }
@@ -743,7 +796,8 @@ class MainActivity : AppCompatActivity() {
             "sin" -> "sin"
             "cos" -> "cos"
             "tan" -> "tan"
-            "e" -> "e"
+            "e" -> "e^"
+
             else -> throw IllegalArgumentException("Invalid operation: $operation")
         }
     }
@@ -836,7 +890,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         clearDisplay()
+        val history=findViewById<Button>(R.id.HistoryButton)
+        history.setOnClickListener {
+            Log.d("MainActivity","moving to Data section")
+             val intent = Intent(this@MainActivity,  DataScreen::class.java)
+          //    dataScreen()
+              startActivity(intent)
 
+        }
         logButton.setOnClickListener{
             vibration()
             onClickSound()
@@ -975,6 +1036,7 @@ class MainActivity : AppCompatActivity() {
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PLUS)
         }
+
 
         percentButton.setOnClickListener {
             vibration()

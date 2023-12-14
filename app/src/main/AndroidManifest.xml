@@ -15,6 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -28,9 +30,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".screens.DataScreen" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

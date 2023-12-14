@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.mrayush.calculator.screens.DataScreen
 import com.mrayush.calculator.screens.FirstScreen
 import com.mrayush.calculator.screens.SecondScreen
 import com.mrayush.calculator.screens.ThirdScreen
@@ -23,8 +24,7 @@ class OnBoardingFragment : Fragment() {
         val fragmentList = arrayListOf<Fragment>(
             FirstScreen(),
             SecondScreen(),
-            ThirdScreen()
-        )
+            ThirdScreen())
 
 //        val adapter = ViewPagerAdapter(
 //            fragmentList,
