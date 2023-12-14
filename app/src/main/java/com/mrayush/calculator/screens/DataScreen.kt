@@ -37,6 +37,7 @@ dataScreen()
         val db = dbHelper.readableDatabase
 
         val cursor = db.rawQuery("SELECT * FROM calculations", null)
+        setupBackButton()
 
         val calculations = mutableListOf<String>()
         while (cursor.moveToNext()) {
@@ -46,7 +47,6 @@ dataScreen()
             val equalIndex = cursor.getColumnIndex("equals")
             val resultIndex = cursor.getColumnIndex("result")
             delete()
-
             // Check if all required columns are present in the current row
             if (firstNumberIndex >= 0 && operationIndex >= 0 && secondNumberIndex >= 0&&equalIndex>=0&&resultIndex>=0) {
                 var firstNumber = cursor.getDouble(firstNumberIndex)
@@ -57,7 +57,6 @@ dataScreen()
                 val equals = cursor.getString(equalIndex)
                 val result = cursor.getDouble(resultIndex)
                 var calculationString=""
-                setupBackButton()
 if(countZeros(firstNumber.toString())!==firstNumber.toString().length-1)
 {
 
