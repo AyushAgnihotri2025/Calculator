@@ -727,6 +727,8 @@ class MainActivity : AppCompatActivity() {
             Operation.tan -> (Math.round((tan(Math.toRadians(secondProcessingNumber)))*100000000).toDouble()/100000000)
             Operation.e-> (2.7182818284.pow(secondProcessingNumber)* 100000000).roundToLong()
                 .toDouble() / 100000000
+            Operation.mod->(firstProcessingNumber%secondProcessingNumber)
+            Operation.inv->{1.0/firstProcessingNumber }
 
 
             else -> firstProcessingNumber
@@ -797,7 +799,8 @@ class MainActivity : AppCompatActivity() {
             "cos" -> "cos"
             "tan" -> "tan"
             "e" -> "e^"
-
+            "mod"->"mod"
+            "inv"->"^-1"
             else -> throw IllegalArgumentException("Invalid operation: $operation")
         }
     }
@@ -1036,7 +1039,18 @@ class MainActivity : AppCompatActivity() {
             checkOutputScreen(first_val=false, check_ans=false)
             isAvailableToOperate(Operation.PLUS)
         }
-
+        moduloButton.setOnClickListener{
+            vibration()
+            onClickSound()
+            checkOutputScreen(first_val=false, check_ans=false)
+            isAvailableToOperate(Operation.mod)
+        }
+        inverseButton.setOnClickListener{
+            onClickSound()
+            vibration()
+            checkOutputScreen(first_val = false,second_val = false, check_ans=false)
+            isAvailableToOperate(Operation.inv)
+        }
 
         percentButton.setOnClickListener {
             vibration()
