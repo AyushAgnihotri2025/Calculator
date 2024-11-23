@@ -2,10 +2,6 @@ package com.mrayush.calculator.screens
 
 import CalculationAdapter
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,16 +9,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mrayush.calculator.CalculatorDatabaseHelper
 import com.mrayush.calculator.R
-import kotlinx.android.synthetic.main.data_screen.deleteButton
+import com.mrayush.calculator.databinding.ActivityMainBinding
 import java.lang.Math.abs
 
 
 class DataScreen : AppCompatActivity() {
-
+//    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Initialize binding
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
         setContentView(R.layout.data_screen)
-dataScreen()
+        dataScreen()
         val next = findViewById<TextView>(R.id.textView3)
         next.setOnClickListener {
             // Handle click event for the TextView
