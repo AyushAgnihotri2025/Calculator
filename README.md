@@ -15,7 +15,7 @@
       <li><a href="#license">License</a></li>
       <li><a href="#conduct">Code of Conduct</a></li>
       <li><a href="#support">Support</a></li>
-  </ol>
+  </ol> 
 </details>
 
 ## 🔗 Download the App <a name = "download"></a>

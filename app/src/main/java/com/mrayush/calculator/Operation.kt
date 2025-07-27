@@ -16,5 +16,7 @@ enum class Operation {
     sin,
     cos,
     tan,
-    e
+    e,
+    mod,
+    inv
 }
