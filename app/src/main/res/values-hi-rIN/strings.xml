@@ -2,7 +2,7 @@
 <resources>
     <string name="appName">Calculator</string>
     <string name="appInnappName">Calculator</string>
-    <string name="appVersion">v1.2.0</string>
+    <string name="appVersion">v1.4.0</string>
     <string name="calculatorDisplayMock">8888888888</string>
     <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
     <string name="calculatorAc">AC</string>

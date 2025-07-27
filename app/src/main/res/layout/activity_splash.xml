@@ -28,8 +28,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Calculator"
-            android:textSize="30sp"
+            android:text="@string/appName"
+            android:textSize="36sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="20dp"
