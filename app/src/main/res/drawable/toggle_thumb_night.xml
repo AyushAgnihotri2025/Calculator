@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark mode thumb: dark keycap with a glowing neon moon glyph. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size android:width="28dp" android:height="28dp" />
+            <gradient
+                android:angle="270"
+                android:startColor="@color/keyNumberTop"
+                android:endColor="@color/keyNumberBottom" />
+            <stroke android:width="1dp" android:color="#2643F08A" />
+        </shape>
+    </item>
+    <item
+        android:width="15dp"
+        android:height="15dp"
+        android:gravity="center"
+        android:drawable="@drawable/ic_moon" />
+</layer-list>

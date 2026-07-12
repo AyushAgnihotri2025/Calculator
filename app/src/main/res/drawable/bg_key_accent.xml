@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hero "=" keycap: bright gradient, rim highlight. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#40FFFFFF">
+    <item>
+        <layer-list>
+            <item android:top="3dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/keyAccentShadow" />
+                    <corners android:radius="19dp" />
+                </shape>
+            </item>
+            <item android:bottom="4dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:angle="270"
+                        android:startColor="@color/keyAccentTop"
+                        android:endColor="@color/keyAccentBottom" />
+                    <corners android:radius="19dp" />
+                    <stroke android:width="1dp" android:color="#4DFFFFFF" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="19dp" />
+        </shape>
+    </item>
+</ripple>

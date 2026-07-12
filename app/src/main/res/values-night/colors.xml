@@ -1,23 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+  <!-- ============================================================
+       NIGHT  —  "Cyber 8-bit": a glowing neon device.
+       Dark glass screen, phosphor-green digits & legends.
+       ============================================================ -->
+  <color name="colorPrimary">#0F1114</color>
+  <color name="colorPrimaryDark">#070809</color>
+  <color name="colorAccent">#43F08A</color>
+  <color name="windowBackground">#0F1114</color>
+  <color name="textColorPrimary">#E9EEF3</color>
+  <color name="surface">#171B20</color>
 
-    <color name="white">#0C0C0C</color>
-    <color name="displayGradientStart">#808F6A</color>
-    <color name="displayGradientEnd">#808F6A</color>
-    <color name="colorPrimaryDark">#FBF9F9</color>
-    <color name="windowBackground">#1f1f1f</color>
-    <color name="color_White">#0C0C0C</color>
-    <color name="colorLightBackground">#0C0C0C</color>
-    <color name="colorWhite">#0C0C0C</color>
-    <color name="draw">#FFFFFF</color>
-    <color name="displayMockFontColor">#7E8B6A</color>
-    <color name="textColorPrimary">#E5E1E1</color>
-    <color name="popupcolor">#232222</color>
-    <color name="displayNonMockFontColor">#C4C403</color>
-    <color name="colorCardDT">#E5E1E1</color>
-    <color name="colorCardDTlight">#1E3D67</color>
-    <color name="acBackspaceColor">#ED1F10</color>
-    <color name="colorBackgroundGrayLight">@color/colorPrimaryDarkTheme</color>
+  <!-- Body gradient -->
+  <color name="bodyGradientTop">#13161A</color>
+  <color name="bodyGradientBottom">#090A0C</color>
 
+  <!-- LCD screen -->
+  <color name="displayGradientStart">#103019</color>
+  <color name="displayGradientEnd">#07130C</color>
+  <color name="displayBezel">#04100A</color>
+  <color name="displayGlassHighlight">#1F35F0A0</color>
+  <color name="displayNonMockFontColor">#5BF08A</color>
+  <color name="displayMockFontColor">#2843F08A</color>
+  <color name="displayGlow">#9943F08A</color>
+  <color name="displayStatus">#995BF08A</color>
+
+  <!-- Number keycaps -->
+  <color name="keyNumberTop">#272D35</color>
+  <color name="keyNumberBottom">#1A1E24</color>
+  <color name="keyNumberShadow">#090B0E</color>
+  <color name="keyNumberText">#E9EEF3</color>
+  <color name="keyNumberFace">#20242B</color>
+
+  <!-- Function keycaps -->
+  <color name="keyFunctionTop">#1C2027</color>
+  <color name="keyFunctionBottom">#14171C</color>
+  <color name="keyFunctionShadow">#070809</color>
+  <color name="keyFunctionText">#8A97A4</color>
+  <color name="keyFunctionFace">#191D22</color>
+
+  <!-- Operator keycaps -->
+  <color name="keyOperatorTop">#2C333C</color>
+  <color name="keyOperatorBottom">#1F242B</color>
+  <color name="keyOperatorShadow">#090B0E</color>
+  <color name="keyOperatorText">#5BF08A</color>
+
+  <!-- Accent (equals) keycap -->
+  <color name="keyAccentTop">#4CF593</color>
+  <color name="keyAccentBottom">#2FD673</color>
+  <color name="keyAccentShadow">#149657</color>
+  <color name="keyAccentText">#052310</color>
+  <color name="keyAccentFace">#38DE7D</color>
+
+  <color name="keyHighlight">#26FFFFFF</color>
+  <color name="keyRipple">#26FFFFFF</color>
+  <color name="keyGlow">#8043F08A</color>
+
+  <color name="acBackspaceColor">#FF6B4A</color>
+
+  <!-- Soft translucent accent for chips, toggles & selected states -->
+  <color name="accentSoft">#3343F08A</color>
+  <color name="accentSofter">#1A43F08A</color>
+  <color name="hairline">#1FFFFFFF</color>
+
+  <!-- Legacy names kept in sync for dark mode -->
+  <color name="white">#0C0C0C</color>
+  <color name="color_White">#0C0C0C</color>
+  <color name="colorLightBackground">#0C0C0C</color>
+  <color name="colorWhite">#0C0C0C</color>
+  <color name="draw">#FFFFFF</color>
+  <color name="popupcolor">#171B20</color>
+  <color name="colorCardDT">#E9EEF3</color>
+  <color name="colorCardDTlight">#2C333C</color>
+  <color name="colorGrayText">#8A97A4</color>
+  <color name="colorGreen">#43F08A</color>
+  <color name="colorBackgroundGrayLight">#171B20</color>
 </resources>

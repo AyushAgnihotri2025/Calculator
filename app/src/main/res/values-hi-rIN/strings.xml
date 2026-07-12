@@ -41,7 +41,7 @@
     <string name="navigation_close">नेविगेशन ड्रावर बंद करें</string>
 
     <string name="popup_heading">धन्यवाद</string>
-    <string name="popup_text">आपके प्यार के लिए बहुत-बहुत धन्यवाद जिसने हमारे ऐप को कुछ ही महीनों में प्लेस्टोर पर 500+ डाउनलोड का आंकड़ा पार करने में मदद की। इसलिए, स्रोत कोड अब GitHub पर सार्वजनिक है। ऐप को अपने दोस्तों के साथ साझा करें यदि यह आपकी मदद करता है या इसके स्रोत कोड ने आपको कुछ नया सीखने में मदद की है।</string>
+    <string name="popup_text">Calculator को Play Store पर 10K+ डाउनलोड तक पहुँचाने के लिए आपका बहुत-बहुत धन्यवाद! ऐप के 500+ डाउनलोड पार करने पर हमने इसका सोर्स कोड सार्वजनिक कर दिया था, और यह आज भी सभी के देखने, सीखने और योगदान देने के लिए GitHub पर उपलब्ध है।</string>
 
     <string name="share_subject">अरे, जाओ और इस शानदार कैलकुलेटर को देखो।</string>
     <string name="share_text">अरे, मुझे अभी-अभी एक अद्भुत और खूबसूरती से डिज़ाइन किया गया कैलकुलेटर मिला है। मैं आपको एक बार, इसे देखने की सलाह दूंगा। \n\n
@@ -76,4 +76,19 @@
     <string name="choose_language">भाषा चुनें</string>
     <string name="Report_bug">रिपोर्ट बग</string>
     <string name="scroll_down_for_rating">↓ ↓ हमें रेट करने के लिए नीचे स्क्रॉल करना होगा ↓ ↓</string>
+
+    <!-- Drawer + About redesign -->
+    <string name="appTagline">स्मार्ट. सरल. सुंदर.</string>
+    <string name="about_connect">हमसे जुड़ें</string>
+    <string name="about_contact_title">संपर्क करें</string>
+    <string name="about_contact_subtitle">mrayushcontact@gmail.com</string>
+    <string name="about_website_title">हमारी वेबसाइट देखें</string>
+    <string name="about_website_subtitle">calculator.mrayush.me</string>
+    <string name="about_youtube_title">यूट्यूब पर देखें</string>
+    <string name="about_youtube_subtitle">ट्यूटोरियल और अपडेट</string>
+    <string name="about_playstore_title">प्ले स्टोर पर रेट करें</string>
+    <string name="about_playstore_subtitle">आपकी समीक्षा हमें प्रेरित करती है</string>
+    <string name="about_instagram_title">इंस्टाग्राम पर फॉलो करें</string>
+    <string name="about_instagram_subtitle">@AyushAgnihotri2025</string>
+    <string name="about_made_with">कॉपीराइट Ayush Agnihotri</string>
 </resources>

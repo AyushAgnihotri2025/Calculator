@@ -5,13 +5,155 @@
     <item name="colorAccent">@color/colorAccent</item>
     <item name="android:windowBackground">@color/windowBackground</item>
     <item name="android:textColorPrimary">@color/textColorPrimary</item>
-    <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+    <item name="android:navigationBarColor">@color/colorPrimary</item>
+    <item name="android:statusBarColor">@color/colorPrimary</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
   </style>
+
+  <!-- ================= Calculator keys ================= -->
+  <style name="Key">
+    <item name="android:fontFamily">@font/montserrat</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:gravity">center</item>
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:stateListAnimator">@null</item>
+    <item name="android:minWidth">0dp</item>
+    <item name="android:minHeight">0dp</item>
+    <item name="android:padding">0dp</item>
+    <item name="android:layout_margin">5dp</item>
+  </style>
+
+  <style name="Key.Number">
+    <item name="android:background">@drawable/bg_key_number</item>
+    <item name="android:textColor">@color/keyNumberText</item>
+    <item name="android:textSize">25sp</item>
+  </style>
+
+  <style name="Key.Function">
+    <item name="android:background">@drawable/bg_key_function</item>
+    <item name="android:textColor">@color/keyFunctionText</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:layout_margin">4dp</item>
+  </style>
+
+  <style name="Key.Operator">
+    <item name="android:background">@drawable/bg_key_operator</item>
+    <item name="android:textColor">@color/keyOperatorText</item>
+    <item name="android:textSize">25sp</item>
+    <item name="android:shadowColor">@color/keyGlow</item>
+    <item name="android:shadowDx">0</item>
+    <item name="android:shadowDy">0</item>
+    <item name="android:shadowRadius">9</item>
+  </style>
+
+  <style name="Key.Accent">
+    <item name="android:background">@drawable/bg_key_accent</item>
+    <item name="android:textColor">@color/keyAccentText</item>
+    <item name="android:textSize">27sp</item>
+  </style>
+
+  <!-- LCD display digits -->
+  <style name="DisplayText">
+    <item name="android:fontFamily">@font/digitalnumbers_normal</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:letterSpacing">0.05</item>
+    <item name="android:scaleY">1.2</item>
+    <item name="android:gravity">end|center_vertical</item>
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:textSize">44sp</item>
+  </style>
+
+  <!-- Small LCD status tags (fx-8BIT / DEG) -->
+  <style name="DisplayStatus">
+    <item name="android:fontFamily">@font/montserrat</item>
+    <item name="android:textAllCaps">true</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">10sp</item>
+    <item name="android:letterSpacing">0.18</item>
+    <item name="android:textColor">@color/displayStatus</item>
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:maxLines">1</item>
+  </style>
+
+  <!-- ================= Navigation drawer ================= -->
+  <style name="NavItemText" parent="TextAppearance.AppCompat.Body2">
+    <item name="android:fontFamily">@font/montserrat</item>
+    <item name="android:textSize">15sp</item>
+    <item name="android:letterSpacing">0.01</item>
+    <item name="android:textStyle">normal</item>
+  </style>
+
+  <style name="NavSubheaderText" parent="TextAppearance.AppCompat.Body2">
+    <item name="android:fontFamily">@font/museo_bold</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:letterSpacing">0.12</item>
+    <item name="android:textAllCaps">true</item>
+  </style>
+
+  <!-- ================= About page "Connect" rows ================= -->
+  <style name="AboutRow">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginBottom">10dp</item>
+    <item name="android:orientation">horizontal</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:background">@drawable/bg_about_row</item>
+    <item name="android:padding">12dp</item>
+    <item name="android:clickable">true</item>
+    <item name="android:focusable">true</item>
+  </style>
+
+  <style name="AboutRowChip">
+    <item name="android:layout_width">44dp</item>
+    <item name="android:layout_height">44dp</item>
+    <item name="android:background">@drawable/bg_icon_chip</item>
+  </style>
+
+  <style name="AboutRowIcon">
+    <item name="android:layout_width">22dp</item>
+    <item name="android:layout_height">22dp</item>
+    <item name="android:layout_gravity">center</item>
+  </style>
+
+  <style name="AboutRowText">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:layout_marginStart">14dp</item>
+    <item name="android:orientation">vertical</item>
+  </style>
+
+  <style name="AboutRowTitle">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:fontFamily">@font/montserrat</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/textColorPrimary</item>
+  </style>
+
+  <style name="AboutRowSubtitle">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">1dp</item>
+    <item name="android:fontFamily">@font/montserrat</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/colorGrayText</item>
+  </style>
+
+  <style name="AboutRowChevron">
+    <item name="android:layout_width">20dp</item>
+    <item name="android:layout_height">20dp</item>
+    <item name="android:src">@drawable/ic_chevron_right</item>
+  </style>
+
+  <!-- ================= Legacy styles (kept for compatibility) ================= -->
   <style name="CustomDisplayAngleAppearance">
     <item name="neumorph_cornerFamily">rounded</item>
     <item name="neumorph_cornerSize">10dp</item>
-
   </style>
+
   <style name="DialogAnimation">
     <item name="android:windowEnterAnimation">@anim/slide_right</item>
     <item name="android:windowExitAnimation">@anim/slide_left</item>
@@ -24,10 +166,10 @@
   </style>
 
   <style name="operatorButton" parent="textStyle">
-    <item name="android:textColor">@color/colorPrimary</item>
+    <item name="android:textColor">@color/keyOperatorText</item>
   </style>
 
   <style name="numericButton" parent="textStyle">
-    <item name="android:textColor">@color/colorCardDT</item>
+    <item name="android:textColor">@color/keyNumberText</item>
   </style>
 </resources>

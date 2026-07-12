@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M12,7.5A4.5,4.5 0,1 0,12 16.5A4.5,4.5 0,1 0,12 7.5z" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M12,1.5m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M12,22.5m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M1.5,12m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M22.5,12m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M4.65,4.65m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M19.35,19.35m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M4.65,19.35m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+    <path
+        android:fillColor="@color/keyAccentText"
+        android:pathData="M19.35,4.65m-1.1,0a1.1,1.1 0,1 1,2.2 0a1.1,1.1 0,1 1,-2.2 0" />
+</vector>

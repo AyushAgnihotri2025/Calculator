@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Glassy, bezelled LCD: dark outer frame around a recessed glowing screen. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer bezel frame -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/displayBezel" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+
+    <!-- Recessed screen (gradient glass) -->
+    <item
+        android:left="7dp"
+        android:top="7dp"
+        android:right="7dp"
+        android:bottom="7dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="@color/displayGradientStart"
+                android:endColor="@color/displayGradientEnd" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+
+    <!-- Top glass highlight sheen -->
+    <item
+        android:left="7dp"
+        android:top="7dp"
+        android:right="7dp"
+        android:bottom="7dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="18dp" />
+            <stroke android:width="1dp" android:color="@color/displayGlassHighlight" />
+        </shape>
+    </item>
+
+</layer-list>

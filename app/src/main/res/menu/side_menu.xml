@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none">
         <item android:id="@+id/developer"
             android:icon="@drawable/ic_laptop_mac"
             android:title="@string/Developer" />
@@ -23,7 +23,7 @@
             android:icon="@drawable/ic_choose_language"
             android:title="@string/choose_language" />
     </group>
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none">
         <item android:title="@string/Development">
             <menu>
                 <item android:id="@+id/report_bug"

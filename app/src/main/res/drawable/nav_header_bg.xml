@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Header panel: subtle device-body gradient with a warm accent wash and a
+     hairline base that separates it from the menu list. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="315"
+                android:startColor="@color/accentSofter"
+                android:centerColor="@color/surface"
+                android:endColor="@color/surface" />
+            <corners android:topRightRadius="28dp" />
+        </shape>
+    </item>
+    <!-- accent hairline along the bottom edge -->
+    <item android:top="0dp" android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <stroke android:width="1dp" android:color="@color/hairline" />
+        </shape>
+    </item>
+</layer-list>

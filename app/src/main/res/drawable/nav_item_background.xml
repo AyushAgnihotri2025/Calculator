@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Floating pill for each drawer row: inset from the edges, amber/neon wash
+     when selected, with a visible ripple on touch (mask defines its bounds). -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="10dp"
+    android:insetTop="3dp"
+    android:insetRight="10dp"
+    android:insetBottom="3dp">
+    <ripple android:color="@color/keyRipple">
+        <item android:id="@android:id/mask">
+            <shape android:shape="rectangle">
+                <solid android:color="@android:color/white" />
+                <corners android:radius="14dp" />
+            </shape>
+        </item>
+        <item>
+            <selector>
+                <item android:state_checked="true">
+                    <shape android:shape="rectangle">
+                        <solid android:color="@color/accentSoft" />
+                        <corners android:radius="14dp" />
+                        <stroke android:width="1dp" android:color="@color/accentSoft" />
+                    </shape>
+                </item>
+                <item>
+                    <shape android:shape="rectangle">
+                        <solid android:color="@android:color/transparent" />
+                        <corners android:radius="14dp" />
+                    </shape>
+                </item>
+            </selector>
+        </item>
+    </ripple>
+</inset>

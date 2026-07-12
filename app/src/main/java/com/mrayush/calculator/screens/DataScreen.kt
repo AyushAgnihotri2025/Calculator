@@ -1,10 +1,12 @@
 package com.mrayush.calculator.screens
 
 import CalculationAdapter
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mrayush.calculator.CalculatorDatabaseHelper
@@ -16,6 +18,7 @@ import java.lang.Math.abs
 class DataScreen : AppCompatActivity() {
 //    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        applySavedTheme()
         super.onCreate(savedInstanceState)
         // Initialize binding
 //        binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,6 +32,18 @@ class DataScreen : AppCompatActivity() {
     }
     fun countZeros(input: String): Int {
         return input.count { it == '0' }
+    }
+
+    // Mirror MainActivity's day/night preference so History matches the chosen
+    // theme (localNightMode is per-activity, so it isn't inherited).
+    private fun applySavedTheme() {
+        val dayNight = getSharedPreferences("DayNight", MODE_PRIVATE)
+            .getString("My_DayNight", "")
+        delegate.localNightMode = if (dayNight == "yes") {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
     }
     private fun dataScreen()
     {

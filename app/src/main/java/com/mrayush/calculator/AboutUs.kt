@@ -1,68 +1,88 @@
 package com.mrayush.calculator
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.Context.MODE_PRIVATE
+import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
-import android.widget.Switch
-import android.widget.Toast
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.mrayush.calculator.databinding.ActivityMainBinding
-
-import mehdi.sakout.aboutpage.AboutPage
-import mehdi.sakout.aboutpage.Element
-import java.util.*
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.net.toUri
+import java.util.Calendar
 
 class AboutUs : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val email = "mrayushcontact@gmail.com"
+    private val website = "https://calculator.mrayush.me"
+    private val youtubeChannel = "UCxFLhp74KkKk-l9gw1_ggcQ"
+    private val instagramUser = "AyushAgnihotri2025"
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        applySavedTheme()
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         setContentView(R.layout.about_us)
-        Element()
-        val aboutPage: View = AboutPage(this)
-            .isRTL(false)
-            .setCustomFont("museo.ttf")
-            .setImage(R.mipmap.ic_launcher)
-            .setDescription(getString(R.string.appDescription))
-            .addItem(Element().setTitle("Current Version : "+getString(R.string.appVersion)).setGravity(Gravity.CENTER))
-//            .setOnClickListener {
-//                Toast.makeText(
-//                    this@AboutUs,
-//                    "Current version of App is : " + getString(R.string.appVersion),
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-            .addGroup("CONNECT WITH US!")
-            .addEmail("mrayushcontact@gmail.com")
-            .addWebsite("https://calculator.mrayush.me")
-            .addYoutube("UCxFLhp74KkKk-l9gw1_ggcQ") //Enter your youtube link here (replace with my channel link)
-            .addPlayStore(packageName) //Replace all this with your package name
-            .addInstagram("AyushAgnihotri2025") //Your instagram id
-            .addItem(createCopyright())
-            .create()
-        setContentView(aboutPage)
-    }
 
-    private fun createCopyright(): Element {
-        val copyright = Element()
-        @SuppressLint("DefaultLocale") val copyrightString = String.format(
+        findViewById<ImageButton>(R.id.backButton).setOnClickListener { finish() }
+
+        findViewById<LinearLayout>(R.id.rowEmail).setOnClickListener { sendEmail() }
+        findViewById<LinearLayout>(R.id.rowWebsite).setOnClickListener { openUrl(website) }
+        findViewById<LinearLayout>(R.id.rowYoutube).setOnClickListener {
+            openUrl("https://www.youtube.com/channel/$youtubeChannel")
+        }
+        findViewById<LinearLayout>(R.id.rowPlayStore).setOnClickListener { openPlayStore() }
+        findViewById<LinearLayout>(R.id.rowInstagram).setOnClickListener {
+            openUrl("https://www.instagram.com/$instagramUser")
+        }
+
+        @SuppressLint("DefaultLocale")
+        val copyright = String.format(
             "Copyright %d by Ayush Agnihotri",
             Calendar.getInstance()[Calendar.YEAR]
         )
-        copyright.title = copyrightString
-        copyright.iconDrawable = R.drawable.ic_copyright
-        copyright.gravity = Gravity.CENTER
-//        copyright.onClickListener = View.OnClickListener {
-//            Toast.makeText(
-//                this@AboutUs,
-//                copyrightString,
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-        return copyright
+        findViewById<TextView>(R.id.copyrightText).text = copyright
+    }
+
+    // Mirror MainActivity's day/night preference so the About page matches the
+    // theme the user picked (localNightMode is per-activity, so it isn't inherited).
+    private fun applySavedTheme() {
+        val dayNight = getSharedPreferences("DayNight", MODE_PRIVATE)
+            .getString("My_DayNight", "")
+        delegate.localNightMode = if (dayNight == "yes") {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+    }
+
+    private fun sendEmail() {
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = "mailto:".toUri()
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+            putExtra(Intent.EXTRA_SUBJECT, "Calculator App")
+        }
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            openUrl("mailto:$email")
+        }
+    }
+
+    private fun openPlayStore() {
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, "market://details?id=$packageName".toUri()))
+        } catch (e: ActivityNotFoundException) {
+            openUrl("https://play.google.com/store/apps/details?id=$packageName")
+        }
+    }
+
+    private fun openUrl(url: String) {
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+        } catch (e: ActivityNotFoundException) {
+            // No handler available; silently ignore.
+        }
     }
 }

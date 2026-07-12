@@ -2,7 +2,7 @@
     <string name="appName">Calculator</string>
     <string name="appInnappName">Calculator</string>
     <string name="appVersion">v1.4.0</string>
-    <string name="calculatorDisplayMock">8888888888</string>
+    <string name="calculatorDisplayMock">888888888888</string>
     <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
     <string name="calculatorAc">AC</string>
     <string name="calculatorPlusAndMinus">+ / -</string>
@@ -40,7 +40,7 @@
     <string name="navigation_close">Close Navigation Drawer</string>
 
     <string name="popup_heading">Thanks.</string>
-    <string name="popup_text">Thanks a lot for your love that helped our app to cross 500+ downloads on PlayStore within few months. So, the Source Code is now public on GitHub. Share the app with your friends if it helped you or it\'s source code helped you learn anything new.</string>
+    <string name="popup_text">Thank you for helping Calculator reach 10K+ downloads on the Play Store! We made the source code public when the app crossed 500+ downloads, and it remains available on GitHub for everyone to explore, learn from, and contribute to.</string>
 
     <string name="share_subject">Hey, Go and check out this cool calculator.</string>
     <string name="share_text">Hey, I have just found an amazing and beautifully designed Calculator. I will recommend you to go and check it out once.\n\n
@@ -75,5 +75,20 @@
     <string name="choose_language">Choose Language</string>
     <string name="Report_bug">Report Bug</string>
     <string name="scroll_down_for_rating">↓ ↓ Scroll Down to Rate Us ↓ ↓</string>
+
+    <!-- Drawer + About redesign -->
+    <string name="appTagline">Smart. Simple. Beautiful.</string>
+    <string name="about_connect">Connect with us</string>
+    <string name="about_contact_title">Contact us</string>
+    <string name="about_contact_subtitle">mrayushcontact@gmail.com</string>
+    <string name="about_website_title">Visit our website</string>
+    <string name="about_website_subtitle">calculator.mrayush.me</string>
+    <string name="about_youtube_title">Watch us on YouTube</string>
+    <string name="about_youtube_subtitle">Tutorials &amp; updates</string>
+    <string name="about_playstore_title">Rate us on the Play Store</string>
+    <string name="about_playstore_subtitle">Your reviews keep us going</string>
+    <string name="about_instagram_title">Follow us on Instagram</string>
+    <string name="about_instagram_subtitle">@AyushAgnihotri2025</string>
+    <string name="about_made_with">Copyright by Ayush Agnihotri</string>
 </resources>
 
