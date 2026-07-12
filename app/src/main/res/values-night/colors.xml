@@ -31,7 +31,6 @@
   <color name="keyNumberBottom">#1A1E24</color>
   <color name="keyNumberShadow">#090B0E</color>
   <color name="keyNumberText">#E9EEF3</color>
-  <color name="keyNumberFace">#20242B</color>
 
   <!-- Function keycaps -->
   <color name="keyFunctionTop">#1C2027</color>
@@ -64,16 +63,7 @@
   <color name="accentSofter">#1A43F08A</color>
   <color name="hairline">#1FFFFFFF</color>
 
-  <!-- Legacy names kept in sync for dark mode -->
-  <color name="white">#0C0C0C</color>
-  <color name="color_White">#0C0C0C</color>
-  <color name="colorLightBackground">#0C0C0C</color>
-  <color name="colorWhite">#0C0C0C</color>
   <color name="draw">#FFFFFF</color>
   <color name="popupcolor">#171B20</color>
-  <color name="colorCardDT">#E9EEF3</color>
-  <color name="colorCardDTlight">#2C333C</color>
   <color name="colorGrayText">#8A97A4</color>
-  <color name="colorGreen">#43F08A</color>
-  <color name="colorBackgroundGrayLight">#171B20</color>
 </resources>

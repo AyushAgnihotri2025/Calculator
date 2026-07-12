@@ -45,7 +45,6 @@ import androidx.core.os.LocaleListCompat
 import androidx.core.text.isDigitsOnly
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.gms.tasks.Task
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
@@ -56,9 +55,6 @@ import com.google.android.play.core.install.model.ActivityResult
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
-import com.google.android.play.core.review.ReviewInfo
-import com.google.android.play.core.review.ReviewManager
-import com.google.android.play.core.review.ReviewManagerFactory
 import com.mrayush.calculator.databinding.ActivityMainBinding
 import com.mrayush.calculator.screens.DataScreen
 import java.io.File
@@ -86,9 +82,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var drawerlayout: DrawerLayout
     lateinit var navigationView: NavigationView
     lateinit var toolbar: Toolbar
-    private var btnShowDialog: Button? = null
-    private var reviewInfo: ReviewInfo? = null
-    private var manager: ReviewManager? = null
     private val TAG = "Update_Button"
     private var UPDATE_REQUEST_CODE = 100
     private lateinit var appUpdateManager: AppUpdateManager
@@ -135,22 +128,15 @@ class MainActivity : AppCompatActivity() {
         outState.putBoolean("darkmode", darkmode)
     }
 
-    /* if (savedInstanceState != null) {
-              darkmode = savedInstanceState.getBoolean("darkmode")
-          }
-  */
     override fun onCreate(savedInstanceState: Bundle?) {
         loadDayNight()
         super.onCreate(savedInstanceState)
 
-        // Initialize binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        setContentView(R.layout.activity_main)
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
         initListeners()
-        activateReviewInfo()
 
         drawerlayout = findViewById(R.id.menu_drawer)
         navigationView = findViewById(R.id.navigation_menu)
@@ -173,7 +159,6 @@ class MainActivity : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             drawerlayout.closeDrawer(GravityCompat.START, false)
             when (menuItem.itemId) {
-                // R.id.preferences -> darkmode()
                 R.id.developer -> {
                     portFolioIntent(); true
                 }
@@ -268,14 +253,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun restartAfterLocaleChange() {
-        val restartIntent = Intent(this, MainActivity::class.java)
-        startActivity(restartIntent)
-        finish()
-        @Suppress("DEPRECATION")
-        overridePendingTransition(0, 0)
-    }
-
     private fun createSidebarModal(): View {
         dismissSidebarModal()
         val content = findViewById<FrameLayout>(android.R.id.content)
@@ -326,7 +303,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("DayNight", MODE_PRIVATE)
         val switchState = sharedPreferences.getBoolean("My_Switch", false)
 
-        if (swtch != null && swtch is Switch) {
+        if (swtch != null) {
             swtch.isChecked = switchState
         }
 
@@ -444,42 +421,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /* private fun darkmode() {
-        vibration()
-        val share: Button
-        val swtch: Switch
-        val close: ImageButton
-        val dialog = Dialog(this@MainActivity)
-        dialog.setContentView(R.layout.darkmodeprompt)
-        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        val window = dialog.window
-        window!!.setGravity(Gravity.CENTER)
-        window.attributes.windowAnimations = R.style.DialogAnimation
-        swtch = dialog.findViewById(R.id.modebtn)
-        close = dialog.findViewById(R.id.closePopup)
-        swtch.isChecked = darkmode
-        swtch.setOnCheckedChangeListener { compoundButton, b ->
-            darkmode = !darkmode
-            if(darkmode) {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Toast.makeText(this@MainActivity, "Its on", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Toast.makeText(this@MainActivity, "Its off", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        close.setOnClickListener {
-            vibration()
-            dialog.dismiss()
-        }
-        dialog.setCancelable(true)
-        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT)
-        dialog.show()
-
-    }
-*/
     private fun aboutUsIntent() {
         onClickSound()
         vibration()
@@ -549,31 +490,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun closeDrawer() {
-        val drawer = findViewById<DrawerLayout>(R.id.menu_drawer)
-        drawer.closeDrawer(GravityCompat.START)
-    }
-
-
     private fun openPlayStore() {
         val playStoreIntent = Intent(
             Intent.ACTION_VIEW,
             Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())
         )
         startActivity(playStoreIntent)
-    }
-
-    private fun activateReviewInfo() {
-        manager = ReviewManagerFactory.create(this)
-        val managerInfoTask: Task<ReviewInfo> = manager!!.requestReviewFlow()
-        managerInfoTask.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                reviewInfo = task.result
-            } else {
-                Toast.makeText(this, getString(R.string.Error_In_Rating), Toast.LENGTH_SHORT).show()
-                openPlayStore()
-            }
-        }
     }
 
     private fun startReviewFlow() {
@@ -590,19 +512,6 @@ class MainActivity : AppCompatActivity() {
             ("https://play.google.com/store/apps/details?id=" + getPackageName()).toUri()
         )
         startActivity(playStoreIntent)
-
-        // For future reference
-
-//        if (reviewInfo != null) {
-//            val flow: Task<Void> = manager!!.launchReviewFlow(this, reviewInfo!!)
-//            flow.addOnCompleteListener { task ->
-//                Toast.makeText(
-//                    this,
-//                    getString(R.string.Rating_successfull_message),
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//        }
     }
 
     private fun update(is_force_update: Boolean) {
@@ -874,21 +783,6 @@ class MainActivity : AppCompatActivity() {
             clearDisplay(true)
         }
         is_ans_showed = true
-    }
-
-    fun extractDouble(input: String): Double? {
-        val regex = Regex("-?\\d+\\.?\\d*") // regular expression for matching numerical values
-        val matchResult = regex.find(input)
-        return matchResult?.value?.toDoubleOrNull()
-    }
-
-    fun extractFirstNumberAfterOperator(str: String, searchStr: String): Double? {
-        val escapedSearchStr =
-            Regex.escape(searchStr) // escape search string to avoid regex syntax errors
-        val regex =
-            Regex("$escapedSearchStr.*?(\\d+\\.?\\d*)") // regular expression for matching a numerical value after a search string
-        val matchResult = regex.find(str)
-        return matchResult?.groupValues?.getOrNull(1)?.toDoubleOrNull()
     }
 
     private fun clearDisplay(

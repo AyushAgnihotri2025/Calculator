@@ -3,20 +3,12 @@
     <string name="appInnappName">Calculator</string>
     <string name="appVersion">v1.4.0</string>
     <string name="calculatorDisplayMock">888888888888</string>
-    <string name="calculatorDisplayMockCommas">,,,,,,,,,,</string>
     <string name="calculatorAc">AC</string>
-    <string name="calculatorPlusAndMinus">+ / -</string>
     <string name="calculatorPermutation">nCr</string>
-    <string name="calculatorLog">ln</string>
-    <string name="calculatorFactorial">!</string>
-    <string name="calculatorPower">^</string>
     <string name="calculatorPercent">%</string>
     <string name="calculatorDivide">÷</string>
-    <string name="calculatorMultiply">x</string>
-    <string name="calculatorMinus">-</string>
     <string name="calculatorPlus">+</string>
     <string name="calculatorEquals">=</string>
-    <string name="calculatorComma">,</string>
     <string name="calculatorDot">.</string>
     <string name="calculatorNine">9</string>
     <string name="calculatorEight">8</string>
@@ -28,18 +20,9 @@
     <string name="calculatorTwo">2</string>
     <string name="calculatorOne">1</string>
     <string name="calculatorZero">0</string>
-    <string name="title_activity_about">About</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-
     <string name="navigation_open">Open Navigation Drawer</string>
     <string name="navigation_close">Close Navigation Drawer</string>
 
-    <string name="popup_heading">Thanks.</string>
     <string name="popup_text">Thank you for helping Calculator reach 10K+ downloads on the Play Store! We made the source code public when the app crossed 500+ downloads, and it remains available on GitHub for everyone to explore, learn from, and contribute to.</string>
 
     <string name="share_subject">Hey, Go and check out this cool calculator.</string>
@@ -51,10 +34,7 @@
 
     <string name="appDescription">Calculator provides simple and advanced mathematical functions in a beautifully designed app.\n\n
         • Perform basic calculations such as addition, subtraction, multiplication, and division.</string>
-    <string name="menu">Menu</string>
     <string name="close">Close</string>
-    <string name="share">Share App</string>
-    <string name="emoji">Emoji</string>
     <string name="Developer">Developer</string>
     <string name="Source_Code">Source Code</string>
     <string name="Feedback">Feedback</string>
@@ -63,10 +43,6 @@
     <string name="Share">Share</string>
     <string name="About">About</string>
     <string name="About_version">Current version of App is : </string>
-    <string name="Night_Mode_on">Successfully switch to Night Mode.</string>
-    <string name="Night_Mode_off">Successfully switch to Day Mode.</string>
-    <string name="Error_In_Rating">Failed to Rate the app. Opening PlayStore.</string>
-    <string name="Rating_successfull_message">Thank you so much for rating the app.</string>
     <string name="Update_Check">Checking for an update.</string>
     <string name="Already_update">App is already updated UP-TO date.</string>
     <string name="Open_Play_store">Unable to update app from Inside. Opening Google PlayStore.</string>
