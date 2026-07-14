@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/bg_pill_button"
         android:fontFamily="@font/montserrat"
         android:minWidth="0dp"
@@ -20,26 +21,26 @@
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:stateListAnimator="@null"
-        android:text="Back"
+        android:text="@string/back"
         android:textAllCaps="false"
         android:textColor="@color/keyFunctionText"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:fontFamily="@font/museo_bold"
-        android:text="History"
+        android:gravity="center"
+        android:text="@string/history"
         android:textColor="@color/textColorPrimary"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintBottom_toBottomOf="@+id/backButton" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/deleteButton"
@@ -53,13 +54,13 @@
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:stateListAnimator="@null"
-        android:text="Clear"
+        android:text="@string/clear"
         android:textAllCaps="false"
         android:textColor="@color/acBackspaceColor"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintBottom_toBottomOf="@+id/backButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

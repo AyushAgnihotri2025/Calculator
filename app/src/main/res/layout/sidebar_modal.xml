@@ -44,6 +44,9 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/montserrat"
             android:lineSpacingExtra="3dp"
+            android:maxHeight="280dp"
+            android:scrollbars="vertical"
+            android:textIsSelectable="true"
             android:textColor="@color/colorGrayText"
             android:textSize="14sp" />
 
@@ -58,14 +61,14 @@
                 android:id="@+id/sidebarLanguageEnglish"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="English"
+                android:text="@string/language_english"
                 android:textColor="@color/textColorPrimary" />
 
             <RadioButton
                 android:id="@+id/sidebarLanguageHindi"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="हिन्दी"
+                android:text="@string/language_hindi"
                 android:textColor="@color/textColorPrimary" />
         </RadioGroup>
 

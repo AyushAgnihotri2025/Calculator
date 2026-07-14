@@ -13,6 +13,7 @@
         android:fontFamily="@font/montserrat"
         android:paddingHorizontal="18dp"
         android:paddingVertical="16dp"
+        android:textIsSelectable="true"
         android:textColor="@color/textColorPrimary"
         android:textSize="18sp" />
 

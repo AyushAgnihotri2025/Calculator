@@ -67,12 +67,12 @@
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
                     android:stateListAnimator="@null"
-                    android:text="History"
+                    android:text="@string/history"
                     android:textAllCaps="false"
                     android:textColor="@color/keyFunctionText"
                     android:textSize="13sp" />
 
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/daynight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,8 +82,7 @@
                     android:padding="0dp"
                     android:switchMinWidth="54dp"
                     android:thumb="@drawable/toggle_thumb"
-                    android:track="@drawable/toggle_track"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+                    android:track="@drawable/toggle_track" />
             </LinearLayout>
 
             <!-- ============================ LCD display ============================ -->
@@ -94,8 +93,8 @@
                 android:layout_weight="17"
                 android:background="@drawable/bg_display_panel"
                 android:paddingStart="22dp"
-                android:paddingEnd="22dp"
                 android:paddingTop="14dp"
+                android:paddingEnd="22dp"
                 android:paddingBottom="12dp">
 
                 <LinearLayout
@@ -114,7 +113,7 @@
                             style="@style/DisplayStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="fx-8BIT" />
+                            android:text="@string/calculator_model" />
 
                         <View
                             android:layout_width="0dp"
@@ -126,7 +125,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
-                            android:text="DEG" />
+                            android:text="@string/degrees_abbreviation" />
 
                         <ImageView
                             android:layout_width="26dp"
@@ -162,7 +161,7 @@
                             style="@style/DisplayText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:maxLength="12"
+                            android:accessibilityLiveRegion="polite"
                             android:shadowColor="@color/displayGlow"
                             android:shadowDx="0"
                             android:shadowDy="0"
@@ -196,7 +195,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="π" />
+                        android:text="@string/calculator_pi" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/expButton"
@@ -204,7 +203,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="eˣ" />
+                        android:text="@string/calculator_exp" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/sqrt"
@@ -212,7 +211,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="√" />
+                        android:text="@string/calculator_sqrt" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/powerButton"
@@ -220,7 +219,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="xʸ" />
+                        android:text="@string/calculator_power" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/factorialButton"
@@ -228,7 +227,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="n!" />
+                        android:text="@string/calculator_factorial" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/lnButton"
@@ -236,7 +235,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="ln" />
+                        android:text="@string/calculator_ln" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/logButton"
@@ -244,7 +243,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="log" />
+                        android:text="@string/calculator_log" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -259,7 +258,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="sin" />
+                        android:text="@string/calculator_sin" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/cosButton"
@@ -267,7 +266,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="cos" />
+                        android:text="@string/calculator_cos" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/tanButton"
@@ -275,7 +274,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="tan" />
+                        android:text="@string/calculator_tan" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/permutationButton"
@@ -291,7 +290,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="mod" />
+                        android:text="@string/calculator_mod" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/inverseButton"
@@ -299,7 +298,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="1/x" />
+                        android:text="@string/calculator_inverse" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/percentButton"
@@ -341,7 +340,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="⌫"
+                        android:text="@string/calculator_backspace"
                         android:textColor="@color/acBackspaceColor"
                         android:textSize="22sp" />
 
@@ -351,7 +350,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="±"
+                        android:text="@string/calculator_plus_minus"
                         android:textSize="22sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -400,7 +399,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="×" />
+                        android:text="@string/calculator_multiply" />
                 </LinearLayout>
 
                 <!-- Row 3 -->
@@ -440,7 +439,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="−" />
+                        android:text="@string/calculator_minus" />
                 </LinearLayout>
 
                 <!-- Row 4 -->
@@ -516,13 +515,6 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <!-- Kept so MainActivity can iterate the number keys via referencedIds. -->
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/groupOfNumbers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,sixButton,sevenButton,eightButton,nineButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
