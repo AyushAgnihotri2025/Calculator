@@ -1,9 +1,10 @@
+package com.mrayush.calculator
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mrayush.calculator.R
 
 class CalculationAdapter(private val calculations: List<String>) :
     RecyclerView.Adapter<CalculationAdapter.ViewHolder>() {
@@ -14,8 +15,7 @@ class CalculationAdapter(private val calculations: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val calculation = calculations[calculations.size - 1 - position]
-        holder.bind(calculation)
+        holder.bind(calculations[position])
     }
 
     override fun getItemCount(): Int {

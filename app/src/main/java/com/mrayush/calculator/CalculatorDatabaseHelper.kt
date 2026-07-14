@@ -1,16 +1,74 @@
 package com.mrayush.calculator
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class CalculatorDatabaseHelper(context: Context) : SQLiteOpenHelper(context, "calculator.db", null, 1) {
-    // Implement onCreate and onUpgrade methods
+class CalculatorDatabaseHelper(context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+
     override fun onCreate(db: SQLiteDatabase?) {
-        // Create a table for calculations
-        db?.execSQL("CREATE TABLE calculations (id INTEGER PRIMARY KEY AUTOINCREMENT, first_number REAL, operation TEXT, second_number REAL,equals TEXT,result REAL)")
+        db?.execSQL(
+            """
+            CREATE TABLE calculations (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                first_number REAL,
+                operation TEXT NOT NULL,
+                second_number REAL,
+                equals TEXT NOT NULL,
+                result REAL,
+                first_text TEXT,
+                second_text TEXT,
+                result_text TEXT
+            )
+            """.trimIndent()
+        )
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        if (oldVersion < 2) {
+            db?.execSQL("ALTER TABLE calculations ADD COLUMN first_text TEXT")
+            db?.execSQL("ALTER TABLE calculations ADD COLUMN second_text TEXT")
+            db?.execSQL("ALTER TABLE calculations ADD COLUMN result_text TEXT")
+            db?.execSQL(
+                """
+                UPDATE calculations
+                SET first_text = CASE
+                        WHEN first_number IS NULL THEN '' ELSE CAST(first_number AS TEXT) END,
+                    second_text = CASE
+                        WHEN second_number IS NULL THEN '' ELSE CAST(second_number AS TEXT) END,
+                    result_text = CASE
+                        WHEN result IS NULL THEN '' ELSE CAST(result AS TEXT) END
+                """.trimIndent()
+            )
+        }
+    }
+
+    fun insertCalculation(
+        firstText: String,
+        operation: String,
+        secondText: String,
+        resultText: String
+    ) {
+        val values = ContentValues().apply {
+            put("first_text", firstText)
+            put("operation", operation)
+            put("second_text", secondText)
+            put("equals", "=")
+            put("result_text", resultText)
+            firstText.toFiniteDoubleOrNull()?.let { put("first_number", it) }
+            secondText.toFiniteDoubleOrNull()?.let { put("second_number", it) }
+            resultText.toFiniteDoubleOrNull()?.let { put("result", it) }
+        }
+        writableDatabase.insertOrThrow("calculations", null, values)
+    }
+
+    private fun String.toFiniteDoubleOrNull(): Double? =
+        toDoubleOrNull()?.takeIf { it.isFinite() }
+
+    companion object {
+        private const val DATABASE_NAME = "calculator.db"
+        private const val DATABASE_VERSION = 2
     }
 }

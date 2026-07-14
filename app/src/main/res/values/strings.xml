@@ -2,7 +2,7 @@
     <string name="appName">Calculator</string>
     <string name="appInnappName">Calculator</string>
     <string name="appVersion">v1.4.0</string>
-    <string name="calculatorDisplayMock">888888888888</string>
+    <string name="calculatorDisplayMock">8888888888888888</string>
     <string name="calculatorAc">AC</string>
     <string name="calculatorPermutation">nCr</string>
     <string name="calculatorPercent">%</string>
@@ -20,6 +20,23 @@
     <string name="calculatorTwo">2</string>
     <string name="calculatorOne">1</string>
     <string name="calculatorZero">0</string>
+    <string name="calculator_model" translatable="false">fx-8BIT</string>
+    <string name="calculator_pi" translatable="false">π</string>
+    <string name="calculator_exp" translatable="false">eˣ</string>
+    <string name="calculator_sqrt" translatable="false">√</string>
+    <string name="calculator_power" translatable="false">xʸ</string>
+    <string name="calculator_factorial" translatable="false">n!</string>
+    <string name="calculator_ln" translatable="false">ln</string>
+    <string name="calculator_log" translatable="false">log</string>
+    <string name="calculator_sin" translatable="false">sin</string>
+    <string name="calculator_cos" translatable="false">cos</string>
+    <string name="calculator_tan" translatable="false">tan</string>
+    <string name="calculator_mod" translatable="false">mod</string>
+    <string name="calculator_inverse" translatable="false">1/x</string>
+    <string name="calculator_backspace" translatable="false">⌫</string>
+    <string name="calculator_plus_minus" translatable="false">±</string>
+    <string name="calculator_multiply" translatable="false">×</string>
+    <string name="calculator_minus" translatable="false">−</string>
     <string name="navigation_open">Open Navigation Drawer</string>
     <string name="navigation_close">Close Navigation Drawer</string>
 
@@ -49,8 +66,31 @@
     <string name="Update_downloading">An update has just been downloaded.</string>
     <string name="Update_completed">Update successfully cancelled.</string>
     <string name="choose_language">Choose Language</string>
+    <string name="language_english">English</string>
+    <string name="language_hindi">हिन्दी</string>
     <string name="Report_bug">Report Bug</string>
     <string name="scroll_down_for_rating">↓ ↓ Scroll Down to Rate Us ↓ ↓</string>
+    <string name="full_result_title">Full result</string>
+    <string name="full_result_message">This result can’t be displayed in full because of screen-size limitations.\n\nFull answer:\n%1$s</string>
+    <string name="calculator_result">Calculator result</string>
+    <string name="copy">Copy</string>
+    <string name="result_copied">Full result copied</string>
+    <string name="math_error">Math error</string>
+    <string name="error_display">ERROR</string>
+    <string name="error_invalid_number">Enter all required numbers.</string>
+    <string name="error_division_by_zero">This operation cannot divide by zero.</string>
+    <string name="error_domain">This operation is not defined for the entered value.</string>
+    <string name="error_integer_required">This operation requires a whole number.</string>
+    <string name="error_result_too_large">This result is too large to calculate safely.</string>
+    <string name="history">History</string>
+    <string name="back">Back</string>
+    <string name="clear">Clear</string>
+    <string name="clear_history_title">Clear history?</string>
+    <string name="clear_history_message">All saved calculations will be permanently deleted.</string>
+    <string name="delete_all">Delete all</string>
+    <string name="degrees_abbreviation">DEG</string>
+    <string name="restart">RESTART</string>
+    <string name="updating_app">Updating the app.</string>
 
     <!-- Drawer + About redesign -->
     <string name="appTagline">Smart. Simple. Beautiful.</string>
@@ -65,6 +105,6 @@
     <string name="about_playstore_subtitle">Your reviews keep us going</string>
     <string name="about_instagram_title">Follow us on Instagram</string>
     <string name="about_instagram_subtitle">@AyushAgnihotri2025</string>
-    <string name="about_made_with">Copyright by Ayush Agnihotri</string>
+    <string name="about_made_with">Copyright %1$d by Ayush Agnihotri</string>
 </resources>
 
