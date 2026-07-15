@@ -11,5 +11,12 @@
     <item name="android:statusBarColor">@color/colorPrimary</item>
     <item name="android:windowLightStatusBar">false</item>
     <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+    <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
+  </style>
+
+  <!-- Dark dialog panel -->
+  <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:textColorPrimary">@color/textColorPrimary</item>
   </style>
 </resources>

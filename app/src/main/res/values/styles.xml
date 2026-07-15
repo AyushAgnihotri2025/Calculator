@@ -9,6 +9,13 @@
     <item name="android:statusBarColor">@color/colorPrimary</item>
     <item name="android:windowLightStatusBar">true</item>
     <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert</item>
+  </style>
+
+  <!-- AlertDialog -->
+  <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:textColorPrimary">@color/textColorPrimary</item>
   </style>
 
   <!-- ================= Splash (Android 12+ system splash) =================
