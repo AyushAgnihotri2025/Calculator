@@ -27,6 +27,12 @@ enum class CalculationError {
     RESULT_TOO_LARGE
 }
 
+/** Unit used to interpret the input of trigonometric functions. */
+enum class AngleUnit {
+    DEGREES,
+    RADIANS
+}
+
 /**
  * Pure calculator logic. Decimal arithmetic remains exact where the operation permits it.
  * Non-terminating and transcendental results use DECIMAL128 or the precision available from
@@ -42,7 +48,8 @@ object CalculatorEngine {
     fun evaluate(
         operation: Operation,
         firstOperand: String,
-        secondOperand: String
+        secondOperand: String,
+        angleUnit: AngleUnit = AngleUnit.DEGREES
     ): CalculationOutcome {
         return try {
             val first = firstOperand.toBigDecimalOrNull()
@@ -85,13 +92,13 @@ object CalculatorEngine {
                     if (value <= 0.0) null else ln(value)
                 }
                 Operation.sin -> approximateUnary(first, second) {
-                    sin(Math.toRadians(it))
+                    sin(it.toAngleRadians(angleUnit))
                 }
                 Operation.cos -> approximateUnary(first, second) {
-                    cos(Math.toRadians(it))
+                    cos(it.toAngleRadians(angleUnit))
                 }
                 Operation.tan -> approximateUnary(first, second) {
-                    val radians = Math.toRadians(it)
+                    val radians = it.toAngleRadians(angleUnit)
                     if (abs(cos(radians)) < 1e-12) null else tan(radians)
                 }
                 Operation.e -> approximateUnary(first, second) { exp(it) }
@@ -222,6 +229,11 @@ object CalculatorEngine {
 
     private fun unaryOperand(first: BigDecimal?, second: BigDecimal?): BigDecimal? =
         second ?: first
+
+    private fun Double.toAngleRadians(angleUnit: AngleUnit): Double = when (angleUnit) {
+        AngleUnit.DEGREES -> Math.toRadians(this)
+        AngleUnit.RADIANS -> this
+    }
 
     private fun BigDecimal.toBigIntegerExactOrNull(): BigInteger? =
         try {

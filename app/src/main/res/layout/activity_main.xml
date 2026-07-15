@@ -140,10 +140,21 @@
                             android:layout_weight="1" />
 
                         <TextView
+                            android:id="@+id/angleModeToggle"
                             style="@style/DisplayStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:contentDescription="@string/angle_mode_toggle_description"
+                            android:focusable="true"
+                            android:minWidth="34dp"
+                            android:gravity="center"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
                             android:text="@string/degrees_abbreviation" />
 
                         <ImageView

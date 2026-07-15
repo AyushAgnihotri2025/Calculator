@@ -89,6 +89,8 @@
     <string name="clear_history_message">All saved calculations will be permanently deleted.</string>
     <string name="delete_all">Delete all</string>
     <string name="degrees_abbreviation">DEG</string>
+    <string name="radians_abbreviation">RAD</string>
+    <string name="angle_mode_toggle_description">Toggle between degrees and radians</string>
     <string name="restart">RESTART</string>
     <string name="updating_app">Updating the app.</string>
 

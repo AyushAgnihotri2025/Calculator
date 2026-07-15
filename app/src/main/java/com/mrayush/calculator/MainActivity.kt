@@ -69,6 +69,7 @@ import kotlin.math.hypot
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var operation: Operation = Operation.EMPTY
+    private var angleUnit: AngleUnit = AngleUnit.DEGREES
     private var firstOperandText = ""
     private var secondOperandText = ""
     private var lastFullResult = ""
@@ -100,6 +101,8 @@ class MainActivity : AppCompatActivity() {
         private const val STATE_FULL_RESULT = "calculator_full_result"
         private const val STATE_ERROR = "calculator_error"
         private const val STATE_ANSWER_SHOWN = "calculator_answer_shown"
+        private const val PREFS_ANGLE_UNIT = "AngleUnit"
+        private const val KEY_ANGLE_UNIT = "angle_unit"
 
         // Held across the theme-change recreate() so the new screen can
         // circular-reveal itself over a snapshot of the old theme.
@@ -130,6 +133,7 @@ class MainActivity : AppCompatActivity() {
         appUpdateManager = AppUpdateManagerFactory.create(this)
         keepDisplayMockTextSizeAligned()
         initListeners()
+        setupAngleModeToggle()
         restoreCalculatorState(savedInstanceState)
 
         drawerlayout = findViewById(R.id.menu_drawer)
@@ -685,7 +689,8 @@ class MainActivity : AppCompatActivity() {
             val outcome = CalculatorEngine.evaluate(
                 evaluatedOperation,
                 firstOperandText,
-                secondOperandText
+                secondOperandText,
+                angleUnit
             )
         ) {
             is CalculationOutcome.Error -> showCalculationError(outcome.type)
@@ -697,7 +702,14 @@ class MainActivity : AppCompatActivity() {
                             firstText = historyFirst,
                             operation = getOperatorSymbol(evaluatedOperation),
                             secondText = historySecond,
-                            resultText = fullResult
+                            resultText = fullResult,
+                            angleUnit = angleUnit.takeIf {
+                                evaluatedOperation in setOf(
+                                    Operation.sin,
+                                    Operation.cos,
+                                    Operation.tan
+                                )
+                            }
                         )
                     }
                 }.onFailure { exception ->
@@ -953,6 +965,41 @@ class MainActivity : AppCompatActivity() {
             secondOperandText = pi
         }
         renderInput()
+    }
+
+    private fun setupAngleModeToggle() {
+        val savedUnit = getSharedPreferences(PREFS_ANGLE_UNIT, MODE_PRIVATE)
+            .getString(KEY_ANGLE_UNIT, AngleUnit.DEGREES.name)
+        angleUnit = runCatching {
+            AngleUnit.valueOf(savedUnit.orEmpty())
+        }.getOrDefault(AngleUnit.DEGREES)
+        renderAngleMode()
+        binding.angleModeToggle.setOnClickListener {
+            calculatorFeedback()
+            toggleAngleMode()
+        }
+    }
+
+    private fun toggleAngleMode() {
+        angleUnit = if (angleUnit == AngleUnit.DEGREES) {
+            AngleUnit.RADIANS
+        } else {
+            AngleUnit.DEGREES
+        }
+        getSharedPreferences(PREFS_ANGLE_UNIT, MODE_PRIVATE).edit {
+            putString(KEY_ANGLE_UNIT, angleUnit.name)
+        }
+        renderAngleMode()
+    }
+
+    private fun renderAngleMode() {
+        binding.angleModeToggle.setText(
+            if (angleUnit == AngleUnit.RADIANS) {
+                R.string.radians_abbreviation
+            } else {
+                R.string.degrees_abbreviation
+            }
+        )
     }
 
     private fun renderInput() {

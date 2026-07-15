@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mrayush.calculator.AngleUnit
 import com.mrayush.calculator.CalculationAdapter
 import com.mrayush.calculator.CalculatorDatabaseHelper
 import com.mrayush.calculator.R
@@ -60,7 +61,14 @@ class DataScreen : AppCompatActivity() {
 
         val expression = when (operation) {
             "!", "^-1" -> "$first$operation"
-            "log", "ln", "√", "sin", "cos", "tan", "e^" -> "$operation$first"
+            "sin", "cos", "tan" -> {
+                val angleUnit = runCatching {
+                    AngleUnit.valueOf(cursor.stringValue("angle_unit").orEmpty())
+                }.getOrDefault(AngleUnit.DEGREES)
+                val unitSymbol = if (angleUnit == AngleUnit.DEGREES) "°" else " rad"
+                "$operation $first$unitSymbol"
+            }
+            "log", "ln", "√", "e^" -> "$operation$first"
             else -> "$first $operation $second"
         }
         return "$expression = $result"

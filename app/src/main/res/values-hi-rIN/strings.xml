@@ -70,6 +70,8 @@
     <string name="clear_history_message">सभी सहेजी गई गणनाएँ स्थायी रूप से हटा दी जाएँगी।</string>
     <string name="delete_all">सभी हटाएँ</string>
     <string name="degrees_abbreviation">डिग्री</string>
+    <string name="radians_abbreviation">रेडियन</string>
+    <string name="angle_mode_toggle_description">डिग्री और रेडियन के बीच स्विच करें</string>
     <string name="restart">पुनः आरंभ करें</string>
     <string name="updating_app">ऐप अपडेट हो रहा है।</string>
 

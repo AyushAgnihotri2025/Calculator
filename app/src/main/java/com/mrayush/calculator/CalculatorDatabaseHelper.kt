@@ -20,7 +20,8 @@ class CalculatorDatabaseHelper(context: Context) :
                 result REAL,
                 first_text TEXT,
                 second_text TEXT,
-                result_text TEXT
+                result_text TEXT,
+                angle_unit TEXT
             )
             """.trimIndent()
         )
@@ -43,13 +44,24 @@ class CalculatorDatabaseHelper(context: Context) :
                 """.trimIndent()
             )
         }
+        if (oldVersion < 3) {
+            db?.execSQL("ALTER TABLE calculations ADD COLUMN angle_unit TEXT")
+            db?.execSQL(
+                """
+                UPDATE calculations
+                SET angle_unit = 'DEGREES'
+                WHERE operation IN ('sin', 'cos', 'tan')
+                """.trimIndent()
+            )
+        }
     }
 
     fun insertCalculation(
         firstText: String,
         operation: String,
         secondText: String,
-        resultText: String
+        resultText: String,
+        angleUnit: AngleUnit? = null
     ) {
         val values = ContentValues().apply {
             put("first_text", firstText)
@@ -57,6 +69,7 @@ class CalculatorDatabaseHelper(context: Context) :
             put("second_text", secondText)
             put("equals", "=")
             put("result_text", resultText)
+            angleUnit?.let { put("angle_unit", it.name) }
             firstText.toFiniteDoubleOrNull()?.let { put("first_number", it) }
             secondText.toFiniteDoubleOrNull()?.let { put("second_number", it) }
             resultText.toFiniteDoubleOrNull()?.let { put("result", it) }
@@ -69,6 +82,6 @@ class CalculatorDatabaseHelper(context: Context) :
 
     companion object {
         private const val DATABASE_NAME = "calculator.db"
-        private const val DATABASE_VERSION = 2
+        private const val DATABASE_VERSION = 3
     }
 }
