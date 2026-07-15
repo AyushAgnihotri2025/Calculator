@@ -123,7 +123,7 @@
                         android:shadowDx="0"
                         android:shadowDy="0"
                         android:shadowRadius="12"
-                        android:text="@string/splashLcdVersion"
+                        android:text="@string/appVersion"
                         android:textColor="@color/displayNonMockFontColor"
                         android:textSize="20sp" />
                 </FrameLayout>

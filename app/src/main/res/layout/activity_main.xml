@@ -59,7 +59,7 @@
                         android:fontFamily="@font/museo_bold"
                         android:includeFontPadding="false"
                         android:letterSpacing="0.01"
-                        android:text="@string/appInnappName"
+                        android:text="@string/appName"
                         android:textColor="@color/textColorPrimary"
                         android:textSize="22sp" />
 

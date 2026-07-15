@@ -325,7 +325,7 @@ class MainActivity : AppCompatActivity() {
         vibration()
         Toast.makeText(
             this@MainActivity,
-            getString(R.string.About_version) + getString(R.string.appVersion),
+            getString(R.string.About_version, getString(R.string.appVersion)),
             Toast.LENGTH_LONG
         ).show()
     }
