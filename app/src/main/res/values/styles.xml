@@ -11,6 +11,15 @@
     <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
   </style>
 
+  <!-- ================= Splash (Android 12+ system splash) =================
+       Neutralises the OS splash: just a plain background that
+       no app logo, matching our custom splash -->
+  <style name="Theme.App.Splash" parent="Theme.SplashScreen">
+    <item name="windowSplashScreenBackground">@color/windowBackground</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon_transparent</item>
+    <item name="postSplashScreenTheme">@style/AppTheme</item>
+  </style>
+
   <!-- ================= Calculator keys ================= -->
   <style name="Key">
     <item name="android:fontFamily">@font/montserrat</item>

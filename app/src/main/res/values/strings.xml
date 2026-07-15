@@ -2,6 +2,8 @@
     <string name="appName">Calculator</string>
     <string name="appInnappName">Calculator</string>
     <string name="appVersion">v1.4.0</string>
+    <string name="splashLcdVersion" translatable="false">1.4.0</string>
+    <string name="splashBooting">Booting up</string>
     <string name="calculatorDisplayMock">8888888888888888</string>
     <string name="calculatorAc">AC</string>
     <string name="calculatorPermutation">nCr</string>
