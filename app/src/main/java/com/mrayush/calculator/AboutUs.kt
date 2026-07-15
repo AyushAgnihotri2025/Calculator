@@ -1,8 +1,6 @@
 package com.mrayush.calculator
 
-import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
-import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
@@ -37,12 +35,10 @@ class AboutUs : AppCompatActivity() {
             openUrl("https://www.instagram.com/$instagramUser")
         }
 
-        @SuppressLint("DefaultLocale")
-        val copyright = String.format(
-            "Copyright %d by Ayush Agnihotri",
+        findViewById<TextView>(R.id.copyrightText).text = getString(
+            R.string.about_made_with,
             Calendar.getInstance()[Calendar.YEAR]
         )
-        findViewById<TextView>(R.id.copyrightText).text = copyright
     }
 
     // Mirror MainActivity's day/night preference so the About page matches the
@@ -61,7 +57,7 @@ class AboutUs : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             data = "mailto:".toUri()
             putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
-            putExtra(Intent.EXTRA_SUBJECT, "Calculator App")
+            putExtra(Intent.EXTRA_SUBJECT, getString(R.string.appName))
         }
         try {
             startActivity(intent)
