@@ -460,11 +460,15 @@ class MainActivity : AppCompatActivity() {
         getSharedPreferences("DayNight", MODE_PRIVATE).edit {
             putString("My_DayNight", daynightMode)
         }
-        if (daynightMode == "yes") {
-            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
-        } else {
-            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
-        }
+
+        // Apply app-wide so every activity
+        AppCompatDelegate.setDefaultNightMode(
+            if (daynightMode == "yes") {
+                AppCompatDelegate.MODE_NIGHT_YES
+            } else {
+                AppCompatDelegate.MODE_NIGHT_NO
+            }
+        )
     }
 
     private fun aboutUsIntent() {
