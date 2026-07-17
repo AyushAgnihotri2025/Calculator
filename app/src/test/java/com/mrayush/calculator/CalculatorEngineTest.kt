@@ -1,9 +1,9 @@
 package com.mrayush.calculator
 
-import java.math.BigDecimal
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.math.BigDecimal
 
 class CalculatorEngineTest {
     @Test
@@ -80,6 +80,29 @@ class CalculatorEngineTest {
     }
 
     @Test
+    fun trigonometryDefaultsToDegrees() {
+        val outcome = CalculatorEngine.evaluate(Operation.sin, "", "90")
+        assertEquals("1", CalculatorEngine.format((outcome as CalculationOutcome.Success).value))
+    }
+
+    @Test
+    fun trigonometryRespectsRadianMode() {
+        val outcome = CalculatorEngine.evaluate(
+            Operation.sin,
+            "",
+            "1.5707963267948966",
+            AngleUnit.RADIANS
+        )
+        assertEquals("1", CalculatorEngine.format((outcome as CalculationOutcome.Success).value))
+    }
+
+    @Test
+    fun tangentAtNinetyRadiansIsFinite() {
+        val outcome = CalculatorEngine.evaluate(Operation.tan, "90", "", AngleUnit.RADIANS)
+        assertTrue("Expected success but was $outcome", outcome is CalculationOutcome.Success)
+    }
+
+    @Test
     fun unsafePowerReturnsComputeLimitError() {
         assertError(Operation.POW, "10", "10001", CalculationError.RESULT_TOO_LARGE)
         assertError(Operation.FACT, "2001", "", CalculationError.RESULT_TOO_LARGE)
@@ -100,7 +123,10 @@ class CalculatorEngineTest {
     ) {
         val outcome = CalculatorEngine.evaluate(operation, first, second)
         assertTrue("Expected success but was $outcome", outcome is CalculationOutcome.Success)
-        assertEquals(expected, CalculatorEngine.format((outcome as CalculationOutcome.Success).value))
+        assertEquals(
+            expected,
+            CalculatorEngine.format((outcome as CalculationOutcome.Success).value)
+        )
     }
 
     private fun assertError(
